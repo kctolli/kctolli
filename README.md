@@ -1,4 +1,4 @@
-### Hi there 👋
+# Hi there 👋
 
 <!--
 **kctolli/kctolli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -14,3 +14,23 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+## About Me
+
+BYU-Idaho Senior studying Software Engineering and Data Science. Expected graduation in December of 2020. I enjoy several different disciplines in software engineering. I am also working toward a Computer Engineering minor. I love to learn new things and solve problems.
+
+## Posts
+
+* [Data Science Coursework](https://kctolli.github.io/Data-Science/index.html)
+* [COVID-19 Research and Consulting](https://kctolli.github.io/COVID-19/index.html)
+* [Web Design and Development](https://wdd-100-dry.glitch.me/)
+* [Digital System Design Coursework](https://ecen-340.glitch.me/)
+* [Senior Design Project](https://ecen499-nasa.github.io/)
+
+## Contact me
+
+- <i class="fa fa-envelope"></i> kyle@tollivers.org
+
+- <i class="fa fa-linkedin"></i> [kctolli](https://www.linkedin.com/in/kctolli/)
+
+- <i class="fas fa-globe-americas"></i> [kctolli.github.io](https://kctolli.github.io/)
