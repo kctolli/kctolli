@@ -26,11 +26,3 @@ BYU-Idaho Senior studying Software Engineering and Data Science. Expected gradua
 * [Web Design and Development](https://wdd-100-dry.glitch.me/)
 * [Digital System Design Coursework](https://ecen-340.glitch.me/)
 * [Senior Design Project](https://ecen499-nasa.github.io/)
-
-## Contact me
-
-- <i class="fa fa-envelope"></i> kyle@tollivers.org
-
-- <i class="fa fa-linkedin"></i> [kctolli](https://www.linkedin.com/in/kctolli/)
-
-- <i class="fas fa-globe-americas"></i> [kctolli.github.io](https://kctolli.github.io/)
