@@ -19,7 +19,24 @@ Here are some ideas to get you started:
 
 BYU-Idaho Senior studying Software Engineering and Data Science. Expected graduation in December of 2020. I enjoy several different disciplines in software engineering. I am also working toward a Computer Engineering minor. I love to learn new things and solve problems.
 
-## Posts
+#### Quick Facts
+
+* [Research Specialist Intern at Lawrence Livermore National Labs](./work.html#Research_Specialist_-_Intern)
+* Member of Tau Beta Pi - Idaho Delta Chapter
+* Inquisitive, Motivated and Driven
+
+#### Top Skills
+
+* R/Rmd
+* Python 
+* C/C++
+* Embedded C
+* Verilog
+* HTML
+* CSS
+* Github
+
+## Highlights
 
 * [Data Science Coursework](https://kctolli.github.io/Data-Science/index.html)
 * [COVID-19 Research and Consulting](https://kctolli.github.io/COVID-19/index.html)
