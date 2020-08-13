@@ -25,17 +25,6 @@ BYU-Idaho Senior studying Software Engineering and Data Science. Expected gradua
 * Member of Tau Beta Pi - Idaho Delta Chapter
 * Inquisitive, Motivated and Driven
 
-#### Top Skills
-
-* R/Rmd
-* Python 
-* C/C++
-* Embedded C
-* Verilog
-* HTML
-* CSS
-* Github
-
 ## Highlights
 
 * [Data Science Coursework](https://kctolli.github.io/Data-Science/index.html)
