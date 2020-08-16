@@ -21,7 +21,7 @@ BYU-Idaho Senior studying Software Engineering and Data Science. Expected gradua
 
 #### Quick Facts
 
-* [Research Specialist Intern at Lawrence Livermore National Labs](./work.html#Research_Specialist_-_Intern)
+* [Research Specialist Intern at Lawrence Livermore National Labs](https://kctolli.github.io/work.html#Research_Specialist_-_Intern)
 * Member of Tau Beta Pi - Idaho Delta Chapter
 * Inquisitive, Motivated and Driven
 
