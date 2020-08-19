@@ -1,29 +1,8 @@
-<!--# Hi there 👋-->
+# Kyle Tolliver
 
-<!--
-**kctolli/kctolli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+ePortfolio: https://kctolli.github.io/
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-
-## About Me
-
-BYU-Idaho Senior studying Software Engineering and Data Science. Expected graduation in December of 2020. I enjoy several different disciplines in software engineering. I am also working toward a Computer Engineering minor. I love to learn new things and solve problems.
-
-#### Quick Facts
-
-* [Research Specialist Intern at Lawrence Livermore National Labs](https://kctolli.github.io/work.html#Research_Specialist_-_Intern)
-* Member of Tau Beta Pi - Idaho Delta Chapter
-* Inquisitive, Motivated and Driven
+Resume: https://kctolli.github.io/site_libs/resume.html
 
 ## Highlights
 
