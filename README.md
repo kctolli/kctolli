@@ -18,6 +18,6 @@
 
 * [COVID-19 Research and Consulting](https://kctolli.github.io/COVID-19/index.html)
 * [Senior Design Project](https://ecen499-nasa.github.io/)
-* [Data Science Coursework](./Data-Science/index.html)
+* [Data Science Coursework](https://kctolli.github.io/Data-Science/index.html)
 * [Web Design and Development](https://wdd-100-dry.glitch.me/)
 * [Digital System Design Coursework](https://ecen-340.glitch.me/)
