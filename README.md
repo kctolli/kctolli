@@ -1,7 +1,7 @@
 # Kyle Tolliver
 
 * ePortfolio: https://kctolli.github.io/
-    + [Resume](https://kctolli.github.io/site_libs/resume.html)
+    + [Resume](https://kctolli.github.io/site_libs/resumees.html)
     + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
 
 ## User Stats
@@ -20,5 +20,5 @@
 * [COVID-19 Research and Consulting](https://kctolli.github.io/COVID-19/index.html)
 * [Senior Design Project](https://ecen499-nasa.github.io/)
 * [Data Science Coursework](https://kctolli.github.io/Data-Science/index.html)
-* [Web Design and Development](https://wdd-100-dry.glitch.me/)
+* [Web Design and Development](https://kctolli.github.io/WDD/WDD100/index.html)
 * [Digital System Design Coursework](https://ecen-340.glitch.me/)
