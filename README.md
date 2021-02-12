@@ -1,6 +1,3 @@
-Kyle Tolliver
-================
-kctolli
 
 <!--
 This program is free software: you can redistribute it and/or modify
@@ -16,6 +13,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
+
+# Kyle Tolliver
+
+  - [Portfolio](https://kctolli.github.io/)
+      - [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
+      - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
 
 ## User Stats
 
