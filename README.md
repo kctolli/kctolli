@@ -25,8 +25,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 <div data-align="center">
 
 <a href="https://github.com/anuraghazra/github-readme-stats">
-<img style="max-width:100%;" height="160" align="center" src="https://github-readme-stats.vercel.app/api?username=kctolli&count_private=true&show_icons=true&include_all_commits=true&theme=gruvbox" />
-</a> <a href="https://github.com/anuraghazra/github-readme-stats">
 <img style="max-width:100%;" height="160" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
 </a>
 
