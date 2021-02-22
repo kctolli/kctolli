@@ -24,9 +24,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 <div data-align="center">
 
-<a href="https://github.com/anuraghazra/github-readme-stats">
-<img style="max-width:100%;" height="160" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
-</a>
+<img style="max-width:100%;" height="160" align="center" 
+src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
 
 </div>
 
@@ -41,3 +40,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     Development](https://kctolli.github.io/WDD100/index.html)
   - [Digital System Design
     Coursework](https://ecen-340.glitch.me/index.html)
+
+<hr />
+
+<div style="clear:both;">
+
+</div>
+
+© 2020 - 2021 – Kyle Tolliver

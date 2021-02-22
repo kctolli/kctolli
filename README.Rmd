@@ -18,11 +18,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 ```{r load_libraries, include=FALSE}
-knitr::opts_chunk$set(results = 'asis', echo = FALSE, message = FALSE, warning = FALSE)
-pacman::p_load(tidyverse, glue)
-
 source("https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/script.R")
 datapath <- "https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/data/"
+load_libraries()
 ```
 
 # Kyle Tolliver
@@ -33,11 +31,7 @@ datapath <- "https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/d
 
 ## User Stats
 
-<div align="center">
-<a href="https://github.com/anuraghazra/github-readme-stats">
-<img style="max-width:100%;" height="160" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
-</a>
-</div>
+`r user_stats()`
 
 ## Highlights
 
@@ -45,3 +39,7 @@ datapath <- "https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/d
 highlights <- read_csv(glue("{datapath}highlights.csv"))
 glue_data(highlights, "- [{Text}]({Link}) \n")
 ```
+
+`r pagebreak()`
+
+`r copyright()`
