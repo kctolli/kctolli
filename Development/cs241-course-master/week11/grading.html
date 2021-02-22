@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Assessment Guidelines</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>11 Prove : Assessment Guidelines</h2>
+
+        <h3>Overview</h3>
+        <p>This document outlines the guidelines for instructors and teaching assistants to use as they assess the assignment. It is intended to give structure and guidance to the grading process to ensure that the most important components of the assignment are highlighted, and to promote consistency across sections.</p>
+
+        <p>In all cases, the instructor has the latitude to deviate from this rubric on a case-by-base basis to provide the holistic assessment that, in their judgment, best matches the assignment.</p>
+
+        <h3>Fundamental Concepts</h3>
+        <p>This assignment is designed to highlight the following fundamental concepts:</p>
+        <ul>
+            <li><p>Inheritance</p></li>
+            <li><p>Polymorphism</p></li>
+            <li><p>Correct use of composition (HAS-A) relationships</p></li>
+        </ul>
+
+        <h3>Scoring</h3>
+        <p>The following categories are used to score this assignment:</p>
+<pre>
+/15 - Functionality: Ship
+/15 - Functionality: Bullets
+/15 - Functionality: Rocks (Collisions)
+/15 - Design: Inheritance
+/13 - Design: Polymorphism / Virtual Functions
+/10 - Code: Cohesion of classes/methods
+/10 - Code: Style
+/7 - Functionality: Above and beyond core requirements
+------------
+/100 - Total
+
+</pre>
+        <p></p>
+
+        <h4>Overall Scoring</h4>
+        <p>For each of the categories the following general scoring guidelines apply:</p>
+        <ul>
+            <li><p>100% - Correctly implemented</p></li>
+            <li><p>85% - Minor error exists</p></li>
+            <li><p>70% - A major error or multiple minor errors exist</p></li>
+            <li><p>50% - A good attempt was made.</p></li>
+            <li><p>0% - No attempt made.</p></li>
+        </ul>
+
+        <p>If necessary, scores in between the above classifications can be assigned.</p>
+
+        <h4>Things to look for:</h4>
+
+		<ul>
+			<li><p>Functionality: Ship</p></li>
+				<ul>
+				<li><p>Turning independent of moving</p></li>
+				<li><p>Thrusting takes into account direction and current velocity</p></li>
+				</ul>
+			<li><p>Functionality: Bullets</p></li>
+				<ul>
+				<li><p>Accounts for both ship direction and velocity (start moving up, turn to the side, fire a bullet, should be going diagonally)</p></li>
+				<li><p>Should die after a certain amount of frames</p></li>
+				</ul>
+			<li><p>Functionality: Rocks (Collisions)</p></li>
+				<ul>
+				<li><p>Should spin at different rates for different sizes</p></li>
+				<li><p>Rocks should correctly break apart</p></li>
+				<li><p>Can be hit by bullets and a ship</p></li>
+				</ul>
+			<li><p>Design: Inheritance</p></li>
+				<ul>
+					<li><p>Everything that can be in a base class is (Wrapping, points, alive, velocity, advance, etc.)</p></li>
+					<li><p>Good use of inheritance in the Rock classes, not duplicating things unnecessarily</p></li>
+				</ul>
+			<li><p>Design: Polymorphism / Virtual Functions</p></li>
+				<ul>
+				<li><p>Advance should be overridden by bullet to handle time to live</p></li>
+				<li><p>Advance should be overridden by rocks to handle the spinning</p></li>
+				<ul>
+					<li><p>They should call the base class advance (super().advance()) and then do other things. If they have duplicated the advance logic again in the derived classes, this is just a minor error, but something we should point out.</p></li>
+				</ul>
+				<li><p>Draw should be an abstract method in base classes and overridden (but only minor error if it is not done, but we should see at least one abstract method somewhere...)</p></li>
+				<li><p><strong>The next two are the most important</strong> part of this line item:</p></li>
+					<ul>
+						<li><p>Use of virtual functions in the rock classes to handle breaking apart.</p></li>
+						<li><p>Make sure in the game class they are using polymorphism for the breaking up of rocks. We don't want to see things like "if rock.getType() == big, then create two new rocks" It should just say "rock.breakApart()" or "kill()" or something, and then let the virtual function handle it.</p></li>
+						
+					</ul>
+				</ul>
+			<li><p>Code: Cohesion of classes/methods</p></li>
+				<ul>
+				<li><p>Short concise methods that do one thing well. Some of the collision detection can be a little involved, but if it's pages upon pages, it should be improved</p></li>
+				</ul>
+			<li><p>Code: Style</p></li>
+				<ul>
+				<li><p>Good variables, indentation, etc.</p></li>
+				<li><p>A comment here or there in the program is expected</p></li>
+				<li><p>Function headers</p></li>
+				</ul>
+			<li><p>Functionality: Above and beyond core requirements</p></li>
+				<ul>
+				<li><p>2 minor, or 1 major</p></li>
+				</ul>
+		</ul>
+
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>

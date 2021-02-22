@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Data Structures</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+<!--     <img class="logo" src="../course/byui.png" />
+ -->    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+
+        <h2>11 Prove : Homework - Data Structures</h2>
+        <p class="subtitle">List Comprehensions</p>
+
+        <h3>Outcomes</h3>
+        <p>At the end of this study, successful students will be able to:</p>
+        <ol>
+            <li><p>Show fluency in discussing list comprehensions.</p></li>
+            <li><p>Use list comprehensions in Python to solve problems.</p></li>
+        </ol>  
+
+        <h3>Overview</h3>
+        <p>A Python feature that is commonly used to filter, generate, and manipulate lists is that of List Comprehensions.</p>
+
+        <h3>Preparation Material</h3>
+
+        <p>Please read the following:</p>
+            <ul>
+                <li><p><a href="https://www.datacamp.com/community/tutorials/python-list-comprehension" target="_blank">DataCamp: Python List Comprehensions</a> - Please skip the section entitled "Lambda Functions with map(), filter() and reduce()", we will read about them next week...</p></li>
+                <li><p>(Optional) <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/" target="_blank">Python List Comprehensions: Explained Visually</a> - You can refer to this for further explanation, if you would like.</p></li>
+
+            </ul>
+
+        <h3>Programming Assignment</h3>
+        <p>Practice using list comprehensions.</p>
+
+        <h4>Instructions</h4>
+        <p>Write a program that uses a list comprehensions to generate lists for each of the following:</p>
+
+        <ol>
+            <li><p>A list of the first 100 squares of the numbers [0-99] (e.g., 0, 1, 4, 9, 16, 25, ...)</p></li>
+            <li><p>A list of the numbers between 0 and 99, inclusive, that are divisible by 5 or 7 (e.g., 5, 7, 10, 14, 20, 21, ...).</p></li>
+            <li><p>Take a provided list of words and return a list containing only those that have at least 4 letters and that contain the letter 'e'.</p></li>
+        </ol>
+
+        <p>To accomplish this, begin with the following code:</p>
+
+<pre><code class="python">
+"""
+Purpose: This file is a starting point to help you practice list comprehensions.
+"""
+
+def get_part1_list():
+    """
+    Returns a list of the squares of the numbers [0-99], e.g., 0, 1, 4, 9, 16, 25 ...]
+    """
+    numbers = [] # TODO: Change this line to be a list comprehension
+
+    return numbers
+
+def get_part2_list():
+    """
+    Returns a list of the the numbers [0-99] that are divisible by either 5 or 7
+    """
+    numbers = [] # TODO: Change this line to be a list comprehension
+
+    return numbers
+
+def get_part3_list():
+    """
+    Filters a list of words to return only those that are at least 4 letters long and contain an 'e'
+    """
+    old_words = ["tacos", "knowledge", "water", "on", "the", "I", "is", "hilarious", "tie", "coat", "white", "covenants", "phone", "rubric", "send", "restrictions"]
+
+    new_words = [] # TODO: Change this line to be a list comprehension
+
+    return new_words
+
+def main():
+    """
+    This function calls the above functions and displays their result.
+    """
+    print(get_part1_list())
+    print(get_part2_list())
+    print(get_part3_list())
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+        <p>Your task is to insert list comprehensions into the 3 places noted. Then, verify that your program displays the correct results.</p>
+
+
+        <h4>Testing your program</h4>
+        <p>An automated testBed script is not available for your program. Instead, please manually test your program and ensure that it works correctly.</p>
+
+        <h3>Submission</h3>
+        <p>You are encouraged to work with others on the programming and the quiz.</p>
+
+        <p>When you have a good understanding of this data structure and have completed the programming project, take the accompanying I-Learn Quiz. It has questions about how the data structure works, and also, has places for your to report on the parts of the programming assignment that you completed.</p>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+        
+
+    </article>
+
+</body>
+
+</html>

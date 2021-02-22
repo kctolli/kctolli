@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../site/global.js"></script>
+    <script type="text/javascript" src="../site/rubric.js"></script>
+    <script>
+        $(function(){
+            $("#includedHeader").load("../site/header.html");
+        });
+        window.onload = function(){ // load global variables
+                    document.getElementById('g_ponder').innerHTML       = g.n03 + " " + g.ponder;
+                    document.getElementById('g_ponderSubmit').innerHTML = g.ponderSubmit;
+                    document.getElementById('g_project1req').innerHTML  = g.project1req;
+        }
+    </script>
+ </head>
+ <body>
+    <div id="includedHeader"></div>
+    <article>
+        <h1><span id="g_ponder"></span></h1>
+        <h2>Overview</h2>
+        <p id="g_project1req"></p>
+        <h2>Assignment</h2>
+        <ol>
+            <li><p>Organize your personal project in such a way that it follows the MVC pattern.</p></li>
+            <li><p>Create JSON file that has the data you need for your app (for example, all of the products you are going to be selling).</p></li>
+            <li><p>Create a webpage to get information from the json.</p></li>
+            <li><p>Make sure your app has dynamic routes and paths that make sense for your app. One example is adding the specific ID of your product to your url path.</p></li>
+            <li><p>Please review rubric below to see how you'll be graded and to ensure you've completed each aspect of this assignment.</p></li>
+        </ol>
+        <div class="tips">
+            <p>Instructor Tip</p>
+            To see a functional project with the entire routes architecture set up, please watch this video:
+            <iframe src="https://www.youtube.com/embed/BGDJotc-GDU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br>
+            For additional information on MVC, this video may be helpful.
+            <iframe src="https://www.youtube.com/embed/pCvZtjoRq1I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h2>Rubric</h2>
+        <table class="rubric">
+            <thead>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Above and Beyond</th>
+                    <th>Meets Requirements</th>
+                    <th>Slightly Deficient</th>
+                    <th>Significantly Deficient</th>
+                    <th>Some Attempt Made</th>
+                    <th>No Attempt Made</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>100%</th>
+                    <th>93%</th>
+                    <th>85%</th>
+                    <th>70%</th>
+                    <th>50%</th>
+                    <th>0%</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MVC Pattern</td>
+                    <td>Project structure follows MVC and is easy to understand</td>
+                    <td>Project structure follows the MVC pattern</td>
+                    <td>Project structure follows some parts of the MVC pattern</td>
+                    <td>At least one part of the MVC pattern is used</td>
+                    <td>Project is organized, but does not follow the MVC pattern</td>
+                    <td>Project does not seem organized</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>JSON Data</td>
+                    <td>JSON data is detailed, or there are multiple JSON files for different models</td>
+                    <td>JSON data for the app is created</td>
+                    <td>JSON data exists but is very small</td>
+                    <td>Some JSON data exists but has errors or has parts missing</td>
+                    <td>Some JSON data was created</td>
+                    <td>No JSON data was created</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Displayed Data</td>
+                    <td>Data from JSON file(s) is displayed and looks professional</td>
+                    <td>Data from JSON file(s) is displayed to the user</td>
+                    <td>Data is displayed as raw JSON</td>
+                    <td>Some data is displayed</td>
+                    <td>Data is retrieved from JSON file(s) but not displayed</td>
+                    <td>No data is retrieved or displayed</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Routing</td>
+                    <td>Multiple dynamic routes are defined and all routes make sense in the project</td>
+                    <td>All necessary routes are defined, including at least one dynamic route</td>
+                    <td>Most necessary routes are defined, or there are no dynamic routes</td>
+                    <td>Some routes are defined, but some are missing and none are dynamic</td>
+                    <td>At least one route is defined</td>
+                    <td>No routes are defined</td>
+                    <td>25%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="g_ponderSubmit"></div>
+    </article>
+</body>
+</html>

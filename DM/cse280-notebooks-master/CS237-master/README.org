@@ -1,0 +1,38 @@
+#+TITLE: README for Discrete Mathematics One (aka DM1 aka CS 237)
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: theme-bigblow.setup
+
+  Welcome to Discrete Mathematics One!
+
+* Getting Updates from GitHub
+
+** TODO Once Only
+  Add a remote repository from which to get \ldquo{}upstream\rdquo updates.
+
+  If you are reading this file in emacs/Spacemacs, you are in the right
+  directory to invoke the following git command:
+
+#+BEGIN_EXAMPLE
+  git remote add upstream https://github.com/rmn97151/031118.git
+#+END_EXAMPLE
+
+** TODO Get Updates
+
+   When announced, which will be on a regular basis, you can get updated course
+   files by invoking the following git command:
+
+#+BEGIN_EXAMPLE
+  git pull upstream master --allow-unrelated-histories
+#+END_EXAMPLE
+
+*** NEWS FLASH!
+  If you like magit, evaluate the following code block (once only) that enables
+  setting the -a switch through the magit status window. That way you can avoid
+  the shell altogether.
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (magit-define-popup-switch 'magit-pull-popup
+    ?a "Allow Unrelated Histories" "--allow-unrelated-histories")
+#+END_SRC

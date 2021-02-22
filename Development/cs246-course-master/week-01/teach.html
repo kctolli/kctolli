@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 01 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>01 Teach : Team Activity</h2>
+        <p class="subtitle">Java Hello World</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Install the JDK and the IntelliJ IDE.</p></li>
+            <li><p>Write a simple Java Hello World program.</p></li>
+        </ul>
+
+        <h3>Assignment</h3>
+        <div class="tips">
+        <p>Special Instructions for Online Students</p>
+        <p>Because we haven't formed our project teams yet, feel free to work on this with anyone you like, either synchronously or asynchronously, using Slack as a resource.</p>
+        <p>Once we have our teams formed in a week or so, you'll meet with your team for a synchronous meeting (e.g., Google Hangouts, Skype, etc.).
+        </div>
+
+        <h4>Part I: Install and Configure the Java JDK</h4>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+
+        <p>First, we need to install the Java JDK.  The Java JDK contains all the libraries and tools to create Java applications.  To install the Java JDK, follow the instructions on the <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Oracle Java Intallation</a> website.</p>
+        
+        <p>Once you have the JDK successfully installed, move on to Part II to install an IDE that will use the Java JDK tools that you just installed.</p>
+
+        <h4>Part II: Install the IntelliJ IDE</h4>
+
+        <p>While we could now write and compile Java code on the command line, most modern software developers use IDEs (Integrated Development Environments) for these tasks.</p>
+
+        <p>There are several Java IDEs available. We'll be using the IntelliJ IDE because it will allow us to create regular Java and Android projects.</p>
+        
+        <p>To begin, download and install the <a href="https://www.jetbrains.com/idea/">free, Community edition of IntelliJ</a>.</p> 
+
+        <h4>Part III: Write a Java Hello World program</h4>
+
+        <p>With your system configured, you're ready to write your first Java program. Here are the guidelines to follow:</p>
+
+        <ol>
+            <li>
+                <p>Launch IntelliJ and select "New Project".</p>
+                   <img class="screenshot-xlarge" src="./img/step1.png"/>
+            </li>
+            <li>
+                <p>Select "Java" from the project types on the left-side of the window, make sure the Java SDK version you downloaded is selected at the top, and then click "Next".</p>
+ 
+                <img class="screenshot-xlarge" src="./img/step2.png"/>
+            </li>
+            <li>
+                <p>Check the "Create project from template box", select "Command Line App" from the template list, and click "Next".</p>
+                
+            </li>
+             <li>
+                <p>Fill in the project settings. What you enter here isn't too critical, but a good guideline is to name your projects after the assignment number (e.g. this one would be "teach-01").</p>
+                <p>You can set your base package name to either be your last name or the name of the project without spaces (e.g. "helloworld"). Note that the package name should be in lowercase, according to the <a href="https://google.github.io/styleguide/javaguide.html#s5.2.1-package-names">Package Names section of the Java Style Guide</a>.</p>
+                <p>Once you've entered the values, click "Next".</p>
+                <img class="screenshot-xlarge" src="./img/ij3.png"/>
+            </li>
+            <li>
+                <p>Wait a few moments while the project loads, and if everything went well, you should see a new project loaded with a class called <code>Main</code> that is pre-populated with the <code>main()</code> method.</p>
+            </li>
+            <li>
+                <p>Find the line that says: <code>public class Main {</code>. Rename the class to <code>HelloWorld</code></p>
+                <p>After you do so, you should see a red, squiggly line appear under the class definition. This line indicates there is an error in the code. Hover your mouse over the line to see the error.</p>
+                <img class="screenshot-xlarge" src="./img/error.png"/>
+            </li>
+            <li>
+                <p>In this case, the error is warning us that a public class must be defined in a file with the same name.</p>
+                <p>Click anywhere on the line where the red squiggle appears and press <code>Alt+Enter</code> (or <code>Option+Enter</code> on macOS).</p>
+                <p>A list of possible solutions to this error appear. Select the action that says "Rename File". The file will be renamed to <em>HelloWorld.java</em>, and the error indicator should disappear.</p>
+                <img class="screenshot-large" src="./img/resolve.png"/>
+                <p>This same pattern (hover over squiggly line to see error then click on line and press <code>Alt+Enter</code> to see possible fixes) can often be used in IntelliJ for resolving common problems.</p>
+            </li>
+            <li>
+                <p>Add another method to the the HelloWorld class called <code>sayHello()</code>. This method should print "Hello World" to the console.</p>
+            </li>
+            <li>
+                <p>Have <code>main()</code> create a new instance of the HelloWorld class and call its <code>sayHello()</code> method. This is all that <code>main()</code> should do.</p>
+            </li>
+            <li>
+                <p>Try to compile and execute your code by clicking on the green play button in the upper-right hand corner of the window.</p>
+                <img class="screenshot" src="./img/run.png"/>
+                <p>Unfortunately, this will fail with a runtime error stating that it can't find the class called <code>Main</code>. Since we renamed the class that has our <code>main()</code> method, we need to tell the IDE which class it should look in.</p>
+                <img class="screenshot-xlarge" src="./img/runtime-error.png"/>
+                <p>To do so, click on the Select Configuration button in the top, right-hand corner of the screen, just to the left of the Run button.</p>
+                <img class="screenshot" src="./img/edit-config1.png"/>
+                <p>In the menu that appears, select "Edit Configurations...".</p>
+                 <img class="screenshot" src="./img/edit-config-menu.png"/>
+                <p>You'll see a window appear that contains settings for how to run our program. The setting we're interested in is the one for the Main class.</p>
+                <img class="screenshot-xlarge" src="./img/edit-config2.png"/>
+                <p>Change the part in red that says <code>Main</code> to <code>HelloWorld</code> to match the name of the class with the <code>main()</code> function in it. Then click "OK".</p>
+                <img class="screenshot-xlarge" src="./img/edit-config3.png"/>
+            </li>     
+            <li>
+                <p>Now click the Run button again, and if all goes well, you should see the text "Hello World" displayed in the output console at the bottom of the window.</p>
+                <img class="screenshot-xlarge" src="./img/output.png"/>
+        </ol>
+
+        <p>Once you've finished, or if you get stuck, compare your code to the <a href="https://gist.github.com/lfalin/eb3bf9ea46725f882a54d14d6b667f81">teacher's solution</a>.
+
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>Now that you can write simple Java programs, it's time to make something useful. Write a program that asks the user for the radius of a circle, then have it print the area and circumference rounded to two decimal places.</p>
+
+        <ol>
+            <li>
+               <p>Before you begin, you should read the following:
+                    <ul>
+                        <li><a href="https://docs.oracle.com/javase/tutorial/java/data/numberformat.html">Formatting Numeric Output</a></li>
+                        <li><a href="http://pages.cs.wisc.edu/~hasti/cs368/JavaTutorial/NOTES/JavaIO_Scanner.html">How to use Java's Scanner class to get user input.</a></li>
+                    </ul>
+               </p>
+            </li>
+            <li>
+                <p>Create a public class called <code>CircleCalculator</code> and save it in a <em>.java</em> file with the same name.</p>
+            </li>
+            <li>
+                <p>Add a function to the class called <code>getRadius()</code> that gets the radius from the user as a <code>double</code>.</p>
+            </li>
+            <li>
+                <p>Add a function to the class called <code>displayCircumference()</code> that takes the radius as a parameter, calculates the circumference, and displays it to two decimal places.</p>
+            </li>
+             <li>
+                <p>Add a function to the class called <code>displayArea()</code> that takes the radius as a parameter, calculates the area, and displays it to two decimal places.</p>
+            </li>
+             <li>
+                <p>As before, have <code>main()</code> create an instance of the class. Then call the instance's <code>getRadius()</code>, <code>displayCircumference()</code>, and <code>displayArea()</code> methods.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to write, compile, and run basic Java programs.</p>
+        <p>Make sure everyone on your team understands and receives a copy of this code.</p>
+
+        <p><strong>Once again, compare your answer to the <a href="https://byui-cs.github.io/cs246-faculty/f8a31d04-8d7e-4a1a-b82b-f0a29496cc3b/">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

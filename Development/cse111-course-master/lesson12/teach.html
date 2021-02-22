@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Team Activity</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <script src="../site/color.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>12 Team Activity: Using Objects</h1>
+
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Problem Statement</h2>
+    <p>Almost all of the programs that you have written for this course
+    receive input from and print results to a console (also called a
+    terminal) window. However, most users prefer to interact with a
+    program through a graphical user interface (GUI) that contains
+    icons, text fields, drop-down lists, buttons, etc. Within a GUI, the
+    individual components (icons, text fields, etc.) are called widgets.
+    Most libraries for creating GUIs use object oriented programming
+    because each widget is an object with attributes and methods.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div>Official documentation for the <a target="_blank" href="">tkinter module</a></div></li>
+
+        <li><div>GUI <a target="_blank" href="https://www.tutorialspoint.com/python/python_gui_programming.htm">Programming with Tkinter</a></div></li>
+
+        <li><div>An <a target="_blank" href="https://effbot.org/tkinterbook/">Introduction to Tkinter</a></div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Write a Python program named <code>gui.py</code> that gets user
+    input from a GUI, performs a simple calculation, and displays the
+    result in a GUI.</p>
+
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download these two Python files:
+        <a download href="heart_rate.py">heart_rate.py</a> and
+        <a download href="number_entry.py">number_entry.py</a>
+        and save them in the same folder where you will save your Python
+        program.</div></li>
+
+        <li><div>Open the <code>heart_rate.py</code> file in VS
+        Code and run it. Notice how running the program opens a GUI
+        where a user can enter his age and see heart rates for
+        exercising. Experiment with the GUI by entering different ages,
+        seeing the results, and clicking the "Clear" button.</div></li>
+
+        <li><div>Read the comments and examine the code in
+        <code>heart_rate.py</code>. Notice the following:
+        <ol>
+            <li><div>To create its GUI, the heart_rate program uses the
+            <code>tkinter</code> module which is imported at
+            line&nbsp;1.</div></li>
+
+            <li><div>The <code>main</code> function begins at
+            line&nbsp;5.</div></li>
+
+            <li><div>The <code>main</code> function creates a
+            <code>tk.TK</code> root object named <var>app</var> and uses
+            that object to create a <code>HeartWindow</code>
+            object.</div></li>
+
+            <li><div>Beginning at line&nbsp;21, the
+            <code>HeartWindow.__init__</code> method creates labels,
+            text fields, and buttons and places them in a
+            grid.</div></li>
+
+            <li><div>Inside the <code>__init__</code> method, there
+            are two nested functions named <code>calc</code> and
+            <code>clear</code>. The <code>calc</code> function is called
+            each time the user enters a digit in the age text field. The
+            <code>clear</code> function is called each time the user
+            clicks the "Clear" button.</div></li>
+        </ol></div></li>
+
+        <li><div>Choose a simple calculation or formula for your program
+        to calculate. You could choose one of these:
+
+        <ol>
+            <li><div>Area of a circle: <div class="inline expr"><var>a</var> = &pi;&thinsp;<var>r</var><sup>2</sup></div></div></li>
+
+            <li><div>Swing time of a pendulum: <div class="inline expr"><var>t</var> = 2&pi; <div class="radic"><div class="fract"><div class="numer"><var>n</var></div><div class="denom">9.81</div></div></div></div></div></li>
+
+            <li><div>Area of a rectangle: <div class="inline expr"><var>a</var> = <var>w</var><var>h</var></div></div></li>
+
+            <li><div>Volume of a tire: <div class="inline expr"><var>v</var> = <div class="fract"><div class="numer">&pi; <var>w</var><sup>2</sup> <var>a</var><span class="paren"><var>w</var><var>a</var> + 2,540 <var>d</var></span></div><div class="denom">10,000,000</div></div></div></div></li>
+        </ol></div></li>
+
+        <li><div>Use the heart_rate.py program as a reference (you could
+        even copy and paste parts of it or all of it) and write a Python
+        program with a GUI that calculates the formula that you
+        chose.</div></li>
+    </ol>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Your program must include a GUI that opens when you run
+        your program.</div></li>
+
+        <li><div>The GUI must allow a user to enter input.</div></li>
+
+        <li><div>When the user enters valid input, your program must
+        compute correct results and display those results in the
+        GUI.</div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an hour,
+    complete one or more of these stretch challenges. Note that the
+    stretch challenges are optional.</p>
+
+    <ol class="long">
+        <li><div>Add a "Clear" button to your GUI that clears all inputs
+        and outputs when the user clicks it.</div></li>
+
+        <li><div>Add a label that acts as a status bar at the bottom of
+        your GUI. Your program should display an error message in the
+        status bar when the user enters invalid input. Your program
+        should clear the status bar when the user enters valid
+        input.</div></li>
+    </ol>
+
+    <h2>Testing Procedure</h2>
+    <p>Run your program and enter various inputs, including invalid
+    values. Verify that your program doesn't crash, behaves as expected,
+    and displays correct results.</p>
+
+    <h2>Ponder</h2>
+    <p>After you finish your program, examine the code in the
+    <code>__init__</code> function and realize that you wrote object
+    oriented code when you used objects such as <var>lblAge</var>,
+    <var>lblWidth</var>, <var>txtAge</var>, and <var>txtWidth</var> and
+    the dot operator to call methods such as <code>grid</code>,
+    <code>config</code>, <code>get</code>, and <code>clear</code>.</p>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your team for the one hour meeting.
+    After the meeting is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked for at least one
+    hour. At the end of the hour, if you are still struggling to
+    complete the assignment, you may use the sample solution to help you
+    finish.</p>
+
+    <h2>Submission</h2>
+    <p>When you have finished the activity, please report your progress
+    via the associated I-Learn quiz. When asked about which of the
+    requirements you completed, feel free to include any work done
+    during the team meeting or after the meeting, including work done
+    with the help of the sample solution, if necessary. In short, report
+    on what you were able to accomplish, regardless of when you
+    completed it or if you needed help from the sample solution.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

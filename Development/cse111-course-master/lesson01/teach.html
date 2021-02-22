@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Class Activity</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>01 Class Activity: Review Python</h1>
+
+    <h2>Instructions</h2>
+    <p>With your class, write a simple Python program.</p>
+
+    <h2>Problem Statement</h2>
+    <p>The time in seconds that a pendulum takes to swing back and forth
+    once is given by this formula:</p>
+
+    <div class="block expr"><var>t</var> = 2&pi; <div class="radic"><div class="fract"><div class="numer"><var>n</var></div><div class="denom">9.81</div></div></div></div>
+
+    <ul>
+        <li><div>where <var>t</var> is the time in seconds,</div></li>
+        <li><div><var>&pi;</var> is PI, the ratio of the circumference
+        divided by the diameter of a circle (use <code>math.pi</code>),
+        and</div></li>
+        <li><div><var>n</var> is the length of the pendulum in meters.</div></li>
+    </ul>
+
+    <h2>Activity</h2>
+    <p>Write a program named <code>pendulum.py</code> that prompts a
+    user to enter the length of a pendulum in meters and then computes
+    and prints the time in seconds that it takes for that pendulum to
+    swing back and forth. To start your program, copy and paste the
+    following code into your program and use it as an outline as you
+    write code. Note that in a Python program, a triple quoted string at
+    the top of the file acts as a comment for the entire program.</p>
+
+<div class="pre"><pre class="python">"""
+The time in seconds that a pendulum takes to swing
+back and forth once is given by this formula:
+             ____
+            / n
+    t = 2π / ----
+          √  9.81
+
+where t is the time in seconds,
+π is PI the ratio of the circumference divided by
+    the diameter of a circle (use math.pi), and
+n is the length of the pendulum in meters.
+
+Write a program that prompts a user to enter the length of a
+pendulum in meters and then computes and prints the time in
+seconds that it takes for that pendulum to swing back and forth.
+"""</pre></div>
+
+    <h2>Helpful Documentation</h2>
+    <p>The Python <a target="_blank"
+    href="https://docs.python.org/3/library/math.html"><code>math</code>
+    module</a> contains mathematical constants and functions including
+    <a target="_blank" href="https://docs.python.org/3/library/math.html#math.pi"><code>math.pi</code></a>
+    and
+    <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt()</code></a>.</p>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python pendulum.py
+Length of pendulum (meters): <span class="input">3</span>
+Time (seconds): 3.47</pre>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your class to complete this activity.
+    After class is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked with your class.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

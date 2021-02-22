@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Checkpoint</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>04 Checkpoint: Calling Functions</h1>
+
+    <h2>Overview</h2>
+    <p>Demonstrate your understanding of calling Python built-in
+    functions and functions from a standard module by completing the
+    following individual checkpoint assignment.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul class="links">
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in Functions</a></div></li>
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/statistics.html#module-statistics">statistics standard module</a></div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>In VS Code, open a new file for a Python
+        program and save it as <code>heights.py</code>.</div></li>
+
+        <li><div>Copy and paste the following Python code into your
+        program. The code imports the <code>statistics</code> module,
+        which is a Python standard module, and creates a list named
+        <var>heights</var>.
+
+<div class="pre"><pre class="python">import statistics
+
+# A list of people's height in meters.
+heights = [
+    1.72, 1.50, 1.96, 2.01, 1.75,
+    2.11, 1.60, 1.65, 2.05, 1.50,
+    1.80, 1.83, 2.05, 1.79, 1.84
+]</pre></div></div></li>
+
+        <li><div>Write Python code to call each of these built-in
+        functions and pass the list of heights to each function.
+        Store the value returned from each function in a different
+        variable.
+        <ol>
+            <li><div><code>len</code></div></li>
+            <li><div><code>min</code></div></li>
+            <li><div><code>max</code></div></li>
+            <li><div><code>sum</code></div></li>
+        </ol></div></li>
+
+        <li><div>Write Python code to call each of these functions from
+        the <code>statistics</code> module and pass the list of heights
+        to each function. Store the value returned from each function in
+        a different variable.
+        <ol>
+            <li><div><code>mean</code></div></li>
+            <li><div><code>median</code></div></li>
+            <li><div><code>mode</code></div></li>
+        </ol></div></li>
+
+        <li><div>Write code to call the built-in <code>round</code>
+        function to round the value returned from the <code>sum</code>
+        function and the <code>mean</code> function to two digits after
+        the decimal place and store the result in a variable.</div></li>
+
+        <li><div>Write code to print the value returned from each of
+        the functions.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python check_solution.py
+len: 15
+min: 1.5
+max: 2.11
+sum: 27.16
+mean: 1.81
+median: 1.8
+mode: 1.5</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+    <ol class="test">
+        <li><div>Run your program. Ensure that your program's output
+        matches the sample run output.</div></li>
+    </ol>
+
+    <h2>Sample Solution</h2>
+    <p>When your program is finished, view the <a download
+    href="check_solution.py">sample solution</a> for this assignment to
+    compare your solution to that one. Before looking at the sample
+    solution, you should work to complete this checkpoint program first.
+    However, if you have worked on it for at least an hour and are still
+    having problems, feel free to use the sample solution to help you
+    finish your program.</p>
+
+    <h2>Submission</h2>
+    <p>When complete, report your progress in the associated I-Learn
+    quiz.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Team Activity</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>07 Team Activity: Testing and Fixing Functions</h1>
+
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Problem Statement</h2>
+    <p>Writing and running test functions often help a software
+    developer find mistakes in code.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson explains how to use <code>pytest</code>,
+    <code>assert</code>, and <code>approx</code> to automatically verify
+    that functions are correct. It also contains an
+    <a target="_blank" href="prepare.html#ex">example test function</a>
+    and links to additional documentation about <code>pytest</code>.</p>
+
+    <h2>Assignment</h2>
+    <p>Write three test functions that test three previously written
+    functions. Use <code>pytest</code> to run the test functions and
+    find and fix the mistakes, if any, that are in three previously
+    written functions.</p>
+
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download the <a download href="names.py">names.py</a>
+        Python file and save it in the same folder where you will save
+        your Python test program. Then open the downloaded file in VS
+        Code. Notice that the downloaded file contains three small
+        functions named: <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>. Notice
+        also that each function has a documentation string that
+        describes what the function does. Read the documentation strings
+        for all three functions.</div></li>
+
+        <li><div>The functions in the file that you downloaded
+        (<code>names.py</code>) may contain some mistakes. Write a
+        Python test program named <code>test_names.py</code> that tests
+        the three functions in <code>names.py</code>. Save your
+        <code>test_names.py</code> file in the same folder where you
+        saved the <code>names.py</code> file.</div></li>
+
+        <li><div>At the top of your <code>test_names.py</code> file, add
+        these statements to import the three functions that are in
+        <code>names.py</code> and to import pytest:
+<div class="pre"><pre class="python">from names import given_name, family_name, full_name
+import pytest</pre></div></div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_full_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>full_name</code> function. If you
+        are not sure what the <code>full_name</code> function does or
+        how to test it, read the documentation string that is at the top
+        of the <code>full_name</code> function in the
+        <code>names.py</code> file.</div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_family_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>family_name</code>
+        function.</div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_given_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>given_name</code>
+        function.</div></li>
+
+        <li><div>At the bottom of your <code>test_names.py</code> file,
+        write a call to the <code>pytest.main</code> function like this:
+<div class="pre"><pre class="python">
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_names.py"])
+</pre></div></div></li>
+
+        <li><div>Save your <code>test_names.py</code> file and run it by
+        clicking the green run icon in VS Code.</div></li>
+
+        <li><div>Read the output from <code>pytest</code> and use the
+        output to help you find and fix any errors that are in your test
+        functions or the <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>
+        functions.</div></li>
+
+        <li><div>Repeat steps&nbsp;8 and&nbsp;9 until you have found and
+        fixed all the mistakes and your three test functions
+        pass.</div></li>
+    </ol>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Write <code>test_full_name</code> so that it tests
+        <code>full_name</code> with various names, including long names,
+        short names, and hyphenated names.</div></li>
+        <li><div>Write <code>test_given_name</code> so that it tests
+        <code>given_name</code> with various names, including long
+        names, short names, and hyphenated names.</div></li>
+        <li><div>Write <code>test_family_name</code> so that it tests
+        <code>family_name</code> with various names, including long
+        names, short names, and hyphenated names.</div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an hour,
+    complete one or more of these stretch challenges. Note that the
+    stretch challenges are optional.</p>
+
+    <ol class="long">
+        <li><div>Fix the mistakes in the <code>full_name</code>
+        function.</div></li>
+        <li><div>Fix the mistakes in the <code>given_name</code>
+        function.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+    <pre class="console">&gt; python teach_solution.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
+collected 3 items
+
+teach_solution.py::test_full_name <span class="fail">FAILED                         [ 33%]</span>
+teach_solution.py::test_family_name <span class="pass">PASSED                       [ 66%]</span>
+teach_solution.py::test_given_name <span class="fail">FAILED                        [100%]</span>
+
+======================= short test summary info =======================
+FAILED teach_solution.py::test_full_name - AssertionError:
+    assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
+FAILED teach_solution.py::test_given_name - AssertionError:
+    assert 'mith-Jones; Penelope' == 'Penelope'
+<span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Repeat steps&nbsp;8 and&nbsp;9 above until you have found and
+    fixed all the mistakes in the <code>names.py</code> file and your
+    tests pass.</p>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your team for the one hour meeting.
+    After the meeting is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked for at least one
+    hour. At the end of the hour, if you are still struggling to
+    complete the assignment, you may use the sample solution to help you
+    finish.</p>
+
+    <h2>Submission</h2>
+    <p>When you have finished the activity, please report your progress
+    via the associated I-Learn quiz. When asked about which of the
+    requirements you completed, feel free to include any work done
+    during the team meeting or after the meeting, including work done
+    with the help of the sample solution, if necessary. In short, report
+    on what you were able to accomplish, regardless of when you
+    completed it or if you needed help from the sample solution.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

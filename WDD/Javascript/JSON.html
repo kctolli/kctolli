@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JSON</h1>
+
+<p id="demo1"></p>
+
+<br/>
+
+<p id="demo2"></p>
+
+<br/>
+
+<p id="demo3"></p>
+
+<br/>
+
+<p id="demo4"></p>
+
+<br/>
+
+<p id="demo5"></p>
+
+<script>
+var txt = '{"name":"John", "age":30, "city":"New York"}'
+var obj = JSON.parse(txt);	
+document.getElementById("demo1").innerHTML = obj.name + ", " + obj.age + ", " + obj.city;
+
+var object = { name: "John", age: function () {return 30;}, city: "New York" };
+object.age = object.age.toString();
+var myJSON = JSON.stringify(object);
+document.getElementById("demo2").innerHTML = myJSON;
+
+var myobj, x;
+myobj = {"name":"John", "age":30, "car":null};
+for (x in myobj) {
+  document.getElementById("demo3").innerHTML += myobj[x] + "<br>";
+}
+
+var myOb = {
+  "name":"John",
+  "age":30,
+  "cars": {
+  "car1":"Ford",
+  "car2":"BMW",
+  "car3":"Fiat"
+  }
+}
+document.getElementById("demo4").innerHTML += myOb.cars.car2 + "<br>";
+//or:
+document.getElementById("demo4").innerHTML += myOb.cars["car2"];
+
+var myObj, i, x = "";
+myObj = {
+  "name":"John",
+  "age":30,
+  "cars":[ "Ford", "BMW", "Fiat" ]
+};
+
+for (i = 0; i < myObj.cars.length; i++) {
+  x += myObj.cars[i] + "<br>";
+}
+document.getElementById("demo5").innerHTML = x;
+
+</script>
+
+</body>
+</html>

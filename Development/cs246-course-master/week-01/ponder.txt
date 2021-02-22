@@ -1,0 +1,48 @@
+# 01 Ponder : Weekly Reflection
+
+1. Describe one challenge your team experienced working on the Hello World activity.
+
+
+
+2. For the NSA Cryptography assignment, what did you learn about how Java parameter passing differs from C++?
+
+
+
+3. Did you complete the Stretch Challenge for the NSA Cryptography? If so, briefly describe what you did, and how you structured your code.
+
+
+
+4. What did you learn from comparing your code to the teacher's solution?
+
+
+
+5. After completing the assignments this week, what questions do you still have?
+
+
+
+6. If you were getting paid to work on this week's Prove assignment and you had another month to work on it, what would you add?
+
+
+
+7. A common Java interview question is "What are javadocs and when should they be used?". How would you answer that question?
+
+
+
+8. Of all of the resources in this week's Preparation assignment, which was the _most_ helpful to you and why?
+
+
+
+9. Of all of the resources in this week's Preparation assignment, which was the _least_ helpful to you and why?
+
+
+
+10. How many hours did you spend on this class this week?
+
+01 Prepare - 
+01 Teach - 
+01 Prove 1st Attempt -
+01 Prove 2nd Attempt -
+01 Ponder -
+----------------------------
+Total Hours - 
+

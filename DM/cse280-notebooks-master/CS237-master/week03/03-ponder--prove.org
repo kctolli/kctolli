@@ -1,0 +1,1025 @@
+#+TITLE: DM1 Week 03 Ponder and Prove Assignment
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t d:(not "HINT")
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+#+BEGIN: clocktable :maxlevel 2 :scope file
+#+CAPTION: Clock summary at [2018-02-03 Sat 15:16]
+| Headline                 |    Time |      |
+|--------------------------+---------+------|
+| *Total time*             | *12:29* |      |
+|--------------------------+---------+------|
+| Exercises                |    5:27 |      |
+| \_  Read DEV through DEW |         | 3:57 |
+| \_  WRP                  |         | 0:05 |
+| \_  TOJ                  |         | 0:12 |
+| \_  WRU                  |         | 0:08 |
+| \_  TOL                  |         | 0:05 |
+| \_  TUK                  |         | 0:14 |
+| \_  WVQ                  |         | 0:13 |
+| \_  TUQ                  |         | 0:19 |
+| \_  WVU                  |         | 0:03 |
+| \_  TVL                  |         | 0:05 |
+| \_  TXG                  |         | 0:06 |
+| Problems                 |    5:15 |      |
+| \_  WZO                  |         | 0:33 |
+| \_  TOU                  |         | 0:23 |
+| \_  TLI                  |         | 0:16 |
+| \_  WPI                  |         | 0:10 |
+| \_  TTV                  |         | 0:24 |
+| \_  WUZ                  |         | 1:00 |
+| \_  TUW                  |         | 0:31 |
+| \_  WWS                  |         | 0:11 |
+| \_  TKH                  |         | 1:36 |
+| \_  WUE                  |         | 0:11 |
+| Puzzles                  |    1:47 |      |
+| \_  MMP (not in book)    |         | 1:47 |
+#+END:
+
+* Instructions
+  See [[file:../week02/02-ponder--prove.org]]
+
+* Exercises
+** DONE Read DEV through DEW
+   CLOSED: [2018-01-31 Wed 18:40]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 16:51]--[2018-01-31 Wed 18:40]  =>  1:49
+   CLOCK: [2018-01-30 Tue 16:53]--[2018-01-30 Tue 19:01] =>  2:08
+   :END:
+** DONE WRP
+   CLOSED: [2018-01-30 Tue 17:35]
+   :LOGBOOK:
+   CLOCK: [2018-01-30 Tue 17:30]--[2018-01-30 Tue 17:35] =>  0:05
+   :END:
+#+begin_note
+  Let P(x) be the statement \ldquo{}x is older than 21 years\rdquo where the domain for x
+  consists of all people.
+
+  Express each quantification in English.
+  1. \exists x P(x)
+  2. \forall x P(x)
+  3. \exists x \neg P(x)
+  4. \forall x \neg P(x)
+#+end_note
+#+begin_info
+  1. Some people are older than 21 years.
+  2. Everyone is older than 21 years.
+  3. Some people are not older than 21 years.
+  4. Everyone is not older than 21 years.
+#+end_info
+** DONE TOJ
+   CLOSED: [2018-01-30 Tue 17:47]
+   :LOGBOOK:
+   CLOCK: [2018-01-30 Tue 17:35]--[2018-01-30 Tue 17:47] =>  0:12
+   :END:
+#+begin_note
+  Let S(x) be the statement \ldquo{}x is a student at BYU-Idaho\rdquo where the domain
+  consists of the residents of Idaho.
+
+  Express each of these quantifications in English.
+  1. \exists x S(x)
+  2. \forall x S(x)
+  3. \neg \exists x S(x)
+  4. \exists x \neg S(x)
+  5. \neg \forall x \neg S(x)
+  6. \forall x \neg S(x)
+#+end_note
+#+begin_info
+  1. Some residents of Idaho are students at BYU-Idaho.
+  2. Every resident of Idaho is a student at BYU-Idaho.
+  3. Every resident of Idaho is not a student at BYU-Idaho.
+  4. Some residents of Idaho are not students at BYU-Idaho.
+  5. Not every resident of Idaho is not a student at BYU-Idaho.
+  6. Every resident of Idaho is not a student at BYU-Idaho.
+#+end_info
+** DONE WRU
+   CLOSED: [2018-01-30 Tue 17:56]
+   :LOGBOOK:
+   CLOCK: [2018-01-30 Tue 17:48]--[2018-01-30 Tue 17:56] =>  0:08
+   :END:
+#+begin_note
+  Translate these statements into English, where F(x) is \ldquo{}x is a friend\rdquo,
+  C(x) is \ldquo{}x is cool\rdquo, and the domain consists of all people.
+  1. \forall x (F(x) \rightarrow C(x))
+  2. \exists x (F(x) \wedge C(x))
+  3. \forall x (F(x) \wedge C(x))
+  4. \exists x (F(x) \rightarrow C(x))
+#+end_note
+#+begin_info
+  1. Everyone is a friend only if they are cool.
+  2. Some people are a friend and are cool.
+  3. Everyone is a friend and is cool.
+  4. Some people are friends only if they are cool.
+#+end_info
+** DONE TOL
+   CLOSED: [2018-01-30 Tue 18:01]
+   :LOGBOOK:
+   CLOCK: [2018-01-30 Tue 17:56]--[2018-01-30 Tue 18:01] =>  0:05
+   :END:
+#+begin_note
+  Translate these statements into English, where S(x) is \ldquo{}x is a student\rdquo, R(x)
+  is \ldquo{}x is from Russia\rdquo, and the domain consists of all people.
+  1. \forall x (S(x) \rightarrow R(x))
+  2. \exists x (R(x) \rightarrow R(x))
+  3. \forall x (S(x) \wedge R(x))
+  4. \exists x (S(x) \wedge R(x))
+#+end_note
+#+begin_info
+  1. Everyone is a student only if they are from Russia.
+  2. Some people are from Russia only if they are from Russia.
+  3. Everyone is a student and from Russia.
+  4. Some people are students and are from Russia.
+#+end_info
+** DONE TUK
+   CLOSED: [2018-01-31 Wed 17:02]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 16:51]--[2018-01-31 Wed 17:02] =>  0:11
+   CLOCK: [2018-01-30 Tue 18:01]--[2018-01-30 Tue 18:04] =>  0:03
+   :END:
+#+begin_note
+  Translate these statements into English, where the domain for each variable
+  consists of all real numbers.
+  1. \exists x \forall y (x > y)
+  2. \exists x \exists y (((x \geq 0) \wedge (y \geq 0)) \rightarrow (xy \geq 0))
+  3. \exists x \forall y \exists z (x = y + z)
+#+end_note
+#+begin_info
+  1. There exists an x value that is greater than all y values.
+  2. There exists a product of x and y that is greater than or equal to zero only if x and y are positive.
+  3. There exists an x value that is equal to the sum of any y value and some z value.
+#+end_info
+** DONE WVQ
+   CLOSED: [2018-01-31 Wed 17:15]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:02]--[2018-01-31 Wed 17:15] =>  0:13
+   :END:
+#+begin_note
+  Let Q(x, y) be the statement \ldquo{}x asks y a question,\rdquo where the domain for both
+  x and y consists of all students in a class. Express each quantification in an
+  English sentence.
+  1. \forall x \exists y Q(x, y)
+  2. \forall x \forall y Q(x, y)
+  3. \exists x \exists y Q(x, y)
+  4. \exists x \forall y Q(x, y)
+  5. \forall y \exists x Q(x, y)
+  6. \exist y \exists x Q(x, y)
+#+end_note
+#+begin_info
+  1. Every student asks another student a question.
+  2. Every student asks every other student a question.
+  3. Some students ask other students a question.
+  4. Some students ask every other student a question.
+  5. Every student is asked a question by another student.
+  6. Some students are asked a question by another student.
+#+end_info
+** DONE TUQ
+   CLOSED: [2018-01-31 Wed 17:34]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:15]--[2018-01-31 Wed 17:34] =>  0:19
+   :END:
+#+begin_note
+  Take the statement Q(x, y) \ldquo{}x asks y a question\rdquo. Express each of these
+  sentences in terms of Q(x, y), quantifiers, and logical connectives, where the
+  domain for x consists of people at your school, and likewise for y consists of
+  people at your school. Use the predicates S(x) = \ldquo{}x is a student\rdquo, T(x) = \ldquo{}x
+  is a teacher\rdquo, and A(x) = \ldquo{}x is a TA\rdquo to distinguish different roles for
+  people.
+  1. No student has ever asked a teacher a question.
+  2. There is a student who has asked a teacher a question.
+  3. Every student has asked a teacher and a TA a question.
+  4. At least two students have asked a teacher a question.
+#+end_note
+#+begin_info
+  1. \exists x Q(\not S(x), T(x))
+  2. \exists x Q(S(x), T(x))
+  3. \forall x \exists y Q(S(x), ((T(y) \land A(y))))
+  4. \exists x \ge 2 \exists y Q(S(x), T(y))
+#+end_info
+** DONE WVU
+   CLOSED: [2018-01-31 Wed 17:38]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:35]--[2018-01-31 Wed 17:38] =>  0:03
+   :END:
+#+begin_note
+  Let the statement T(x, y) \ldquo{}x has taught y\rdquo where the domains for x and y
+  consist of all teachers teaching and all classes taught in some department.
+  Express each quantification in an English sentence.
+  1. No teacher has taught every class.
+  2. Every teacher has taught every class.
+  3. At least two teachers have taught a class.
+  4. No teacher has taught every class.
+#+end_note
+#+begin_info
+  1. \not \exists x \forall y T(x, y)
+  2. \forall x \forall y T(x, y)
+  3. \exists x \ge 2 \exist y T(x, y)
+  4. \not \exists x \forall y T(x, y)
+#+end_info
+** DONE TVL
+   CLOSED: [2018-01-31 Wed 17:43]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:38]--[2018-01-31 Wed 17:43] =>  0:05
+   :END:
+#+begin_note
+  Let D(x, y) be the statement \ldquo{}x has dropped out of y\rdquo where the domain for x
+  consists of all students and the domain for y consists of all classes. Express
+  each of the statements below as an English sentence.
+  1. D(Jackson Andrews, Discrete Mathematics)
+  2. \exists! x \forall y D(x, y)
+  3. \forall x \exists y D(x, y)
+#+end_note
+#+begin_info
+  1. Jackson Andrews has dropped out of Discrete Mathematics.
+  2. There exists a unique student that has dropped out of every class.
+  3. Every student has dropped out of some class.
+#+end_info
+** DONE TXG
+   CLOSED: [2018-01-31 Wed 17:50]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:44]--[2018-01-31 Wed 17:50] =>  0:06
+   :END:
+#+begin_note
+  What are the truth values of the expressions below if T(x, y) is \ldquo{}xy < y\rdquo,
+  where the domain consists of all integers?
+  1. T(0, 5)
+  2. T(1, 1)
+  3. T(7, -3)
+  4. \exists x \forall y T(x, y)
+  5. \exists x T(x, 2)
+  6. \forall y T(9, y)
+  7. \forall x \forall y T(x, y)
+  8. \forall x \exists y T(x, y)
+#+end_note
+#+begin_info
+  1. True. 0*5 is less than 5.
+  2. False. 1*1 is not less than 1.
+  3. True. 7*(-3) is less than -3.
+  4. False.
+  5. True.
+  6. False.
+  7. False.
+  8. True.
+#+end_info
+* Problems
+  Note: * means optional. If it\rsquo{}s not starred, it\rsquo{}s required.
+** DONE WZO
+   CLOSED: [2018-01-30 Tue 18:38]
+   :LOGBOOK:
+   CLOCK: [2018-01-30 Tue 18:05]--[2018-01-30 Tue 18:38] =>  0:33
+   :END:
+#+begin_note
+  Translate each of these statements into logical expressions using predicates,
+  quantifiers, and logical connectives.
+  1. Everyone\rsquo{}s a critic.
+  2. No one is perfect.
+  3. At least one of your friends is perfect.
+  4. All of your friends are critics.
+  5. Everyone is a critic or someone is your friend.
+  6. No one is a critic and everyone is your friend.
+#+end_note
+#+begin_info
+  1. \forall x C(x)
+     C(x) = "x is a critic", and the domain is everyone.
+  2. \forall x \not P(x)
+     P(x) = "x is perfect", and the domain is everyone.
+  3. \exists x P(x)
+     P(x) = "x is perfect", and the domain is all of your friends.
+  4. \forall x C(x)
+     C(x) = "x is a critic", and the domain is all of your friends.
+  5. \forall x (C(x) \lor F(\not x))
+     C(x) = "x is a critic", F(x) = "x is a friend", and the domain is everyone.
+  6. \forall x (\not C(x) \land F(x))
+     C(x) = "x is a critic", F(x) = "x is a friend", and the domain is everyone.
+#+end_info
+** DONE TOU
+   CLOSED: [2018-01-31 Wed 18:13]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 17:50]--[2018-01-31 Wed 18:13] =>  0:23
+   :END:
+#+begin_note
+  Express each of these statements using quantifiers. Then form the negation of
+  the statement so that no negation is to the left of a quantifier. Next,
+  express the negation in simple English.
+  1. All horses have hooves.
+  2. No horses can fly.
+  3. Every bat is blind.
+  4. No bear can dance.
+  5. There is at least one penguin that can swim and catch fish.
+#+end_note
+#+begin_info
+  1. \forall x H(x)
+     \exists x H(x)
+     Not all horses have hooves.
+     (Or some horses have hooves.)
+  Also:
+     \forall x \not H(x)
+     All horses do not have hooves.
+  2. \not \exists x H(x)
+     \not \exists x \not H(x)
+     No horses can not fly.
+  Also:
+     \forall x H(x)
+     Every horse can fly.
+  3. \forall x B(x)
+     \forall x \not B(x)
+     Every bat is not blind.
+  4. \not \exists x Bear-Dance(x)
+     \not \exists x \not Bear-Dance(x)
+     No bear can not dance.
+  Also:
+     \forall x Bear-Dance(x)
+     Every bear can dance.
+  5. \exists x \ge 1 (S(x) \land F(x))
+     \exists x \ge 1 (\not S(x) \lor \not F(x))
+     There exists at least one penguin that cannot swim or catch fish.
+#+end_info
+** TODO WYH *
+#+begin_note
+  Express each of these statements using predicates, quantifiers, and logical connectives.
+  1. At least one more song, among the nonempty set of songs, can be sung if
+     there is a soul alive to music.
+  2. Whenever there is an error, at least one error message is displayed.
+  3. All the programs have been scanned, but at least one program has a virus.
+#+end_note
+** DONE TLI
+   CLOSED: [2018-01-31 Wed 18:29]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 18:13]--[2018-01-31 Wed 18:29] =>  0:16
+   :END:
+#+begin_note
+  The notation \exists! x P(x) denotes \ldquo{}There exists a unique x such that P(x) is
+  true.\rdquo If the domain consists of all integers, what are the truth values of
+  these statements?
+  1. \exists! x (x > 1) 
+  2. \exists! x (x^2 = 1)
+  3. \exists! x (x + 3 = 2x)
+  4. \exists! x (x = x + 1)
+#+end_note
+#+begin_info
+  1. False. There is more than one instance of an integer being greater than 1, thus the soultion is not unique.
+  2. False. 1 and -1 both would satisfy this statement, thus the solution is not unique.
+  3. True. There is only one solution. The solution is 3.
+  4. False. There is no solution.
+#+end_info
+** DONE WPI
+   CLOSED: [2018-01-31 Wed 18:39]
+   :LOGBOOK:
+   CLOCK: [2018-01-31 Wed 18:29]--[2018-01-31 Wed 18:39] =>  0:10
+   :END:
+#+begin_note
+  What are the truth values of these statements?
+  1. \exists! x P(x) \rightarrow \exists x P(x)
+  2. \forall x P(x) \rightarrow \exists! x P(x)
+  3. \exists! x \neg P(x) \rightarrow \neg\forall x P(x)
+  4. \forall x P(x) \rightarrow \exists x P(x)
+#+end_note
+
+#+begin_info
+  1. True. There exists a unique value of X that satisfies P(x) only if there exists a value of x that satisfies P(x).
+  2. False. Every value of x satisfies P(x), but not only if there exists a unique value of x that satisfies P(x).
+  3. False. There exists a unique value of x that does not satisfy P(x), but not only if not every value of x satisfies P(x).
+  4. True. Every value of x satisfies P(x) only if there exists a value of x that satisfies P(x).
+#+end_info
+** TODO TSD *
+#+begin_note
+  Let E(x) be the statement \ldquo{}x is an excuse\rdquo, L(x) be the statement \ldquo{}x is a
+  lie\rdquo, and R(x) be the statement \ldquo{}x is a reason\rdquo. Suppose that the domain for x
+  consists of all English words. Express each of these statements using
+  quantifiers, logical connectives, and E(x), L(x), and R(x).
+  1. Some excuses are ignored.
+  2. Not all lies are reasons.
+  3. Some excuses are not reasons.
+  4. Some excuses are lies.
+#+end_note
+** TODO WTM *
+#+begin_note
+  Let L(x), F(x), S(x), and D(x) be the statements \ldquo{}x is a Latter-day Saint\rdquo, \ldquo{}x
+  is one of my friends\rdquo, \ldquo{}x is a soldier\rdquo, and \ldquo{}x is willing to drink\rdquo,
+  respectively. Express each of these statements using quantifiers, logical
+  connectives, and L(x), M(x), O(x), and D(x).
+  1. No Latter-day Saint is willing to drink.
+  2. No soldiers ever decline a drink.
+  3. All my friends are Latter-day Saints.
+  4. My friends are not soldiers.
+  5. Does 4 follow logically from 1, 2 and 3? If not, is there a correct
+     conclusion?
+:HINT:
+  - Hint :: This was adapted from a puzzle by Lewis Carroll.
+:END:
+#+end_note
+** DONE TTV
+   CLOSED: [2018-02-01 Thu 13:49]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 13:25]--[2018-02-01 Thu 13:49] =>  0:24
+   :END:
+#+begin_note
+  Determine the truth value of each of these statements if the domain consists
+  of all real numbers.
+  1. \exists x (x^3 = -9)
+  2. \exist x (x^4 > x^2)
+  3. \forall x ((-x)^2 = x^2)
+  4. \forall x (2x > x)
+#+end_note
+
+#+begin_info
+  1. True. There is one solution, and it is x = -2.08008382305.
+  2. True. There exist multiple solutions where x^4 > x^2.
+  3. True. For all real numbers, x^2 == (-x)^2.
+  4. False. For all negative numbers this is false.
+#+end_info
+** DONE WUZ
+   CLOSED: [2018-02-01 Thu 17:48]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 16:48]--[2018-02-01 Thu 17:48] =>  1:00
+   :END:
+#+begin_note
+  Solidify your knowledge of how looping works in elisp, and then translate the
+  following C++ code into elisp:
+
+#+BEGIN_SRC C++ :results output
+/*************************************************************************
+,* Quantifiers Example With Unary Predicates
+*************************************************************************/
+#include <cstdlib>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+/**************************************************************
+,* The Predicate class is an abstract base class with pure virtual
+,* abstract functions (per the =0 suffix).
+***************************************************************/
+class Predicate
+{
+public:
+   /**************************************************************
+   * Is this Predicate true for the given x?
+   ***************************************************************/
+   virtual bool isTrue(int x)=0;
+
+   /**************************************************************
+   * Is this Predicate true for the given x?
+   ***************************************************************/
+   virtual bool isFalse(int x)=0;
+
+   /**************************************************************
+   * Is this Predicate true for all values in the given set?
+   ***************************************************************/
+   bool forAll(int set[], int size);
+
+   /**************************************************************
+   * Is this Predicate true for some value in the given set?
+   ***************************************************************/
+   bool forSome(int set[], int size);
+};
+
+/**************************************************************
+,* forAll is A#xP(x) (The Universal Quantification of P(x), the
+,* proposition that is true if and only if P(x) is true for all
+,* x in the universe of discourse.)
+*
+,* loops through all values in a set (of a finite size) to see
+,* if the Predicate is always true.  If it encounters a value
+,* for which the Predicate is false, then A#xP(x) is false.
+,* Otherwise A#xP(x) is true.
+***************************************************************/
+bool Predicate::forAll(int set[], int size)
+{
+   for (int i = 0; i < size; i++)
+   {
+      if (isFalse(set[i]))
+      {
+         return false;
+      }
+   }
+   return true;
+}
+
+/**************************************************************
+,* forSome = E#xP(x) (The Existential Quantification of P(x),
+,* the proposition that is true if and only if there exists an
+,* x in the universe of discourse such that P(x) is true.)
+*
+,* loops through all values in a set (of a finite size) to see
+,* if the Predicate is ever true.  If it encounters any value
+,* for which the Predicate is true, then E#xP(x) is true.
+,* Otherwise E#xP(x) is false.
+***************************************************************/
+bool Predicate::forSome(int set[], int size)
+{
+   for (int i = 0; i < size; i++)
+   {
+      if (isTrue(set[i]))
+      {
+         return true;
+      }
+   }
+   return false;
+}
+
+class Even : public Predicate
+{
+public:
+   bool isTrue(int x)
+   {
+      return ((x % 2) == 0);
+   }
+
+   bool isFalse(int x)
+   {
+      return !isTrue(x);
+   }
+};
+
+class Odd : public Predicate
+{
+public:
+   bool isTrue(int x)
+   {
+      return ((x % 2) == 1);
+   }
+
+   bool isFalse(int x)
+   {
+      return !isTrue(x);
+   }
+};
+
+/**************************************************************
+,* main tests for both true and false return values for the
+,* two functions forAll and forSome for the simple Predicates
+,* Even and Odd.
+***************************************************************/
+int main()
+{
+   Even even;
+   Odd odd;
+
+   int Evens[] = {0, 2, 4, 6, 8};
+   int Odds[] = {1, 3, 5, 7, 9};
+
+   cout << boolalpha << endl;
+   cout << "even.forAll(Evens, 5)\n"
+        << "     expected to return true;\n"
+        << " actual return value is "
+        <<  even.forAll(Evens, 5) << ".\n\n";
+   cout << "odd.forAll(Evens, 5)\n"
+        << "     expected to return false;\n"
+        << " actual return value is "
+        <<  odd.forAll(Evens, 5) << ".\n\n";
+   cout << "even.forAll(Odds, 5)\n"
+        << "     expected to return false;\n"
+        << " actual return value is "
+        <<  even.forAll(Odds, 5) << ".\n\n";
+   cout << "odd.forAll(Odds, 5)\n"
+        << "     expected to return true;\n"
+        << " actual return value is "
+        <<  odd.forAll(Odds, 5) << ".\n\n";
+
+   cout << "--------------------------------\n\n";
+
+   cout << "even.forSome(Evens, 5)\n"
+        << "     expected to return true;\n"
+        << " actual return value is "
+        <<  even.forSome(Evens, 5) << ".\n\n";
+   cout << "odd.forSome(Evens, 5)\n"
+        << "     expected to return false;\n"
+        << " actual return value is "
+        <<  odd.forSome(Evens, 5)  << ".\n\n";
+   cout << "even.forSome(Odds, 5)\n"
+        << "     expected to return false;\n"
+        << " actual return value is "
+        <<  even.forSome(Odds, 5) << ".\n\n";
+   cout << "odd.forSome(Odds, 5)\n"
+        << "     expected to return true;\n"
+        << " actual return value is "
+        <<  odd.forSome(Odds, 5)  << ".\n\n";
+
+   return 0;
+}
+#+END_SRC
+
+#+RESULTS:
+
+:HINT:
+  - Hint :: First make this code NON-object-oriented (purely imperative) by
+            using function pointers instead of using a class to encapsulate a
+            function. For example:
+#+BEGIN_SRC C++ :results output
+#include <cstdlib>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+bool oddp(int n) { return ((n % 2) == 1); }
+
+typedef bool (*intPredicate)(int);
+
+int main()
+{
+   intPredicate pred = oddp;
+   cout << boolalpha << pred(5) << endl;
+   return 0;
+}
+#+END_SRC
+:END:
+#+end_note
+
+#+begin_info
+#+BEGIN_SRC python :results output
+def for_all(list1, eo):
+    if eo == "e":
+        for i in list1:
+            if i % 2 != 0:
+                return "False"
+        return "True"
+    elif eo == "o":
+        for i in list1:
+            if i % 2 != 1:
+                return "False"
+        return "True"
+    else:
+        print("ERROR: Invalid input for variable \'eo\'")
+
+
+def for_some(list1, eo):
+    if eo == "e":
+        for i in list1:
+            if i % 2 == 0:
+                return "True"
+        return "False"
+    elif eo == "o":
+        for i in list1:
+            if i % 2 == 1:
+                return "True"
+        return "False"
+    else:
+        print("ERROR: Invalid input for variable \'eo\'")
+
+
+def main():
+    odds = [1, 3, 5, 7, 9]
+    evens = [0, 2, 4, 6, 8]
+
+    print("for_all(evens, \"e\"), expected True, actual:", for_all(evens, "e"))
+    print("for_all(evens, \"o\"), expected False, actual:", for_all(evens, "o"))
+    print("for_all(odds, \"e\"), expected False, actual:", for_all(odds, "e"))
+    print("for_all(odds, \"o\"), expected True, actual:", for_all(odds, "o"))
+    print("---------------------------------------------------")
+    print("for_some(evens, \"e\"), expected True, actual:", for_some(evens, "e"))
+    print("for_some(evens, \"o\"), expected False, actual:", for_some(evens, "o"))
+    print("for_some(odds, \"e\"), expected False, actual:", for_some(odds, "e"))
+    print("for_some(odds, \"o\"), expected True, actual:", for_some(odds, "o"))
+
+
+if __name__ == "__main__":
+    main()
+#+END_SRC
+
+#+RESULTS:
+: for_all(evens, "e"), expected True, actual: True
+: for_all(evens, "o"), expected False, actual: False
+: for_all(odds, "e"), expected False, actual: False
+: for_all(odds, "o"), expected True, actual: True
+: ---------------------------------------------------
+: for_some(evens, "e"), expected True, actual: True
+: for_some(evens, "o"), expected False, actual: False
+: for_some(odds, "e"), expected False, actual: False
+: for_some(odds, "o"), expected True, actual: True
+
+#+end_info
+** TODO WZM *
+#+begin_note
+  Write the definitions of /injective/ and /surjective/ given in [[#TBD][TBD]]
+  using quantifier symbols instead of words.
+:HINT:
+  - Hint :: Recall that \lsquo{}for all\rsquo or \lsquo{}for every\rsquo is Universal ($\forall$), and \lsquo{}for
+            some\rsquo or \lsquo{}there exists\rsquo is Existential ($\exist$).
+:END:
+#+end_note
+** DONE TUW
+   CLOSED: [2018-02-01 Thu 18:21]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 17:50]--[2018-02-01 Thu 18:21] =>  0:31
+   :END:
+#+begin_note
+  Use quantifiers and predicates with more than one variable to express these statements.
+  1. Every CS major needs to take discrete mathematics.
+  2. Every student in the class owns a laptop.
+  3. There is a student in the class who has taken data structures.
+  4. No student has been in every building at the University.
+  5. Exactly one student has been in every room of the STC.
+  6. Every student has been in at least one room of every building on campus.
+#+end_note
+#+begin_info
+  1. \forall x \exists y DM(x)
+x represents CS majors, y represents discrete mathematics, DM(x) = "x needs to take y". 
+  2. \forall x \exists y L(x, y)
+x represents students in the class, y represents laptops, L(x) = "x owns y".
+  3. \exists y \exists! x DS(x)
+y represents students, x represents students in the class, DS(x) = "x has taken data structures".
+  4. \not \exists x \forall y B(x, y)
+x represents students, y represents buildings at the University, B(x, y) = "x has been in y".
+  5. \exists! x \forall y \exist z B(x, y)
+x represents students, y represents rooms of the STC, B(x, y) = "x has been in y".
+  6. \forall x \exists y \ge 1 \forall z B(x, y, z)
+x represents students, y represents rooms, z represents buildings on campus, B(x, y, z) = "x has been in y of z".
+#+end_info
+** TODO WWD *
+#+begin_note
+  Use quantifiers and predicates with more than one variable to express the
+  /negations/ of these statements:
+  1. Every CS major needs to take discrete mathematics.
+  2. Every student in the class owns a laptop.
+  3. There is a student in the class who has taken data structures.
+  4. No student has been in every building at the University.
+  5. Exactly one student has been in every room of the STC.
+  6. Every student has been in at least one room of every building on campus.
+#+end_note
+** TODO WWR *
+#+begin_note
+  Express each of these statements using predicates, quantifiers, logical
+  connectives, and mathematical operators where the domain consists of all
+  integers.
+  1. The average of two numbers is not greater than those two numbers.
+  2. The product of a positive number and a negative number is negative.
+  3. There is no solution for a number divided by zero.
+  4. All positive numbers are greater than all negative numbers.
+#+end_note
+** TODO TWN *
+#+begin_note
+  Express the statement \ldquo{}no prime number has 3 factors\rdquo using predicates,
+  quantifiers, logical connectives, and mathematical operators.
+#+end_note
+** DONE WWS
+   CLOSED: [2018-02-01 Thu 18:33]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 18:22]--[2018-02-01 Thu 18:33] =>  0:11
+   :END:
+#+begin_note
+  If the domain consists of all integers, what are the truth values of these statements?
+  1. \forall x \forall y (x \neq 0) \wedge (y \neq 0) \leftrightarrow (xy \neq 0)
+  2. \exists x \forall y (x + y > y)
+  3. \exists x \forall y (x + y < y)
+  4. \exists! x \forall y (x + y = y)
+#+end_note
+
+#+begin_info
+  1. True. Every product of two non zero integers is not equal to zero. 
+  2. True. The sum of any y value and some x values will result in a greater value than y. (x > 0)
+  3. True. The sum of any y value and some x values will result in a lesser value than y. (x < 0)
+  4. True. The sum of any y value and a specific x value will result in a value equal to y. (The x value is 0)
+#+end_info
+** TODO WZG *
+#+begin_note
+  Determine the truth value of the statement
+
+  $\forall$ x $\exists$ y (x - y $\geq$ x)
+
+  if the domain for x and y consists of
+  1. all real numbers.
+  2. the natural numbers.
+  3. all negative integers.
+  4. rational numbers.
+#+end_note
+** DONE TKH
+   CLOSED: [2018-02-01 Thu 20:09]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 18:33]--[2018-02-01 Thu 20:09] =>  1:36
+   :END:
+#+begin_note
+  Expand to two nested quantifiers the code you created for one quantifier.
+
+  Specifically, implement these four functions, shown side-by-side with their
+  symbolic logic equivalents:
+
+  | Function Name     | In Symbols |
+  |-------------------+------------|
+  | for-all-for-all   | \forall{} x \forall{} y    |
+  | for-all-for-some  | \forall{} x \exists{} y    |
+  | for-some-for-all  | \exists{} x \forall{} y    |
+  | for-some-for-some | \exists{} x \exists{} y    |
+
+  Let\rsquo{}s examine these quantifications in the context of loops and a generic
+  predicate P. These will be /nested/ loops, an outer one wrapping an inner one,
+  because /nested/ quantification is what is being expressed. The predicate
+  (function) call (P x y) goes in the inner loop, which controls the y, while
+  the outer loop controls the x.
+
+  \ldquo{}For all x for all y\rdquo wants to find (P x y) always true. That\rsquo{}s what it means
+  for the nested quantification to be true, and naturally, this only works if
+  the domains of x and y are finite. Even then, it really only /works/ if these
+  domains are reasonably finite --- not /too/ big. Iteration is serial, after
+  all, and time is short.
+
+  So, for-all-for-all loops through x\rsquo{}s domain, and for each x loops through
+  each y in y\rsquo{}s domain. On each inner-loop iteration it calls (P x y) and checks
+  the value. If the value is ever false, then for-all-for-all is false ---
+  immediately --- no need to check any further. Some y has been found for some x
+  where the predicate is false. If both loops finish with nary a false
+  evaluation, for-all-for-all is ultimately true. There is no x for which, for
+  any y, (P x y) is false.
+
+  The other function with similarly relatively simple logic is
+  for-some-for-some. This function loops through x\rsquo{}s domain, and for each x
+  loops through each y in y\rsquo{}s domain. On each inner-loop iteration it calls (P x
+  y) and checks the value. If a true value is found, then for-some-for-some is
+  true --- immediately --- no need to check any further. If both loops finish
+  never having triggered true, for-some-for-some is ultimately false. There is
+  no x for which there is some y for which (P x y) is true.
+
+  The other two are trickier. \ldquo{}For all x for some y\rdquo wants (P x y) to always be
+  true sometimes, and \ldquo{}for some x for all y\rdquo wants (P x y) to sometimes be true
+  always. Implement for-all-for-some and for-some-for-all the best, most elegant
+  way you can.
+
+  Test your implementations of these four functions using a suitable binary
+  (arity 2) predicate, for example =>=.
+:HINT:
+  - Hint :: See WUZ for the context.
+:END:
+#+end_note
+
+#+begin_info
+With my program, I am checking to see if x > y.
+
+#+BEGIN_SRC python :results output
+
+def for_all_for_all(list1, list2):
+    for i in list1:
+        for j in list2:
+            if i <= j:
+                return "False"
+    return "True"
+
+
+def for_all_for_some(list1, list2):
+    all_list = {}
+    for j in list2:
+        all_list[j] = True
+        for i in list1:
+            if i <= j:
+                all_list[j] = False
+        if all_list[j]:
+            return "True"
+    return "False"
+
+
+def for_some_for_all(list1, list2):
+    some = {}
+    for i in list1:
+        some[i] = False
+        for j in list2:
+            if i > j:
+                some[i] = True
+        if True in some:
+            return "True"
+    return "False"
+
+
+def for_some_for_some(list1, list2):
+    for i in list1:
+        for j in list2:
+            if i > j:
+                return "True"
+    return "False"
+
+
+def main():
+    odds = [1, 3, 5, 7, 9]
+    evens = [0, 2, 4, 6, 8]
+
+    print("for_all_for_all(odds, evens):", for_all_for_all(odds, evens))
+    print("for_all_for_all(evens, odds):", for_all_for_all(evens, odds))
+    print("for_all_for_some(odds, evens):", for_all_for_some(odds, evens))
+    print("for_all_for_some(evens, odds):", for_all_for_some(evens, odds))
+    print("for_some_for_all(odds, evens):", for_some_for_all(odds, evens))
+    print("for_some_for_all(evens, odds):", for_some_for_all(evens, odds))
+    print("for_some_for_some(odds, evens):", for_some_for_some(odds, evens))
+    print("for_some_for_some(evens, odds):", for_some_for_some(evens, odds))
+
+
+if __name__ == "__main__":
+    main()
+
+#+END_SRC
+
+#+RESULTS:
+: for_all_for_all(odds, evens): False
+: for_all_for_all(evens, odds): False
+: for_all_for_some(odds, evens): True
+: for_all_for_some(evens, odds): False
+: for_some_for_all(odds, evens): True
+: for_some_for_all(evens, odds): False
+: for_some_for_some(odds, evens): True
+: for_some_for_some(evens, odds): True
+
+#+end_info
+** DONE WUE
+   CLOSED: [2018-02-01 Thu 20:20]
+   :LOGBOOK:
+   CLOCK: [2018-02-01 Thu 20:09]--[2018-02-01 Thu 20:20] =>  0:11
+   :END:
+#+begin_note
+  Consider Doctrine and Covenants 130:20-21 in light of what you know of
+  predicates and quantifiers:
+
+  - 20. :: /There is a law, irrevocably decreed in heaven before the foundations
+           of this world, upon which all blessings are predicated./
+  - 21. :: /And when we obtain any blessing from God, it is by obedience to that
+           law upon which it is predicated./
+
+  Given the predicate P(x, y) = \ldquo{}blessing x is predicated on law (y)\rdquo,
+  these two verses are best expressed as a quantified statement by which of the
+  following?
+
+  1. \forall x \forall y P(x, y)
+  2. \forall x \exists y P(x, y)
+  3. \exists x \forall y P(x, y)
+  4. \exists x \exists y P(x, y)
+
+  Justify your choice.
+#+end_note
+
+#+begin_info
+  The quantified statement that best fits the verses of scripture is #2. This is because every blessing is predicated on some law.
+  None of the other statements are true. This is illustrated below:
+  Not True: Every blessing is predicated on every law.
+  Not True: Some blessings are predicated on every law.
+  Not True: Some blessings are predicated on some laws.
+  The only true statement is #2.
+#+end_info
+* Puzzles
+** DONE MMP (not in book)
+   CLOSED: [2018-02-03 Sat 15:09]
+   :LOGBOOK:
+   CLOCK: [2018-02-03 Sat 13:22]--[2018-02-03 Sat 15:09] =>  1:47
+   CLOCK: [2018-02-01 Thu 20:21]--[2018-02-01 Thu 20:21] =>  0:00
+   :END:
+#+begin_note
+   What is the following code demonstrating?
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun mm (m1 m2)
+    "
+    Multiplication of 2x2 matrices works as follows:
+    | a b |   | e f |   | a*e + b*g   a*f + b*h |
+    |     | x |     | = |                       |
+    | c d |   | g h |   | c*e + d*g   c*f + d*h |
+  "
+    (let* ((ab (elt m1 0))
+           (cd (elt m1 1))
+           (ef (elt m2 0))
+           (gh (elt m2 1))
+           (a (elt ab 0))
+           (b (elt ab 1))
+           (c (elt cd 0))
+           (d (elt cd 1))
+           (e (elt ef 0))
+           (f (elt ef 1))
+           (g (elt gh 0))
+           (h (elt gh 1)))
+      (vector (vector (+ (* a e) (* b g))
+                      (+ (* a f) (* b h)))
+              (vector (+ (* c e) (* d g))
+                      (+ (* c f) (* d h))))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rest (rest (rest (symbol-function 'mm))))
+#+END_SRC
+
+#+RESULTS:
+((let* ((ab (elt m1 0)) (cd (elt m1 1)) (ef (elt m2 0)) (gh (elt m2 1)) (a (elt ab 0)) (b (elt ab 1)) (c (elt cd 0)) (d (elt cd 1)) (e (elt ef 0)) (f (elt ef 1)) (g (elt gh 0)) (h (elt gh 1))) (vector (vector (+ (* a e) (* b g)) (+ (* a f) (* b h))) (vector (+ (* c e) (* d g)) (+ (* c f) (* d h))))))
+
+#+BEGIN_SRC emacs-lisp
+  (let ((m [[0 1] [1 1]]))
+    (mm m (mm m (mm m (mm m (mm m m))))))
+#+END_SRC
+
+#+RESULTS:
+: [[5 8] [8 13]]
+
+#+end_note
+*** Rephrase
+What is this elisp code doing?
+*** Approach
+I will go through the book to try to understand the elisp. I understand the math of matrix multiplication, but I do not understand elisp very well.
+If this were in Python, anyone could understand it, and it would be much shorter.
+Thus, I will also create the same code in Python to illustrate this.
+*** Solution
+The function at the beginning seems to simply multiply two matrices together.
+The second source block seems to be creating a list of the items of the first function.
+The third source block is using the function to multiply a matrix by itself 6 times.
+*** Proof
+#+BEGIN_SRC python :results output
+from numpy import *
+x = matrix( ((0, 1), (1, 1)) )
+print(dot(x, dot(x, dot(x, dot(x, dot(x, x))))))
+#+END_SRC
+
+#+RESULTS:
+: [[ 5  8]
+:  [ 8 13]]
+
+As you can see, the python version is three lines of code, and very easy to understand.

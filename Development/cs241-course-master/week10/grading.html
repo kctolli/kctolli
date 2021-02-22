@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Assessment Guidelines</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>10 Prove : Assessment Guidelines</h2>
+
+        <h3>Overview</h3>
+        <p>This document outlines the guidelines for instructors and teaching assistants to use as they assess the assignment. It is intended to give structure and guidance to the grading process to ensure that the most important components of the assignment are highlighted, and to promote consistency across sections.</p>
+
+        <p>In all cases, the instructor has the latitude to deviate from this rubric on a case-by-base basis to provide the holistic assessment that, in their judgment, best matches the assignment.</p>
+
+        <h3>Goal of Milestone Assessments</h3>
+        <p>The goal of this assignment is to help students stay on track toward their future deliverable, and also to give them feedback quickly if they are headed down a bad path. With that in mind, the focus of this assessment is <strong>not</strong> to account for a few points here or there, but rather to give feedback and guidance.</p>
+
+        <h3>Fundamental Concepts</h3>
+        <p>This assignment is designed to highlight the following fundamental concepts:</p>
+        <ul>
+            <li><p>Good object-oriented design</p></li>
+            <li><p>Interaction of several classes (Game, Ship, Bullet)</p></li>
+            <li><p>Polymorphism</p></li>
+        </ul>
+
+        <p>This milestone requires the students to get the collisions working. This means they will need to face polymorphism head on.</p>
+
+        <h3>Major Things to Look For</h3>
+        <p><strong>The number one most important thing to look</strong> for is the logic of calling a "split" or "break apart" function. This should be in the game class and it should NOT have any logic in there that attempts to say "if it's a large one, do this, if it's a medium do that." Instead, the code should say "rock.split()" or something similar and let each type of asteroid specify what it does.</p>
+        <p>Also, please be on the lookout for how they attempt to get the newly created asteroids into the list held by the game. There are different ways to do this, but check to see that they are on track.</p>
+
+        <p>In addition, the following should be present for this milestone:</p>
+        <ul>
+            <li><p>Large asteroids should break into 2 mediums and 1 small</p></li>
+            <li><p>Medium asteroids should break into 2 smalls</p></li>
+            <li><p>Small asteroids should disappear</p></li>
+            <li><p>Bullets should cause collisions</p></li>
+            <li><p>Ships should cause collisions</p></li>
+            <li><p>Medium and small asteroids should spin and move faster than large ones.</p></li>
+        </ul>
+
+        <h3>Scoring</h3>
+        <p>Given the formative nature of this assessment, the scoring is done in broad strokes as follows:</p>
+
+        <ul>
+            <li><p>100% - Functionality is there, class design/hierarchy looks correct</p></li>
+            <li><p>90% - Minor issue with functionality or inheritance</p></li>
+            <li><p>75% - Program compiles/runs, but missing major functionality or not using inheritance</p></li>
+            <li><p>50% - Some attempt was made and general concepts are started</p></li>
+            <li><p>0% - Nothing submitted</p></li>
+        </ul>
+
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>

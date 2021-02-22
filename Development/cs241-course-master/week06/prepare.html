@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Preparation Material</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>06 Prepare : Reading</h2>
+
+        <h3>Outcomes</h3>
+        <p>At the end of this week, successful students will be able to:</p>
+        <ol>
+            <li><p>Show fluency in discussing inheritance.</p></li>
+            <li><p>Write programs that correctly use inheritance to solve problems.</p></li>
+        </ol>
+
+        <h3>Preparation Material</h3>
+        <p>Please read the following:</p>
+
+        <ul><li><p><a href="https://www.digitalocean.com/community/tutorials/understanding-inheritance-in-python-3" target="_blank">Understanding Inheritance in Python 3</a></p></li></ul>
+
+        <h3>Supplementary Material</h3>
+        <h4>Python 3 Inheritance Syntax at a Glance</h4>
+        <p>The reading above made use of the syntax of inheritance. In its simplest form, here is what you need to do to create a derived class:</p>
+
+        <p>We first need to define the base class. Nothing fancy here:</p>
+
+<pre><code class="python">
+class Product:
+    def __init__(self):
+        # Define any member variables that are shared among all
+        # derived classes
+        self.price = 0.0
+        self.quantity = 0
+
+    # We can also define any methods that are shared among all classes
+
+    def get_total_price(self):
+        return self.price * self.quantity
+</code></pre>
+
+<p>We now define a derived class (or multiple derived classes)</p>
+
+<pre><code class="python">
+# Notice that we put Product in parentheses to show they we are inheriting from it
+class Cereal(Product):
+    def __init__(self):
+        # We override the base class __init__ function to declare any cereal-specific
+        # member variables. Notice that we MUST call the super().__init__ function
+        # to ensure that the member variables in the base class also get set up.
+
+        # First call the base class version
+        super().__init__()
+
+        # Now, set up any member variables
+        self.weight = 0.0
+
+    # We can also define any functions that are specific to the cereal class.
+
+    def calculate_shipping_cost(self):
+        return 0.05 * self.weight
+</code></pre>
+
+<p>With these classes in place, we can now create an instance of type cereal and use any methods or properties defined in either the base or the derived class:</p>
+
+<pre><code class="python">
+corn_flakes = Cereal()
+corn_flakes.price = 3.49
+corn_flakes.quantity = 1
+corn_flakes.weight = 2.05
+
+price = corn_flakes.get_total_price()
+cost = corn_flakes.calculate_shipping_cost()
+</code></pre>
+
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+
+</html>

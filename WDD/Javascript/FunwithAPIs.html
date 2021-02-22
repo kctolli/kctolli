@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Fun with APIs</h1>
+
+<p>Click the buttons.</p>
+
+<button onclick="goback()">Go Back</button>
+
+<br/>
+
+<button onclick="backtwo()">Back Two</button>
+
+<br/>
+
+<button onclick="goForward()">Go Forward</button>
+
+<br/>
+
+<p id="demo1"></p>
+
+<br/>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+
+<br/>
+
+<p id="demo2">Fetch a file to change this text.</p>
+
+<br/>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+function goback() {window.history.back();}
+
+function backtwo() {window.history.go(-2);}
+
+function goforward() {window.history.forward();}
+
+sessionStorage.setItem("name","John Doe");
+document.getElementById("demo1").innerHTML = sessionStorage.getItem("name");
+
+var w;
+
+function startWorker() {
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("demo_workers.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+  }
+}
+
+function stopWorker() {w.terminate(); w = undefined;}
+
+getText("fetch_info.txt");
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("demo2").innerHTML = myText;
+}
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;}
+</script>
+
+</body>
+</html>

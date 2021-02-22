@@ -38,6 +38,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   - [Data Science
     Coursework](https://kctolli.github.io/Data-Science/index.html)
   - [Web Design and
-    Development](https://kctolli.github.io/WDD/WDD100/index.html)
+    Development](https://kctolli.github.io/WDD100/index.html)
   - [Digital System Design
     Coursework](https://ecen-340.glitch.me/index.html)

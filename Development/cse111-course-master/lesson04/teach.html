@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Team Activity</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>04 Team Activity: Calling Functions</h1>
+
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Problem Statement</h2>
+    <p>When working on a long task or completing a long term goal,
+    people sometimes find it difficult to stay motivated. Some people
+    find that inspiring quotes from others who accomplished similar
+    tasks help them to stay motivated. During this activity, your team
+    will write a Python program that prints a quote chosen randomly from
+    a file of quotes.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The built-in <a target="_blank"
+    href="https://docs.python.org/3/library/functions.html#open"><code>open function</code></a>
+    opens a file for reading or writing. The prepare content for the
+    previous lesson contains <a target="_blank"
+    href="../lesson03/prepare.html#textFiles">example code</a> that
+    reads all the lines of text from a text file into a list.</p>
+
+    <p>The Python <code>random</code> module contains functions to
+    generate pseudo random numbers and to make pseudo random choices.
+    Read about the <code>random</code> module in one of these
+    articles:</p>
+    <ul>
+        <li><div>Official Python <a target="_blank" href="https://docs.python.org/3/library/random.html">reference for the <code>random</code> module</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a> at Real Python</div></li>
+    </ul>
+
+    <p>The Python <code>textwrap</code> module contains functions to
+    format plain text. The module formats text by adding, removing, and
+    moving line breaks in the input text. Read about the
+    <code>textwrap</code> module in this article:</p>
+    <ul>
+        <li><div>Official Python reference for the
+        <a target="_blank" href="https://docs.python.org/3/library/textwrap.html"><code>textwrap</code> module</a></div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Download this file: <a download href="quotes.txt">quotes.txt</a>
+    and save it in the same folder where you will save your Python
+    program.</p>
+
+    <p>Write a Python program named <code>quotes.py</code> that reads
+    the contents of the <code>quotes.txt</code> file into a list and
+    then randomly chooses one of the quotes and prints it for the user
+    to see. Include these two lines of code at the top of your program
+    to import the functions in the <code>random</code> and
+    <code>textwrap</code> modules:</p>
+
+<div class="pre"><pre class="python">import random
+import textwrap</pre></div>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Your program must call the <code>open</code> function
+        to open the <code>quotes.txt</code> file and read all the lines
+        in the file into a list.</div></li>
+
+        <li><div>Your program must call <code>random.choice</code> to
+        randomly choose one of the quotes from the list.</div></li>
+
+        <li><div>Your program must call <code>textwrap.wrap</code> to
+        wrap the words of the chosen quote to 70 characters or fewer per
+        line and call <code>print</code> to print the wrapped lines of
+        the quote for the user to see.</div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an hour,
+    complete one or more of these stretch challenges. Note that the
+    stretch challenges are optional.</p>
+
+    <ol class="long">
+        <li><div>Add something or change something in your program that
+        you think would make your program better, easier for the user,
+        more elegant, or more fun. Be creative.</div></li>
+
+        <li><div>Write comments above the lines of code that were
+        difficult for you to understand.</div></li>
+
+        <li><div>Allow the user to enter a positive integer to choose
+        how many quotes are chosen and printed.</div></li>
+
+        <li><div>Write a new program that reads the
+        <code>quotes.txt</code> file and then prints all of the names of
+        the authors, but just the names and not the quotes. Hint: notice
+        that the author's name appears at the end of each quote,
+        separated from the quote by a dash (-). However, notice also
+        that some quotes contain a dash. To find the location of the
+        last dash, use the <a target="_blank"
+        href="https://docs.python.org/3/library/stdtypes.html#str.rindex">rindex</a>
+        function.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python teach_solution.py
+How many quotes would you like? <span class="input">2</span>
+
+If you want to achieve excellence, you can get there today. As of this
+second, quit doing less-than-excellent work. -Thomas J. Watson
+
+B is for believe--in yourself, in those around you, and in eternal
+principles. -Thomas S. Monson</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="test long">
+        <li><div>Run your program and verify that it outputs a quote (or
+        multiple quotes if you completed stretch challenge #4).</div></li>
+        <li><div>Run your program again and verify that it outputs a
+        different quote.</div></li>
+        <li><div>If the quotes that you program printed are short, run
+        your program again until it prints a long quote that wraps onto
+        two or more lines. Verify that each line contains no more than
+        70 characters.</div></li>
+    </ol>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your team for the one hour meeting.
+    After the meeting is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked for at least one
+    hour. At the end of the hour, if you are still struggling to
+    complete the assignment, you may use the sample solution to help you
+    finish.</p>
+
+    <h2>Submission</h2>
+    <p>When you have finished the activity, please report your progress
+    via the associated I-Learn quiz. When asked about which of the
+    requirements you completed, feel free to include any work done
+    during the team meeting or after the meeting, including work done
+    with the help of the sample solution, if necessary. In short, report
+    on what you were able to accomplish, regardless of when you
+    completed it or if you needed help from the sample solution.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

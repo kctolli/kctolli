@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../site/global.js"></script>
+    <script type="text/javascript" src="../site/rubric.js"></script>
+    <script>
+        $(function(){
+            $("#includedHeader").load("../site/header.html");
+        });
+        window.onload = function(){
+            document.getElementById('g_ponder').innerHTML       = g.n08 + " " + g.ponder;
+            document.getElementById('g_ponderSubmit').innerHTML = g.ponderSubmit;
+            document.getElementById('g_teachInstructor').innerHTML = g.teachInstructor;
+            document.getElementById('g_proveSolution').innerHTML = g.proveSolution;
+        }
+    </script>
+ </head>
+ <body>
+     <div id="includedHeader"></div>
+
+     <article>
+        <h1><span id="g_ponder"></span></h1>
+        <h2>Overview</h2>
+        <p>For this activity, you will use the same json that you read from in the week 3 team activity. </p>
+        <h2>Assignment</h2>
+        <ol>
+           <li><p>Implement code to read the data from the remote json, and display it in your node application (You may use the code from week three if you wish).</p></li>
+           <li><p>Write code to paginate it so that only 10 results are shown at a time.</p></li>
+        </ol>
+        <h2>Rubric</h2>
+        <table class="rubric">
+            <thead>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Above and Beyond</th>
+                    <th>Meets Requirements</th>
+                    <th>Slightly Deficient</th>
+                    <th>Significantly Deficient</th>
+                    <th>Some Attempt Made</th>
+                    <th>No Attempt Made</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>100%</th>
+                    <th>93%</th>
+                    <th>85%</th>
+                    <th>70%</th>
+                    <th>50%</th>
+                    <th>0%</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>JSON</td>
+                    <td>MVC pattern is used to read in the JSON data and display it</td>
+                    <td>JSON is brought in and displayed correctly</td>
+                    <td>JSON data is brought in but displayed incorrectly</td>
+                    <td>JSON data is partially brought in</td>
+                    <td>JSON data is read in incorrectly or errors out</td>
+                    <td>JSON data is not read in</td>
+                    <td>50%</td>
+                </tr>
+                <tr>
+                    <td>Pagination</td>
+                    <td>Pagination works correctly including options for First, Previous, (Current), Next, Last</td>
+                    <td>Pagination works correctly including options for Previous, (Current), Next</td>
+                    <td>Pagination works correctly but more or less than 10 items show per page</td>
+                    <td>Pagination setup but does not function correctly</td>
+                    <td>Pagination set up but throws errors</td>
+                    <td>No pagination</td>
+                    <td>50%</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="g_teachInstructor"></h2>
+        <p id="g_proveSolution"></p>
+        <p class="text-center">
+            <a href="https://github.com/byui-cse/cse341-course/tree/master/docs/lesson08/prove-solution" target="_blank">Teacher Solution</a>
+            (<a href="prove-solution.zip" target="_blank">Download .zip</a>)
+        </p>
+        <div id="g_ponderSubmit"></div>
+    </article>
+</body>
+</html>

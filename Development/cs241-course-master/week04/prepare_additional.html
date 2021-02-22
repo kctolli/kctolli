@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Preparation Material</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>04 Prepare : Additional Reading</h2>
+<!--         <subtitle>Composition<subtitle>
+ -->
+        <p>The following is additional reading regarding object composition which you may optionally use.  </p>
+		
+		<h3>Object Composition in Python</h3>
+        
+		<p>In assignment 4, there are 3 classes described:  Product, Order, and Customer.  If three seperate engineers wrote each of these three classes, we might end up with alot of duplicated code.  Perhaps the Order class would have prices and product names as member data.  Perhaps the Customer class would have order numbers and even product names and prices.  If a price changed, we might have to change it in 3 places!  A better design would be to define a relationship between these three classes.  By doing this, we could influence the implementation of the classes by the three engineers without any duplication.  It's possible that we would get a result without identifying the relationships, but the odds are not in our favor as software gets bigger.</p>
+		
+		<p>In the UML diagram below (see discussion below about UML diagrams), we show relationships between 3 simple Product, Order, and Customer classes.  This UML diagram (and subsequent code) is similair to assignment 4 but it is <strong>not</strong> the same thing.  This is given as a simple example.  The filled in diamond means that the class HAS-A (or owns; or is composed of) the other class.</p>
+		
+		<img src="uml_diagram.jpeg" height="100%" width="100%" alt="UML diagram showing Customer HAS-A Order and Order HAS-A Product.">
+		
+		<p>The HAS-A relationships have consequences on the diagram and the subsequently written code.  Notice that because Customer HAS-A Order (and in reality its many Orders), there is member data in the Customer class <code>+ orders : list(Order)</code>.  This is required!  If there is a HAS-A relationship, then there must be member data in the class for it.  Same thing for Order.  Since there is a HAS-A relationship with Product, we have <code>+ products : list(Product)</code></p>
+		
+		<p>Based only on the UML diagram above, we can create stub code (everything except the actual implementation of the functions).  Notice in code below that the <code>__init__</code> functions must contain the member data including the data related to the HAS-A relationship.</p>
+		
+		<pre><code class="Python">	
+
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.orders = []  # Start out with an empty list of orders
+        
+    def add_order(self, new_order):
+        pass
+        
+    def display(self):
+        pass
+
+class Order:
+    
+    def __init__(self, order_id):
+        self.order_id = order_id
+        self.products = []  # starts out with an empty list of products
+        
+    def add_product(self, new_product):
+        pass
+        
+    def display(self):
+        pass
+
+class Product:
+    
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+    def display(self):
+        pass
+
+		</code></pre>
+		
+		
+		<p>As we start to implement these functions (one at a time), we start to see some potential for duplication.  For example, assume we have the following written for and Order and Product classes:</p>
+		
+		<pre><code class="Python">
+		
+class Order:
+    
+    def __init__(self, order_id):
+        self.order_id = order_id
+        self.products = []
+        
+    def add_product(self, new_product):
+        self.products.append(new_product)
+        
+    def display(self):
+        print("ID: {}" .format(self.order_id))
+        print("Products:")
+        for product in self.products:
+            print("Name: {} Price: ${:.2f}" .format(product.name, product.price))	
+
+class Product:
+    
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+    def display(self):
+        print("Name: {} Price: ${:.2f}" .format(self.name, self.price))		
+		
+		</code></pre>
+		
+		<p>Notice the loop in the display function of the Order class is needed to display all the products in the order.  However, the print statement in the loop looks just like the print statement in the display function of the Product class.  We are not reusing.  We want to use <code>product.display()</code> in the loop instead.  This will call the display function in the other class.  A big benefit of object composition is enabling reuse of functions.  If you have duplicated code, then you may not be taking complete advantage of your relationships between the classes.</p>
+		
+		<p>Here is the corrected code with some test code:</p>
+		
+		<pre><code class="Python">
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.orders = []
+        
+    def add_order(self, new_order):
+        self.orders.append(new_order)
+        
+    def display(self):
+        print("Customer: {}" .format(self.name))
+        print("Orders:")
+        for order in self.orders:
+            order.display()
+
+class Order:
+    
+    def __init__(self, order_id):
+        self.order_id = order_id
+        self.products = []
+        
+    def add_product(self, new_product):
+        self.products.append(new_product)
+        
+    def display(self):
+        print("ID: {}" .format(self.order_id))
+        print("Products:")
+        for product in self.products:
+            product.display()
+
+class Product:
+    
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+    def display(self):
+        print("Name: {} Price: ${:.2f}" .format(self.name, self.price))
+
+def main():
+    # 1. Test Product Class by itself
+    p = Product("Book", 9.95)
+    p.display()
+    print()
+    # 2. Test Order Class by itself
+    o = Order(231)
+    o.display()
+    print()
+    # 3. Test Customer Class by itself
+    c = Customer("Bob")
+    c.display()
+    print()
+    # 4. Add the product to the order and add the order to the customer
+    o.add_product(p)
+    c.add_order(o)
+    c.display()
+    print()
+    # 5. Add printer ink to the order
+    p1 = Product("Printer Ink", 29.99)
+    o.add_product(p1)
+    c.display()
+    print()
+    # 6. Create a new order for the customer and order the same book again
+    o1 = Order(232)
+    o1.add_product(p1)
+    c.add_order(o1)
+    c.display()
+    
+if __name__ == "__main__":
+    main()		
+		</code></pre>
+		
+		<p>The output of the test code is as follows:</p>
+		
+		<pre><code class="Python">
+Name: Book Price: $9.95
+
+ID: 231
+Products:
+
+Customer: Bob
+Orders:
+
+Customer: Bob
+Orders:
+ID: 231
+Products:
+Name: Book Price: $9.95
+
+Customer: Bob
+Orders:
+ID: 231
+Products:
+Name: Book Price: $9.95
+Name: Printer Ink Price: $29.99
+
+Customer: Bob
+Orders:
+ID: 231
+Products:
+Name: Book Price: $9.95
+Name: Printer Ink Price: $29.99
+ID: 232
+Products:
+Name: Printer Ink Price: $29.99		
+		</code></pre>
+		
+		<h3>UML Diagrams</h3>
+		
+		<p>UML diagrams are useful for designing software.  UML is not Python code, but it can be used to write code in Python, Java, C++, etc.  Each 3 part box contains the following:</p>
+		<ul>
+		<li><p>The first box has the class name.</p></li>
+		<li><p>The second box has member data.  The "+" means the data is public.  All data in Python is public.  The text after the colon is the data type.  Even though we don't need to show the data type in Python, its useful to know the data type when looking at the picture.  It also helps us write the code correctly if we know ahead of time what the data type should be.  In Python, each member data will show up in the <code>__init__</code> function with a <code>self.</code> in front of it.</p></li>
+		<li><p>The third box has member functions.  The text in parentheses show the input parmaeters sent to the function.  To help use remember, we should put <code>self</code> as the first parameter.</p></li>
+		</ul>
+		
+	<h3>Additional Reading</h3>
+		
+	<p>For additional reading, consider these websites (these sites also talk about inheritance and encapsulation which we will discuss in future lessons):</p>
+		<ul>
+			<li><p><a href="https://realpython.com/inheritance-composition-python/">Real Python - Inheritance and Composition: A Python OOP Guide</a></p></li>
+			<li><p><a href="https://python-textbok.readthedocs.io/en/1.0/Object_Oriented_Programming.html">Object-Oriented Programming in Python</a></p></li>
+		
+		</ul>
+		
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+	</article>
+
+
+
+</body>
+
+</html>

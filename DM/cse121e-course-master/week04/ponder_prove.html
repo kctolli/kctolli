@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE 121b: Week 05 | Ponder and Prove</title>
+    <script type="text/javascript">
+      var codeType = "JavaScript"
+    </script>
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/highlight_styles/xcode.css">
+    <link rel="stylesheet" href="https://byui-cse.github.io/Language-Courses/site/weekly.css">
+    <script type="text/javascript" src="https://byui-cse.github.io/Language-Courses/site/weekly.js"></script>
+  </head>
+
+  <body>
+    <header class="hero-image">
+      <section class="hero-text">
+        <h1>CSE 121e: Week 05</h1>
+        <p>Ponder and Prove</p>
+      </section>
+    </header>
+    <main>
+      <h1>Your Task</h1>
+      <section>
+        <h3>Description</h3>
+        <p>
+          What you want to accomplish with this task is to solve the design problems listed in the reading for this week so you can run a bunch of computations concurrently without one crash taking everything down. Also, you will use some of the Erlang programming principles learned earlier in the class to write easily read, understood, and, therefore, easily maintained code.
+        </p>
+      </section>
+      <section>
+        Before beginning this Task, make sure you have reviewed the
+            <a href="../week05/" target="_blank">gen_servers and supervisors</a>
+            course content.
+      </section>
+      <section>
+        <h3>The Process</h3>
+        <h4>Complete the following steps</h4>
+        <ol>
+          <li>Create a process that provides factorial for its functionallity. The process must keep track of the last number it was sent and the factorial value calculated from that number and use these two values to minimize the computation required for the next time the factorial process is used. If it is not possible to re-use these values to reduce the required computation, then do as must be done.</li></li>
+        </ol>
+      </section>
+      <section>
+        <h3>The Testing Driver</h3>
+        <h4>Complete the following steps</h4>
+        <ol>
+          <li>Create a seperate module containing a testing driver function that spawns a process calling the client function of the factorial module's client function. This new function is responsible for makeing the call, waiting for the response, and then printing the response out to the console.</li>
+          <li>Write an additional function, <kbd>driver/0</kbd>, as part of this module that calls the testing driver function described in the previous item 1000 times. Make it interesting by asking for the factorial of numbers that are not too small but not too large either.</li>
+          <li>From within the REPL, run <kbd>driver/0</kbd> and observe the results.</li>
+        </ol>
+        
+  <section>
+      <h3>Review</h3>
+      <h4>After completing the previous steps:</h4>
+      <ol>
+          <li>Review one of the many <a href="https://byui-cse.github.io/cse121e-course/week03/provided_solution.zip">possible solutions</a> for this task,</li>
+          <li>Compare and contrast your code with the possible solutions&rsquo; code, and</li>
+          <li>Make note of any improvements you could make for future tasks.</li>
+      </ol>
+  </section>
+        
+      </section>
+      <section>
+        <h3>Stretch (optional)</h3>
+        <p>Apply your googling skills to see some ideas about how you can use a supervisor to supervise many running instances of the same gen_server module.</p>
+      </section>
+    </main>
+    <footer>
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        ><img
+          alt="This work is licensed under a Creative Commons Attribution 4.0 International License"
+          style="border-width: 0;"
+          src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a
+      ><br />This work is licensed under a
+      <a
+        rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        >Creative Commons Attribution 4.0 International License</a
+      >.
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Arcade Library Functions</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>Common Arcade Library Functions</h2>
+
+        <h3>Overview</h3>
+        <p>The following documents some of the common Arcade library functions that may come in handy for your projects. You are encouraged to refer back to the library's <a href="http://arcade.academy/" target="_blank">documentation</a> for a more complete list.</p>
+
+        <p>To use any of the functions from the arcade library you will need to import it:</p>
+
+<pre><code class="Python">
+import arcade
+</code></pre>
+
+        <h3>Drawing</h3>
+        <p>The complete list of drawing functions are found <a href="http://arcade.academy/quick_index.html#drawing-module" target="_blank">here</a>. Click on any of the function names to see a detailed explanation of all of the values you can pass to those functions as well as some examples of how to use them.</p>
+
+        <p>Here is an example that draws a solid (filled) circle:</p>
+<pre><code class="Python">
+# This code puts the circle at the position: x = 50, y = 100
+# It has a radius of 20, and is green.
+arcade.draw_circle_filled(50, 100, 20, arcade.color.GREEN)
+</code></pre>
+
+        <p>And here is an example that draws a solid (filled) rectangle:</p>
+
+<pre><code class="Python">
+# This code creates a rectangle with a center at: x = 25, y = 50.
+# It has a width of 30 and a height of 15, and is black.
+arcade.draw_rectangle_filled(25, 50, 30, 15, arcade.color.BLACK)
+</code></pre>
+
+        <h3>Colors</h3>
+        <p>You may have noticed that there is a list of predefined colors you can use for drawing. A complete list is found <a href="http://arcade.academy/arcade.color.html" target="_blank">here</a>.</p>
+
+        <p>To use one of the colors from the list, you reference it by specifying <code>arcade.color</code> before the name of the color as follows:</p>
+
+<pre><code class="Python">
+arcade.color.CHERRY_BLOSSOM_PINK
+</code></pre>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+    </article>
+
+</body>
+
+</html>

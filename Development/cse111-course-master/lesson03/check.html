@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Checkpoint</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <script src="../site/color.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>03 Checkpoint: Using Lists</h1>
+
+    <h2>Overview</h2>
+    <p>Demonstrate your understanding of text files and lists by
+    completing the following individual checkpoint assignment.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html#textFiles">Text Files</a>
+    section of the prepare content for this lesson contains example code
+    that shows how to read a text file into a list.</p>
+
+    <p>The <a target="_blank" href="prepare.html#lists">Lists</a>
+    section of the prepare content for this lesson contains example code
+    that shows how to insert, replace, and remove elements in a list.</p>
+
+    <h2>Assignment</h2>
+    <p>You must do the following to setup VS Code so that your program
+    can read from a text file:</p>
+
+    <ol class="long">
+        <li><div>Download the
+        <a download href="provinces.txt"><code>provinces.txt</code></a>
+        file and save it in the same folder where you will save your
+        Python program.</div></li>
+
+        <li><div>Open VS Code.</div></li>
+
+        <li><div>Using VS Code, open the folder where you saved the
+        <code>provinces.txt</code> file by doing the following:
+        <ul>
+            <li><div>On a computer running the <dfn>Windows</dfn>
+            operating system:
+            <ol>
+                <li><div>Click the "File" menu, then "Open
+                Folder..."</div></li>
+                <li><div>Find and select the folder where you saved the
+                <code>provinces.txt</code> file.</div></li>
+                <li><div>Click the "Select Folder" button.</div></li>
+            </ol></div></li>
+
+            <li><div>On a computer running the <dfn>Mac OSX</dfn>
+            operating system:
+            <ol>
+                <li><div>Click the "File" menu, then "Open..."</div></li>
+                <li><div>Find and select the folder where you saved the
+                <code>provinces.txt</code> file.</div></li>
+                <li><div>Click the "Open" button.</div></li>
+            </ol></div></li>
+        </ul></div></li>
+    </ol>
+
+    <p>Now that you correctly setup VS Code so that your program can
+    read the <code>provinces.txt</code> file, open that file in VS Code
+    and examine it. Notice that the file contains a list of names of
+    Canadian Provinces. Notice also that the file contains "AB" several
+    times which is an abbreviation for Alberta.</p>
+
+    <p>Write a Python program named <code>provinces.py</code> that reads
+    the contents of <code>provinces.txt</code> into a list and that
+    modifies the list. Your program must do the following:</p>
+
+    <ol>
+        <li><div>Open the <code>provinces.txt</code> file for
+        reading.</div></li>
+
+        <li><div>Read the contents of the file into a list where each
+        line of text in the file is stored in a separate element in the
+        list.</div></li>
+
+        <li><div>Print the entire list.</div></li>
+
+        <li><div>Remove the first element from the list.</div></li>
+
+        <li><div>Remove the last element from the list.</div></li>
+
+        <li><div>Replace all occurrences of "AB" in the list with
+        "Alberta".</div></li>
+
+        <li><div>Count the number of elements that are "Alberta" and
+        print that number.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python check_solution.py
+['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
+'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta',
+'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
+'Prince Edward Island', 'Alberta', 'Nova Scotia',
+'Prince Edward Island', 'British Columbia', 'Nova Scotia',
+'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Ontario',
+'Ontario', 'Saskatchewan', 'Nova Scotia', 'Prince Edward Island',
+'Saskatchewan', 'Newfoundland and Labrador', 'Ontario', 'Ontario',
+'Manitoba', 'British Columbia', 'Ontario', 'Alberta', 'Saskatchewan',
+'Ontario', 'Yukon', 'Ontario', 'New Brunswick', 'Manitoba',
+'British Columbia', 'Yukon', 'Newfoundland and Labrador', 'Manitoba',
+'British Columbia', 'Yukon', 'Ontario', 'Yukon', 'Ontario', 'AB',
+'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
+'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
+'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
+'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
+'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
+
+Alberta occurs 9 times in the modified list.</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+    <ol class="test">
+        <li><div>Run your program and ensure that your program's output
+        matches the sample run output. (Your program may wrap the
+        province names differently.)</div></li>
+    </ol>
+
+    <h2>Sample Solution</h2>
+    <p>When your program is finished, view the <a download
+    href="check_solution.py">sample solution</a> for this assignment to
+    compare your solution to that one. Before looking at the sample
+    solution, you should work to complete this checkpoint program first.
+    However, if you have worked on it for at least an hour and are still
+    having problems, feel free to use the sample solution to help you
+    finish your program.</p>
+
+    <h2>Submission</h2>
+    <p>When complete, report your progress in the associated I-Learn
+    quiz.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

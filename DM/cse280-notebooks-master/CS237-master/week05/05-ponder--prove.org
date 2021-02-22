@@ -1,0 +1,718 @@
+#+TITLE: DM1 Week 05 Ponder and Prove Assignment
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t d:(not "HINT")
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+#+BEGIN: clocktable :maxlevel 2 :scope file
+#+CAPTION: Clock summary at [2018-02-17 Sat 12:49]
+| Headline     |   Time |      |
+|--------------+--------+------|
+| *Total time* | *8:58* |      |
+|--------------+--------+------|
+| Exercises    |   1:42 |      |
+| \_  QAM      |        | 0:12 |
+| \_  REX      |        | 0:13 |
+| \_  QCV      |        | 0:02 |
+| \_  RFC      |        | 0:02 |
+| \_  QCZ      |        | 0:05 |
+| \_  RFF      |        | 0:28 |
+| \_  QDM      |        | 0:03 |
+| \_  RJV      |        | 0:19 |
+| \_  QIQ      |        | 0:05 |
+| \_  RLH      |        | 0:13 |
+| Problems     |   1:44 |      |
+| \_  RGL      |        | 0:02 |
+| \_  QEB      |        | 0:15 |
+| \_  RGM      |        | 0:07 |
+| \_  QFK      |        | 0:04 |
+| \_  RHB      |        | 0:22 |
+| \_  QGK      |        | 0:05 |
+| \_  QGT      |        | 0:10 |
+| \_  QKT      |        | 0:18 |
+| \_  RNM      |        | 0:09 |
+| \_  QOS      |        | 0:12 |
+| Puzzles      |   5:32 |      |
+| \_  QKA      |        | 2:09 |
+| \_  RNC      |        | 1:29 |
+| \_  ROX      |        | 1:54 |
+#+END:
+
+* Instructions
+  See [[file:../week02/02-ponder--prove.org]]
+
+* Exercises
+** DONE QAM
+   CLOSED: [2018-02-12 Mon 21:54]
+   :LOGBOOK:
+   CLOCK: [2018-02-12 Mon 21:42]--[2018-02-12 Mon 21:54] =>  0:12
+   :END:
+#+begin_note
+  Henry only has one pair of pants. How many different outfits does Henry have
+  if he has 5 long-sleeve shirts and 3 short-sleeve shirts? (An outfit is \ldquo{}pants
+  with either a long-sleeve shirt or a short-sleeve shirt\rdquo.)
+
+  If Henry buys another pair of pants and 10 ties, then how many different
+  outfits (shirt /and/ tie /and/ pants) will he have?
+
+  Which basic counting principle applies to each scenario?
+:HINT:
+  - Hint :: Avoid overthinking this exercise, it is very straightforward. In the
+            first scenario, the either/or is a very obvious clue.
+:END:
+#+end_note
+#+begin_info
+  1. 1 pair of pants * (5 long sleeve shirts + 3 short sleeve shirts) = 8 outfits.
+  2. 2 pairs of pants * (5 long sleeve shirts + 3 short sleeve shirts) * 10 ties = 160 outfits.
+  The basic counting principle is multiplication.
+#+end_info
+** DONE REX
+   CLOSED: [2018-02-14 Wed 16:21]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 16:10]--[2018-02-14 Wed 16:21] =>  0:11
+   CLOCK: [2018-02-12 Mon 21:54]--[2018-02-12 Mon 21:56] =>  0:02
+   :END:
+#+begin_note
+  How should the /Sum Rule/ be adjusted when the two sets being selected from
+  are /not/ disjoint --- which means the /opposite/ of the oft-repeated \ldquo{}the
+  sets are disjoint\rdquo --- they have a /nonempty/ intersection; in other words,
+  they have /some/ members in common.
+:HINT:
+  - Hint :: Concretize two sets and draw their Venn diagram to get some insights
+            into this problem.
+:END:
+#+end_note
+#+begin_info
+  You should count each member only once. This can be done by adding the lists together and iterating through the combined list. Create another
+  list containing members that have been iterated. Check to see if the current member is inside of the iterated list you created.
+E.G.
+#+BEGIN_SRC python :results output
+a = [1, 2, 3, 4, 5, 6, 10]
+b = [1, 5, 7, 8, 9, 11]
+iterated = []
+
+a += b
+
+for i in a:
+  if i not in iterated:
+    iterated.append(i)
+
+print(iterated)
+#+END_SRC  
+
+#+RESULTS:
+: [1, 2, 3, 4, 5, 6, 10, 7, 8, 9, 11]
+
+#+end_info
+** DONE QCV
+   CLOSED: [2018-02-14 Wed 16:24]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 16:22]--[2018-02-14 Wed 16:24] =>  0:02
+   CLOCK: [2018-02-12 Mon 21:56]--[2018-02-12 Mon 21:56] =>  0:00
+   :END:
+#+begin_note
+  How many different /functions/ are there from a set with 3 elements to a set
+  with 5 elements?
+:HINT:
+  - Hint :: It may be helpful to review the definition of a /function/.
+:END:
+#+end_note
+#+begin_info
+  There are 5^3, or 125 different functions from a set with 3 elements to a set with 5 elements.
+#+end_info
+** DONE RFC
+   CLOSED: [2018-02-14 Wed 16:26]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 16:24]--[2018-02-14 Wed 16:26] =>  0:02
+   CLOCK: [2018-02-12 Mon 21:56]--[2018-02-12 Mon 21:56] =>  0:00
+   :END:
+#+begin_note
+  How many different /one-to-one/ functions are there from a set with 3 elements
+  to a set with 5 elements?
+:HINT:
+  - Hint :: It may be helpful to review the definition of a /one-to-one
+            function/ (an /injection/).
+:END:
+#+end_note
+#+begin_info
+  5*4*3 = 60
+  There are 60 different one-to-one functions from a set with 3 elements to a set with 5 elements.
+#+end_info
+** DONE QCZ
+   CLOSED: [2018-02-14 Wed 16:32]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 16:27]--[2018-02-14 Wed 16:32] =>  0:05
+   CLOCK: [2018-02-12 Mon 21:57]--[2018-02-12 Mon 21:57] =>  0:00
+   :END:
+#+begin_note
+  How many different /onto/ functions are there from a set with 3 elements to a
+  set with 5 elements?
+:HINT:
+  - Hint :: It may be helpful to review the definition of an /onto/ function/ (a
+            /surjection/).
+:END:
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+from math import *
+pairs = comb(3,2)
+combos = factorial(5)
+print(pairs*combos)
+#+END_SRC
+
+#+RESULTS:
+: 360.0
+
+There are 360 different onto functions from a set with 3 elements to a set with 5 elements.
+#+end_info
+** DONE RFF
+   CLOSED: [2018-02-14 Wed 17:47]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 16:35]--[2018-02-14 Wed 17:03] =>  0:28
+   CLOCK: [2018-02-12 Mon 21:57]--[2018-02-12 Mon 21:57] =>  0:00
+   :END:
+#+begin_note
+  Concretize the equality
+
+  P(n, r) = n(n - 1)(n - 2) \cdots (n - (r - 1)) = n!/(n - r)!
+
+  and convince yourself that it /is/ an equality.
+:HINT:
+  - Hint :: Any two positive integer values for n and r with n \ge r (e.g., 8
+            and 5) will do.
+:END:
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+n = 9
+r = 9
+print(factorial(n)/factorial(n-r))
+#+END_SRC
+
+#+RESULTS:
+: 362880.0
+
+I am convinced.
+#+end_info
+** DONE QDM
+   CLOSED: [2018-02-12 Mon 22:00]
+   :LOGBOOK:
+   CLOCK: [2018-02-12 Mon 21:57]--[2018-02-12 Mon 22:00] =>  0:03
+   :END:
+#+begin_note
+  The English language predominantly uses the Subject-Verb-Object word type
+  ordering; for example, \ldquo{}Gary saw Alice\rdquo. Other languages might use
+  Subject-Object-Verb or Object-Verb-Subject, etc. How many different word
+  orderings are possible, /not/ depending on specific words, just their type?
+:HINT:
+  - Hint :: This is a very straightforward exercise in permutations.
+:END:
+#+end_note
+#+begin_info
+  s v o
+  v s o
+  s o v
+  v o s
+  o s v
+  o v s
+  6 different word orderings.
+#+end_info
+** DONE RJV
+   CLOSED: [2018-02-14 Wed 17:22]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 17:03]--[2018-02-14 Wed 17:22] =>  0:19
+   CLOCK: [2018-02-12 Mon 22:00]--[2018-02-12 Mon 22:00] =>  0:00
+   :END:
+#+begin_note
+  Suppose you flip a /fair/ coin 10 times. How many different ways can you get
+
+  1. no heads?
+  2. exactly one head?
+  3. exactly two heads?
+  4. exactly r heads?
+  5. at least two heads?
+#+end_note
+#+begin_info
+  1. There is one way to get no heads. (10!/10!) = 1
+  2. There are 10 ways to get one head. (10!/9!*1!) = 10
+  3. There are 45 ways to get two heads. (10!/8!*2!) = 45
+  4. There are 10!/((10 - r)!*r!) ways to get r heads.
+  5. There are 1012 ways to get at least 2 heads.
+#+BEGIN_SRC python :results output
+from scipy.special import *
+a = 10
+r = 2
+ways = 0
+for i in range(2, 10):
+    ways += comb(a,i)
+print(ways)
+#+END_SRC
+
+#+RESULTS:
+: 1012.0
+
+#+end_info
+** DONE QIQ
+   CLOSED: [2018-02-14 Wed 17:28]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 17:22]--[2018-02-14 Wed 17:27] =>  0:05
+   CLOCK: [2018-02-12 Mon 22:01]--[2018-02-12 Mon 22:01] =>  0:00
+   :END:
+#+begin_note
+  How many bit strings of length 10 contain at least two 1s?
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print(2**10 - comb(10,0) - comb(10,1))
+#+END_SRC  
+
+#+RESULTS:
+: 1013.0
+
+There are 1013 bit strings of length 10 that contain at least two 1's.
+#+end_info
+** DONE RLH
+   CLOSED: [2018-02-14 Wed 17:41]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 17:28]--[2018-02-14 Wed 17:41] =>  0:13
+   CLOCK: [2018-02-12 Mon 22:01]--[2018-02-12 Mon 22:01] =>  0:00
+   :END:
+#+begin_note
+  There are many kinds of fruit: raspberries, strawberries, blueberries, apples,
+  oranges, bananas, kiwi, papaya, mango, just to name a few. Just choosing five
+  from that list of nine, how many different combinations of fruit salad can you
+  make?
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+a = 5
+r = 2
+ways = 0
+for i in range(2, 10):
+    ways += comb(a,i)
+print(ways)
+#+END_SRC
+
+#+RESULTS:
+: 26.0
+
+There are 26 different combinations of fruit salad. 
+#+end_info
+
+* Problems
+** DONE RGL
+   CLOSED: [2018-02-14 Wed 17:50]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 17:48]--[2018-02-14 Wed 17:50] =>  0:02
+   :END:
+#+begin_note
+  Recalling the example of how many are the permutations of the letters
+  ABCDELMNO, investigate and explain why 0! is defined to be equal to 1.
+#+end_note
+#+begin_info
+  0! is defined to be equal to one because there is only one way to arrange a set of 0 members.
+#+end_info
+** DONE QEB
+   CLOSED: [2018-02-14 Wed 18:05]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 17:50]--[2018-02-14 Wed 18:05] =>  0:15
+   :END:
+#+begin_note
+  How many of the 9! arrangements of the letters ABCDELMNO contain the string
+  ELM?
+:HINT:
+  - Hint :: How many arrangements of ABCDENO are there?
+:END:
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print(factorial(9) - factorial(7))
+#+END_SRC 
+
+#+RESULTS:
+: 357840.0
+
+There are 357840 ways to arrange ABCDELMNO that contain the string ELM.
+#+end_info
+** DONE RGM
+   CLOSED: [2018-02-14 Wed 18:12]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 18:05]--[2018-02-14 Wed 18:12] =>  0:07
+   :END:
+#+begin_note
+  How many TLAs (arrangements of 3 alphabetic letters) are there /with
+  repetition allowed/?
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print(comb(26,3,repetition=True))
+#+END_SRC
+
+#+RESULTS:
+: 3276.0
+
+There are 3276 TLA's possible using the english alphabet. 
+#+end_info
+** DONE QFK
+   CLOSED: [2018-02-14 Wed 18:16]
+   :LOGBOOK:
+   CLOCK: [2018-02-14 Wed 18:12]--[2018-02-14 Wed 18:16] =>  0:04
+   :END:
+#+begin_note
+  How many different sequences of initials are there for people who either have
+  two initials (first and last) or three initials (first, middle and last)?
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print("Repetition = True:",comb(26,2,repetition=True)+comb(26,3,repetition=True))
+print("Repetition = False:",comb(26,2)+comb(26,3))
+#+END_SRC
+
+#+RESULTS:
+: Repetition = True: 3627.0
+: Repetition = False: 2925.0
+
+There are 3627 different sequences of two and three letter initials.
+#+end_info
+** DONE RHB
+   CLOSED: [2018-02-15 Thu 18:18]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 18:13]--[2018-02-15 Thu 18:18] =>  0:05
+   CLOCK: [2018-02-14 Wed 18:16]--[2018-02-14 Wed 18:33] =>  0:17
+   :END:
+#+begin_note
+  How many different sequences can be formed using /either/ two /or/ three
+  letters (A-Z) followed by /either/ two /or/ three digits (0-9)?
+
+  For example:
+
+  - AB01
+  - ABC02
+  - XYZ123
+  - ...
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print((comb(26,3)+comb(26,2))*(comb(10,2)+comb(10,3)))
+#+END_SRC
+
+#+RESULTS:
+: 482625.0
+
+There are 482625 different sequences.
+#+end_info
+** DONE QGK
+   CLOSED: [2018-02-15 Thu 18:23]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 18:18]--[2018-02-15 Thu 18:23] =>  0:05
+   :END:
+#+begin_note
+  How many different \ldquo{}words\rdquo of the form =ccvcv= are there where =c= represents
+  one of the 21 consonants and =v= represents one of the 5 vowels in the English
+  alphabet? Assume no letter can be repeated, just count words like \ldquo{}tribe\rdquo or
+  \ldquo{}blizo\rdquo --- a non-word but count it anyway --- but not something like \ldquo{}trite\rdquo
+  or \ldquo{}gligi\rdquo, which have repeated letters.
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+print(25*24*5*23*4)
+#+END_SRC
+
+#+RESULTS:
+: 276000
+
+There are 276000 different "words" of the desired pattern.
+#+end_info
+** TODO RVB*
+#+begin_note
+  \({n \choose k} = {n - 1 \choose k} + {n - 1 \choose k - 1}\).
+
+  This [[recurrence relation][recurrence relation]] is normally defined for nonnegative $n$ and $k$ ($0 \le
+  k \le n$), and to be implemented as a recursive function of two parameters needs
+  some \ldquo{}escape hatch\rdquo base cases. Here they are:
+
+  \({n \choose k} = 1\) whenever $k = 0$ or $k = n$;
+
+  whence this straightforward implementation:
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun n-choose-k (n k)
+    "Computes C(n, k) by the recursive definition;
+  given a pair of nonnegative integers n >= k >= 0,
+  returns the value of n choose k."
+    (if (or (zerop k) (= k n))
+        1
+      (+ (n-choose-k (- n 1) (- k 1))
+         (n-choose-k (- n 1) k))))
+#+END_SRC
+
+  However, there are good reasons to define other boundary conditions for this
+  basic combinatorial function and let its parameters range over all the
+  integers.
+
+  \({n \choose k} = 0\) whenever $k < 0$ or $k > n$.
+
+  Explore these reasons, and re-implement =n-choose-k= with =cond= instead of
+  =if= to handle these other conditions.
+
+  BTW, the numbers \({n \choose k}\) are known as the [[binomial coefficients][binomial coefficients]], and
+  for good reason!
+#+end_note
+#+begin_info
+  Your answer goes here.
+#+end_info
+** DONE QGT
+   CLOSED: [2018-02-15 Thu 18:33]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 18:23]--[2018-02-15 Thu 18:33] =>  0:10
+   :END:
+#+begin_note
+  Thinking in terms of subsets of size $k$ from a set of size $n$,
+  convince yourself of the validity of this summation:
+
+  $\sum_{k = 0}^{n}{n \choose k} = 2^n$.
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+from scipy.special import *
+def sum_choose(n):
+  sum = 0
+  for i in range(0,n+1):
+    sum += comb(n,i,exact=True)
+  print(sum)
+n=7
+sum_choose(n)
+print(2**n)
+#+END_SRC
+
+#+RESULTS:
+: 128
+: 128
+
+I am convinced.
+#+end_info
+** DONE QKT
+   CLOSED: [2018-02-15 Thu 23:28]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 23:10]--[2018-02-15 Thu 23:28] =>  0:18
+   :END:
+#+begin_note
+  When you roll two dice, what is the probability that the sum of the numbers
+  (1-6) on their faces will be a multiple of 3 (3, 6, 9 or 12)?
+#+end_note
+#+begin_info
+|   |     1 |     2 |     3 |     4 |     5 |     6 |
+| 1 | (1,1) | (1,2) | (1,3) | (1,4) | (1,5) | (1,6) |
+| 2 | (2,1) | (2,2) | (2,3) | (2,4) | (2,5) | (2,6) |
+| 3 | (3,1) | (3,2) | (3,3) | (3,4) | (3,5) | (3,6) |
+| 4 | (4,1) | (4,2) | (4,3) | (4,4) | (4,5) | (4,6) |
+| 5 | (5,1) | (5,2) | (5,3) | (5,4) | (5,5) | (5,6) |
+| 6 | (6,1) | (6,2) | (6,3) | (6,4) | (6,5) | (6,6) |
+
+2/36 + 5/36 + 4/36 + 1/36 = 12/36 = 1/3 = .3333333333
+#+end_info
+** DONE RNM
+   CLOSED: [2018-02-15 Thu 23:37]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 23:28]--[2018-02-15 Thu 23:37] =>  0:09
+   :END:
+#+begin_note
+  Rather than roll dice, Ruth and Ed usually flip a coin to decide who's going
+  to do the chores. One day Ed complains --- he thinks he loses too often. So
+  Ruth says, \ldquo{}OK, this time you flip two coins, and I flip one. If you get more
+  heads than I do, I\rsquo{}ll clean the toilets.\rdquo Ed likes Ruth\rsquo{}s display of
+  generosity and says, \ldquo{}You\rsquo{}re on!\rdquo
+
+  What are his chances?
+:HINT:
+  - Hint :: This was adapted from a problem posed by Marilyn Vos Savant in her
+            \ldquo{}Ask Marilyn\rdquo Parade Magazine column.
+:END:
+#+end_note
+#+begin_info
+  1/2*1/2 = 1/4. He has a 25% probability, vs. Ruth's probability of 50%.
+#+end_info
+** DONE QOS
+   CLOSED: [2018-02-15 Thu 23:49]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 23:37]--[2018-02-15 Thu 23:49] =>  0:12
+   :END:
+#+begin_note
+  Generalize the two- and four- fair-coin-flipping experiment to deal with the
+  experiment of flipping /2n/ coins. Find the probability of the event that /n/
+  will be heads, and /n/ will be tails.
+:HINT:
+  - Hint :: The answer will be a function of /n/.
+:END:
+#+end_note
+#+begin_info
+#+BEGIN_SRC python :results output
+def coin_probability(n):
+  print(1/2**(2*n))
+coin_probability(2)
+#+END_SRC
+
+#+RESULTS:
+: 0.0625
+
+P(n) = 1/2^2n
+
+The probability of getting all heads by flipping a coin 2n times is 2^-2n, or 1/2^2n.
+#+end_info
+** TODO ROP*
+#+begin_note
+  What is the probability that when randomly selecting a permutation of the 26
+  letters (assumed all uppercase) of the alphabet the following events will
+  occur?
+
+  1. The first 13 letters will be in alphabetical order.
+  2. The first and last letters will be B and Y.
+  3. The letter I will come before both J and K.
+  4. The letters O and P will be next to each other.
+  5. The letters U and V will be separated by at least 23 letters.
+#+end_note
+#+begin_info
+  Your answer goes here.
+#+end_info
+** TODO QRQ*
+#+begin_note
+  What should go in place of the \ldquo{};;...\rdquo in the code below? What other
+  improvements/fixes does this function need?
+
+#+BEGIN_SRC emacs-lisp
+  (defun probability (event space)
+    "A function that takes an event and a space
+  and returns a number between 0 and 1."
+    (let ((result (/ (size event) (size space))))
+      ;;...
+      result
+      ))
+#+END_SRC
+#+end_note
+#+begin_info
+  Your answer goes here.
+#+end_info
+* Puzzles
+** DONE QKA
+   CLOSED: [2018-02-14 Wed 16:10]
+   :LOGBOOK:
+   CLOCK: [2018-02-15 Thu 16:35]--[2018-02-15 Thu 17:13] =>  0:38
+   CLOCK: [2018-02-14 Wed 15:33]--[2018-02-14 Wed 16:10] =>  0:37
+   CLOCK: [2018-02-13 Tue 16:34]--[2018-02-13 Tue 17:28] =>  0:54
+   :END:
+#+begin_note
+  A standard 52-card deck has 4 suits [\heartsuit \spadesuit \diamondsuit \clubsuit] of 13 cards each. A 5-card
+  hand can be chosen in any of \({52 \choose 5}\) ways. Bridge is a game where
+  each of 4 players is dealt 13 cards, which means the whole deck is dealt. A
+  hand has a distribution of suits, which is how many of each suit make up the
+  13 total. For example, =[2 2 3 6]= is the suit distribution of the hand
+  [Ace\heartsuit 3\hearts 2\diamondsuit{} 9\diamondsuit 4\clubsuit 2\clubsuit 7\clubsuit Jack\spadesuit 9\spadesuit 5\spadesuit Queen\spadesuit 10\spadesuit 6\spadesuit] (2 hearts, 2 diamonds, 3
+  clubs and 6 spades).
+
+  How many different hands with a =[4 4 3 2]= suit distribution can be dealt?
+
+  How many different suit distributions are there? (=[4 4 3 2]= is /not/
+  different than =[2 3 4 4]=, because order of the suits does /not/ matter.)
+#+end_note
+*** Rephrase
+    How many different hands with 4 hearts, 4 spades, 3 diamonds and 2 clubs can be dealt?
+    How many unique different distributions of suits exist?
+*** Approach
+    I will use the choose function and program this in python to find a solution.
+*** Solution
+    There are 136852887600 different possible hands with a =[4 4 3 2]= suit distribution.
+    There are 39 different suit distributions.
+*** Proof
+#+BEGIN_SRC python :results output
+from scipy.special import *
+print(comb(13,4)*comb(13,4)*comb(13,3)*comb(13,2)*12)
+#+END_SRC
+
+#+RESULTS:
+: 136852887600.0
+
+I counted the total different distributions by hand and got 39.
+
+** DONE RNC
+   CLOSED: [2018-02-17 Sat 12:49]
+   :LOGBOOK:
+   CLOCK: [2018-02-17 Sat 12:38]--[2018-02-17 Sat 12:48] =>  0:10
+   CLOCK: [2018-02-15 Thu 23:49]--[2018-02-16 Fri 00:11] =>  0:22
+   CLOCK: [2018-02-15 Thu 17:16]--[2018-02-15 Thu 18:13] =>  0:57
+   :END:
+#+begin_note
+  In the game of /Five Crowns/ there are 116 cards in two combined decks, and in
+  each of 11 hands the number of cards dealt each player increases by one,
+  starting at 3, ending at 13. This implies 11 different numbers of total
+  possible hands from randomly shuffled decks. At which hand (/n/ between 3
+  and 13) will it become infeasible to compute this number of possible hands
+  without overflowing the capacity of an elisp /fixnum/?
+#+end_note
+*** Rephrase
+    When will elisp overflow when calculating the number of possible hands in the game Five Crowns?
+*** Approach
+    I will calculate at which hand elisp will overflow by creating a program in elisp that will calculate the total number of possible hands.
+*** Solution
+    I was unsure how to calculate this.
+*** Proof
+    I was unsure how to program this.
+
+** DONE ROX
+   CLOSED: [2018-02-13 Tue 19:22]
+   :LOGBOOK:
+   CLOCK: [2018-02-13 Tue 17:28]--[2018-02-13 Tue 19:22] =>  1:54
+   :END:
+#+begin_note
+  What is the probability that a randomly chosen 3-digit number unambiguously
+  designates a date (month number plus day number paired without punctuation)?
+  E.g., 111 is ambiguous, it could mean January 11th (month 1, day 11) or
+  November 1st (month 11, day 1). Don\rsquo{}t count numbers with zeros in the second
+  or third position (why not the first position?) as ambiguous, given the rule
+  that days are never written with a leading zero. E.g., 101 can only mean
+  October 1st, not January 1st. Eliminate from the event space any invalid
+  numbers, e.g. 345, as neither 3/45 nor 34/5 is a valid date.
+:HINT:
+  - Hint :: Concretize! List all the 3-digit numbers from 100 to 999 and divide
+            them into two sets: valid and invalid.
+:END:
+#+end_note
+*** Rephrase
+    What is the chance that a 3 digit number will correalate to a month and a day respectively?
+*** Approach
+    I will write a python code to loop through all three digit numbers and find all possible working combinations.
+*** Solution
+    184/900 or 0.20444444444444446 is the probability that a number between 100 and 999 will be a valid and unambiguous day/month combination.
+*** Proof    
+#+BEGIN_SRC python :results output
+works = []
+nope = []
+month_days = [0,31,29,31,30,31,30,31,31,30]
+for i in range(100,999):
+    if 110 < i < 120 or 120 < i < 130:
+        nope.append(i)
+    elif i//100 == 1 and (0 < (i%100) < 10):
+        works.append(i)
+    elif (i//10)%10 != 0 and i%100 <= month_days[i//100]:
+        works.append(i)
+    else:
+        nope.append(i)
+
+print("Works:",works,"\nNope:",nope)
+print("Works:", len(works), "\nNope:", len(nope))
+print("Probability:",len(works)/900)
+#+END_SRC
+
+#+RESULTS:
+: Works: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 120, 130, 131, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930] 
+: Nope: [100, 111, 112, 113, 114, 115, 116, 117, 118, 119, 121, 122, 123, 124, 125, 126, 127, 128, 129, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998]
+: Works: 184 
+: Nope: 715
+: Probability: 0.20444444444444446

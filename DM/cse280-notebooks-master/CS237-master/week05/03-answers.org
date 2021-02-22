@@ -1,0 +1,478 @@
+#+TITLE: Answers to DM1 Week 03 EPPs
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t d:(not "HINT")
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+#+SCORE: 0
+* Score Calculation
+#+BEGIN_SRC emacs-lisp
+  (setq
+   EX '((WRP . 0) (TOJ . 0) (WRU . 0) (TOL . 0) (TUK . 0)
+        (WVQ . 0) (TUQ . 0) (WVU . 0) (TVL . 0) (TXG . 0))
+   Ex (/ (float (apply '+ (mapcar 'cdr EX))) (length EX))
+   PR '((WZO . 0) (TOU . 0) (TLI . 0) (WPI . 0) (TTV . 0)
+        (WUZ . 0) (TUW . 0) (WWS . 0) (TKH . 0) (WUE . 0))
+   Pr (/ (apply '+ (mapcar 'cdr PR)) 10.0 (length PR))
+   MMP (+ .0 .0 .0)
+   Pu (+ MMP)
+   spelling-errors 0
+   Mc .0
+   Todos-missed 21
+   incorrect-timing 21
+   No-Report 10
+   Tt (- 100 Todos-missed incorrect-timing No-Report)
+   score (* (+ (* Ex Pr) Pu Mc) Tt))
+#+END_SRC
+
+#+RESULTS:
+: 0.0
+
+* Exercises
+** Read DEV through DEW
+** WRP
+#+begin_info
+  1. Someone is older than 21.
+  2. Everyone is older than 21.
+  3. Someone is not older than 21.
+  4. Everyone is not older than 21. Or, No one is older than 21.
+#+end_info
+** TOJ
+#+begin_info
+  1. Some resident of Idaho is a student at BYU-Idaho.
+  2. Every resident of Idaho is a student at BYU-Idaho.
+  3. There is no resident of Idaho who is a student at BYU-Idaho.
+  4. There is a resident of Idaho who is not a student at BYU-Idaho.
+  5. Not all residents of Idaho are non-students at BYU-Idaho.
+  6. Every resident of Idaho is a non-student at BYU-Idaho. Or, No resident of
+     Idaho is a student at BYU-Idaho.
+#+end_info
+** WRU
+#+begin_info
+  1. For all people, if a person is a friend, then that person is cool. Better:
+     All friends are cool.
+  2. Some person is a friend and is cool.
+  3. Every person is a friend and is cool.
+  4. For some person, if that person is a friend, then that person is cool.
+     Better: Some friends are cool.
+#+end_info
+** TOL
+#+begin_info
+  1. All students are from Russia.
+  2. For some person, if that person is from Russia, then that person is from
+     Russia. This would follow the pattern established by the other three and
+     make more sense as \exist x S(x) $\rarr$ R(x). In which case, it would be: Someone,
+     if he/she is a student then he/she is from Russia.
+  3. Every person is a student and is from Russia.
+  4. Some student is from Russia.
+#+end_info
+** TUK
+#+begin_info
+  1. Some number is greater than every number. (Or, there is a greatest number.
+     Clearly false!)
+  2. The product of some nonnegative numbers is nonnegative.
+  3. Some number is the sum of every number and some other number.
+#+end_info
+** WVQ
+#+begin_info
+  1. Every student asks some student a question.
+  2. Every student asks every student a question.
+  3. Some student asks at least one student a question.
+  4. Some student asks every student a question.
+  5. Every student is asked a question by some (or at least one) student.
+  6. Same as 4.
+#+end_info
+** TUQ
+#+begin_info
+  1. \forall x \forall y S(x) \land T(y) \rarr \not Q(x, y)
+  2. \exists x \exists y S(x) \land T(y) \land Q(x, y)
+  3. \forall x \exists y \exists z S(x) \land T(y) \land A(z) \rarr (Q(x y) \land Q(x, z))
+  4. \exists x \exists y \exists z S(x) \land S(y) \land x \ne y \land T(z) \land Q(x, z) \land Q(y, z)
+#+end_info
+** WVU
+#+begin_info
+  1. \not \exists x \forall y T(x, y). Or, \forall x \exists y \not T(x, y)
+  2. \forall x \forall y T(x, y)
+  3. \exists x_1 \exists x_2 \exists y T(x_1, y) \land T(x_2, y) \land x_1 \ne x_2
+  4. Same as 1.
+#+end_info
+** TVL
+#+begin_info
+  1. Jackson Andrews has dropped out of Discrete Mathematics.
+  2. There is exactly one student who has dropped out of every class.
+  3. Every student has dropped at least one class.
+#+end_info
+** TXG
+#+begin_info
+  1. True
+  2. False
+  3. True
+  4. True
+  5. True
+  6. False
+  7. False
+  8. True
+#+end_info
+
+* Problems
+  Note: * means optional. If it\rsquo{}s not starred, it\rsquo{}s required.
+** WZO
+#+begin_info
+  Using the predicates C(x) = \ldquo{}x is a critic\rdquo, P(x) = \ldquo{}x is perfect\rdquo, F(x) = \ldquo{}x
+  is your friend\rdquo:
+  1. \forall x C(x)
+  2. \not \exists x P(x) or \forall x \not P(x)
+  3. \exists x F(x) \land P(x)
+  4. \forall x F(x) \rarr C(x)
+  5. \forall x C(x) \lor \exist x F(x)
+  6. \not \exists x C(x) \land \forall x F(x)
+#+end_info
+** TOU
+#+begin_info
+  The problem did not ask for predicates, but we supply them anyway:
+  1. \forall x horse(x) \rarr hashooves(x).
+  2. \forall x horse(x) \rarr \not canfly(x).
+  3. \forall x bat(x) \rarr blind(x).
+  4. \forall x bear(x) \rarr \not candance(x).
+  5. \exists x penguin(x) \land canswim(x) \land cancatchfish(x).
+
+  Negated:
+  1. \exists x horse(x) \land \not hashooves(x).
+  2. \exists x horse(x) \land canfly(x).
+  3. \exists x bat(x) \land \not blind(x).
+  4. \exists x bear(x) \land candance(x).
+  5. \forall x \not penguin(x) \lor \not canswim(x) \lor \not cancatchfish(x).
+
+  Negations in English:
+  1. Some horse does not have hooves.
+  2. Some horse can fly.
+  3. Some bat is not blind.
+  4. Some bear can dance.
+  5. Everything is either a non-penguin or a non-swimmer or a non-fish-catcher.
+     Better: No penguin can swim and catch fish.
+#+end_info
+** WYH *
+#+begin_info
+  1. Using set-of-songs, S(x) = x \in set-of-songs, C(x) = x can be sung, A(x) = x
+     is a soul alive to music, the statement is: A(x) \rarr \exists x set-of-songs \ne \empty \land S(x) \land C(x)
+  2. Using E(x) = x is an error, M(x) = x is an error message, D(x) = x is
+     displayed, the statement is: E(x) \rarr \exists x M(x) \land D(x)
+  3. Using P(x) = x is a program, S(x) = x has been scanned, V(x) = x has a
+     virus, the statement is: [\forall x (P(x) \rarr S(x))] \land [\exists x (P(x) \land V(x))]
+#+end_info
+** TLI
+#+begin_info
+  1. False
+  2. False
+  3. True
+  4. False
+#+end_info
+** WPI
+#+begin_info
+  1. True
+  2. It depends. If the universe has exactly one thing in it, the statement is
+     true, but if the universe has more than one thing in it, the statement is
+     false.
+  3. True
+  4. It depends. If the universe is empty, the statement is false, but if the
+     universe is nonempty, it is true.
+#+end_info
+** TSD *
+#+begin_info
+  1. \exists x E(x) \land ignored(x)
+  2. \not \forall x L(x) \rarr R(x). Or, \exists x L(x) \land \not R(x).
+  3. \exists x E(x) \land \not R(x).
+  4. \exists x E(x) \land L(x).
+#+end_info
+** WTM *
+#+begin_info
+  1. \forall x L(x) \rarr \not D(x)
+  2. \forall x S(x) \rarr D(x)
+  3. \forall x F(x) \rarr L(x)
+  4. \forall x F(x) \rarr \not S(x)
+  5. Yes, 4 logically follows from 1, 2 and 3. No friend of mine is willing to
+     drink by 1 and 3, and soldiers are willing to drink by 2, so no soldier can
+     be a friend of mine.
+#+end_info
+** TTV
+#+begin_info
+  1. True
+  2. True
+  3. True
+  4. False (fails on negative x)
+#+end_info
+** WUZ
+#+begin_info
+  We took the hint to first make the code NON-object-oriented (purely
+  imperative) by using function pointers instead of using a class to encapsulate
+  a function. Note the use of =funcall= to call a function indirectly through a
+  symbol --- which as mentioned in DEK is exactly analogous to a function
+  pointer:
+
+#+BEGIN_SRC emacs-lisp
+  (require 'cl) ;; for the "loop" macro
+
+  (defun for-all (predicate domain)
+    "for-all is the Universal Quantification of a predicate,
+     the proposition that is true if and only if the predicate is true
+     for all items in a universe of discourse (domain).
+     This function loops across domain (which has finite size)
+     to see if predicate is always true.
+     If it encounters a single item for which the predicate is false,
+     then the loop short-circuits and returns false (nil) from for-all.
+     Otherwise for-all returns true (t)."
+    (loop for item across domain
+          always (funcall predicate item)))
+
+  (defun for-some (predicate domain)
+    "for-some is the Existential Quantification of a predicate,
+     the proposition that is true if and only if the predicate is true
+     for at least one item in a universe of discourse (domain).
+     This function loops across domain (which has finite size)
+     to see if predicate is ever true.
+     If it encounters a single item for which the predicate is true,
+     then the loop short-circuits and returns true (t) from for-some.
+     Otherwise for-some returns false (nil)."
+    (loop for item across domain
+          thereis (funcall predicate item)))
+#+END_SRC
+
+  Here are some sample calls using the built-in evenp and oddp predicates, and
+  vectors of integers for domains:
+
+#+BEGIN_SRC emacs-lisp
+  (for-all  'evenp [1 2 3]) ; => nil
+  (for-some 'evenp [1 2 3]) ; => t
+  (for-all  'evenp [2 4 6]) ; => t
+  (for-some 'evenp [1 3 7]) ; => nil
+  (for-all  'oddp [1 3 5])  ; => t
+  (for-some 'oddp [2 6 10]) ; => nil
+  (for-all  'oddp [5 4 3]) ; => nil
+  (for-some 'oddp [6 4 3]) ; => t
+#+END_SRC
+
+  Here are two sample calls using the built-in symbolp predicate, and vectors of
+  purely symbols or mixed symbols and integers for domains:
+
+#+BEGIN_SRC emacs-lisp
+  (for-all 'symbolp [a b c]); => t
+  (for-all 'symbolp [a b c 1 2 3]); => nil
+#+END_SRC
+
+  Make it more like the C++ code, only without the redundant output statements:
+
+#+BEGIN_SRC emacs-lisp
+  (defun tf (t-or-nil)
+    "Convenience adapter converting t to \"TRUE\" and nil to \"FALSE\"."
+    (if t-or-nil "TRUE" "FALSE"))
+
+  (defun run-test (function predicate domain expected)
+    "Run function with predicate and domains to get ACTUAL result.
+     Check to see if ACTUAL is the same as EXPECTED, with clarity of test
+     output achieved by AT-A-GLANCE matching of TRUE with TRUE or FALSE with FALSE."
+    (let ((actual (funcall function predicate domain)))
+      (princ (format "\nFor the predicate '%s\nand domain %s:
+  %s\nwas expected to return\n%s, the actual value returned was\n%s.\n\n"
+                     predicate domain function (tf expected) (tf actual)))
+      t))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results output
+  (run-test 'for-all 'evenp [1 2 3] nil)
+#+END_SRC
+#+end_info
+** WZM *
+#+begin_info
+  In \ldquo{}diff\rdquo form:
+:   f : A \rarr B
+:   is
+: - - injective :: if f(m) \ne f(n) whenever m \ne n, for all m \in A and for all n \in A;
+: + - injective :: if $\forall$ m \in A \land $\forall$ n \in A, f(m) \ne f(n) whenever m \ne n;
+:   and/or is
+: - - surjective :: if for all b \in B there exists an a \in A such that f(a) = b.
+: + - surjective :: if $\forall$ b \in B $\exists$ a \in A, f(a) = b.
+#+end_info
+** TUW
+#+begin_info
+  Using CS(x) = x is a CS major, T(x, y) = x needs to take y, C(x) = x is a
+  student in the class, O(x, y) = x owns y, HT(x, y) = x has taken y, S(x) = x
+  is a student, R(x) = x is a room, BI(x, y) = x has been in y, BU(x) = x is a
+  building at the University (on campus), and II(x, y) = x is in y:
+  1. \forall x CS(x) \rarr T(x, discrete mathematics)
+  2. \forall x C(x) \rarr O(x, laptop)
+  3. \exists x C(x) \land HT(x, data structures)
+  4. \forall x \exists y [S(x) \land BU(y) \land \not BI(x, y)]
+  5. \exists! x \forall y [(S(x) \land R(y) \land II(y, STC)) \rarr BI(x, y)]
+  6. \forall x \exists y \forall z [(S(x) \land R(y)) \rarr (BU(z) \rarr BI(x, y))]
+#+end_info
+** WWD *
+#+begin_info
+  Using the same predicates as in TUW, the negations of the statements are:
+  1. \exists x CS(x) \land \not T(x, discrete mathematics)
+  2. \exists x C(x) \land \not O(x, laptop)
+  3. \forall x \not C(x) \lor \not HT(x, data structures)
+  4. \exists x \forall y [(S(x) \land BU(y)) \rarr BI(x, y)]
+  5. \forall x \exists y [S(x) \land R(y) \land II(y, STC) \land \not BI(x, y)]
+  6. \exists x \forall y \exists z [S(x) \land R(y) \land BU(z) \land \not BI(x, y)]
+#+end_info
+** WWR *
+#+begin_info
+  1. \forall x \forall y (Average(x, y) \le x) \lor (Average(x, y) \le y)
+  2. \forall x \forall y [((x > 0) \land (y < 0)) \rarr xy < 0]
+  3. \forall x \not HasSolution(x / 0)
+  4. \forall x \forall y [((x > 0) \land (y < 0)) \rarr x > y]
+#+end_info
+** TWN *
+#+begin_info
+  \forall p \forall x \forall y \forall z [Prime(p) \land x > 1 \land y > 1 \land z > 1 \rarr p \ne xyz]
+#+end_info
+** WWS
+#+begin_info
+  1. True
+  2. True
+  3. True
+  4. True
+#+end_info
+** WZG *
+#+begin_info
+  1. True
+  2. True
+  3. True
+  4. True
+#+end_info
+** TKH
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun for-all-for-all (predicate domain-x domain-y)
+    "Nested-loop for-all (always) for-all (always)."
+    (loop for x across domain-x
+          always (loop for y across domain-y
+                       always (funcall predicate x y))))
+
+  (defun for-all-for-some (predicate domain-x domain-y)
+    "Nested-loop for-all (always) for-some (thereis)."
+    (loop for x across domain-x
+          always (loop for y across domain-y
+                       thereis (funcall predicate x y))))
+
+  (defun for-some-for-all (predicate domain-x domain-y)
+    "Nested-loop for-some (thereis) for-all (always)."
+    (loop for x across domain-x
+          thereis (loop for y across domain-y
+                        always (funcall predicate x y))))
+
+  (defun for-some-for-some (predicate domain-x domain-y)
+    "Nested-loop for-some (thereis) for-some (thereis)."
+    (loop for x across domain-x
+          thereis (loop for y across domain-y
+                        thereis (funcall predicate x y))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (for-all-for-all '> [4 5 6] [1 2 3])
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC emacs-lisp
+  (for-all-for-some '> [4 5 6] [3 6 9])
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC emacs-lisp
+  (for-some-for-all '> [4 5 6] [3 4 5])
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC emacs-lisp
+  (for-some-for-some '> [4 5 6] [5 6 7])
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (for-all-for-all '< [4 5 6] [1 2 3])
+#+END_SRC
+
+#+RESULTS:
+nil
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (for-all-for-some '> [4 5 6] [7 8 9])
+#+END_SRC
+
+#+RESULTS:
+nil
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (for-some-for-all '> [4 5 6] [7 8 9])
+#+END_SRC
+
+#+RESULTS:
+nil
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (for-some-for-some '> [4 5 6] [7 8 9])
+#+END_SRC
+
+#+RESULTS:
+nil
+#+end_info
+** WUE
+#+begin_info
+  Choice 2 ($\forall\,x\,\exists\,y\,P(x, y)$) makes the most sense, especially in light of
+  Doctrine and Covenants 132:5, which rephrases verses 20 and 21 in section 130.
+
+  - 5. :: /For all who will have a blessing at my hands shall abide the law
+          which was appointed for that blessing, and the conditions thereof, as/
+          /were instituted from before the foundation of the world./
+
+  So for every blessing there is some law (but there could be more than one)
+  upon which it is predicated (or for which it was appointed).
+#+end_info
+
+* Puzzles
+** MMP
+*** Rephrase
+    What is revealed by running the given code that multiplies a certain 2x2
+    matrix by itself several times?
+*** Approach
+    PVP: Predict and check if correct by evaluating each code block.
+*** Solution
+    The first code block is demonstrating a very crude way to do 2x2 matrix
+    multiplication.
+
+    The second code block is demonstrating how to access the \ldquo{}guts\rdquo of a
+    function definition, as a list.
+
+    (Actually, one more function call should be done to retrieve the =let*=.
+    Which one?)
+
+    The third and last code block shows a sample use of the =mm= function on a
+    matrix with =[0 1]= as its first row and =[1 1]= as its second row. The code
+    actually shows that matrix being \ldquo{}raised\rdquo to the sixth power, with results:
+    =[[5 8] [8 13]]=.
+*** Proof
+    The numbers 5, 8 and 13 look like consecutive Fibonacci numbers. We recall
+    how these numbers are defined:
+
+    \(f_n = f_{n - 1} + f_{n - 2}, f_0 = 0, f_1 = 1.\)
+
+    Hint: exporting to HTML shows the above and below formulas as LaTeX rendered
+    in more readable form.
+
+    Raising the initial matrix (noting that 0, 1 and 1 are the first three
+    Fibonacci numbers) to powers other than 6, leads us to this conjecture:
+
+    \(\left[\begin{array}{cc} f_{n - 1} & f_{n}\\ f_{n} & f_{n + 1}\\ \end{array}\right]
+    = \left[\begin{array}{cc} 0 & 1\\ 1 & 1\\ \end{array}\right]^n\ \mbox{for}\ n \ge 1.\)
+
+    Proving this equality relationship holds for all $n$ is best done using a
+    technique called /mathematical induction/, which is introduced in DM3 and
+    discussed in more depth in DM4.

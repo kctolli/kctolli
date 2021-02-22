@@ -1,0 +1,1266 @@
+#+TITLE: Answers to DM1 Week 02 EPPs
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t d:(not "HINT")
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+#+SCORE: 0
+#+BEGIN_SRC emacs-lisp
+  (setq
+   EX '((TDR . 0) (WDT . 0) (TEJ . 0) (WFK . 0) (TER . 0) (TGE . 0) (THP . 0)(WKM . 0) (TIW . 0) (TKG . 0) (WOV . 0) (WQW . 0)
+   Ex (/ (float (apply '+ (mapcar 'cdr EX)))  (length EX))
+   PR '((TEH . 0)(WFC . 0)(WJS . 0)(WKC . 0)(WNW . 0)(TMZ. 0)(TNL . 0)(WRD . 0)(TNQ. 0)
+   Pr (/(/ (float (apply '+ (mapcar 'cdr PR)))  (length PR))10)
+   TEU (+ .0 .0 .0)
+   TME (+ .0 .0 .0)
+   WRA (+ .0 .0 .0)
+   Pu (+ OQP UFV CSV)
+   spelling-errors 0
+   Mc .0
+   Todos-missed 23
+   incorrect-timing 23
+   No-Report 10
+   Tt (- 100 Todos-missed incorrect-timing No-Report)
+   score (* (+ (* Ex Pr) Pu Mc) Tt))
+#+END_SRC
+
+#+RESULTS:
+: 0.0
+
+* Exercises
+** TDR
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results silent
+  (setf (symbol-function 'fun1) (lambda (n) (* 42 n)))
+#+END_SRC
+
+  is the equivalent of
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (fset 'fun1 (lambda (n) (* 42 n)))
+#+END_SRC
+#+end_info
+** WDT
+#+begin_info
+  Learn by doing: predict the results, verify your predictions, and ponder why
+  there was a difference (if there was).
+
+  Prediction: 6
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) (+ a b c))
+#+END_SRC
+
+#+RESULTS:
+: 6
+
+  Prediction: error (d not bound)
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) (+ a b c d))
+#+END_SRC
+
+  Result: error message \ldquo{}Symbol\rsquo{}s value as variable is void: d\rdquo.
+
+  Prediction: [+ a b c d] (because vectors self-evaluate)
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3)) [+ a b c d])
+#+END_SRC
+
+#+RESULTS:
+: [+ a b c d]
+
+  Prediction: 10 (+ was bound as variable)
+#+BEGIN_SRC emacs-lisp
+  (let ((a 1) (b 2) (c 3) (+ 4)) (+ a b c +))
+#+END_SRC
+
+#+RESULTS:
+: 10
+
+  Prediction: error (a was globally unbound, and the let binding was not seen)
+#+BEGIN_SRC emacs-lisp
+  (makunbound 'a)
+  (let ((a 1) (b 2) (c 3) (d (+ a 4))) (+ a b c d))
+#+END_SRC
+
+  Result: error message \ldquo{}Symbol\rsquo{}s value as variable is void: a\rdquo.
+
+  Prediction: 11 (the let binding for a will be seen)
+#+BEGIN_SRC emacs-lisp
+  (let* ((a 1) (b 2) (c 3) (d (+ a 4))) (+ a b c d))
+#+END_SRC
+
+#+RESULTS:
+: 11
+#+end_info
+** TEJ
+#+begin_info
+  SPC h d f then type assoc to find the variants assoc-if and assoc-if-not:
+
+  (assoc-if PREDICATE LIST [KEYWORD VALUE]...)
+
+  Find the first item whose car satisfies PREDICATE in LIST.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (assoc-if (lambda (color) (equal (upcase color) "BLUE"))
+            '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))
+#+END_SRC
+
+#+RESULTS:
+(blue 0 0 255)
+
+(assoc-if-not PREDICATE LIST [KEYWORD VALUE]...)
+
+Find the first item whose car does not satisfy PREDICATE in LIST.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (assoc-if-not (lambda (colorname) (= 3 (length colorname)))
+                '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))
+#+END_SRC
+
+#+RESULTS:
+(green 0 255 0)
+
+  You might have stumbled across the very-poorly-named variant:
+
+  (assq KEY LIST)
+
+  Return non-nil if KEY is `eq' to the car of an element of LIST. The value is
+  actually the first element of LIST whose car is KEY. Elements of LIST that are
+  not conses are ignored.
+
+  The only difference between that variant and assoc is the \lsquo{}eq\rsquo test as opposed
+  to \lsquo{}equal\rsquo.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (assq 'four '((one 1) (two 2) (three 3) (four 4) (five 5)))
+#+END_SRC
+
+#+RESULTS:
+(four 4)
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (assq "four" '(("one" 1) ("two" 2) ("three" 3) ("four" 4) ("five" 5)))
+#+END_SRC
+
+#+RESULTS:
+nil
+
+  Thus we see that strings are not \lsquo{}eq\rsquo to other strings with the same
+  characters in them, but they are \lsquo{}equal\rsquo:
+
+#+BEGIN_SRC emacs-lisp
+ (and
+   (not (eq "four" "four"))
+   (equal "four" "four"))
+#+END_SRC
+
+#+RESULTS:
+: t
+#+end_info
+** WFK
+#+begin_info
+  What happens when you omit the =:test 'equal= parameters to the
+  =make-hash-table= call is that only nils get printed out in the list that pp
+  sees:
+
+#+BEGIN_SRC emacs-lisp :results output
+  (let* ((mymap (make-hash-table)))
+   (puthash "one" "red" mymap)
+   (puthash "two" "blue" mymap)
+   (puthash "three" "green" mymap)
+   (pp (list (gethash "one" mymap)
+             (gethash "two" mymap)
+             (gethash "three" mymap)))
+   (maphash (lambda (key value) (princ (format "%s : %s\n" key value))) mymap))
+#+END_SRC
+
+#+RESULTS:
+: (nil nil nil)
+: one : red
+: two : blue
+: three : green
+
+  SPC h d f make-hash-table reveals that the default for the =:test= keyword is
+  =eql=, which fails with strings:
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (eql "one" "one")
+#+END_SRC
+
+#+RESULTS:
+nil
+#+end_info
+** TER
+#+begin_info
+  From the looks of it, =morphify= loops over the items in a list, calls a
+  supplied function on each item, and collects the results of these function
+  calls in a list that is returned.
+
+  Predicted: ("this" "is" "too" "loud")
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (format "%S" (morphify (quote downcase) (quote ("THIS" "IS" "TOO" "LOUD"))))
+#+END_SRC
+
+#+RESULTS:
+("this" "is" "too" "loud")
+
+  The recursive version walks the list by recursion, appending the result of
+  calling the function on the first item in the list to the results of
+  recursively calling itself on the rest of the items in the list. The base case
+  is the empty list, which returns nil, which does not affect the append call:
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (append '(a b c) nil)
+#+END_SRC
+
+#+RESULTS:
+(a b c)
+#+end_info
+** TGE
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results raw
+  (let* ((number (/ -13 4.0))
+         (floor1 (floor number))
+         (floor2 (compute-floor-the-hard-way -13 4.0)))
+    (list number floor1 floor2))
+#+END_SRC
+
+#+RESULTS:
+(-3.25 -4 -4.0)
+
+  Yes, the hard way is correct --- it gives the same answer.
+#+end_info
+** THP
+#+begin_info
+: Graph of Floor
+:
+:  5                                                             *
+:  4                                                       *-----o
+:  3                                                 *-----o
+:  2                                           *-----o
+:  1                                     *-----o
+:  0                               *-----o
+: -1                         *-----o
+: -2                   *-----o
+: -3             *-----o
+: -4       *-----o
+: -5 *-----o
+:   -5    -4    -3    -2    -1     0     1     2     3     4     5
+
+: Graph of Ceiling
+:
+:  5                                                       o-----*
+:  4                                                 o-----*
+:  3                                           o-----*
+:  2                                     o-----*
+:  1                               o-----*
+:  0                         o-----*
+: -1                   o-----*
+: -2             o-----*
+: -3       o-----*
+: -4 o-----*
+: -5 *
+:   -5    -4    -3    -2    -1     0     1     2     3     4     5
+#+end_info
+** WKM
+#+begin_info
+  1 is correct:
+#+BEGIN_SRC emacs-lisp
+  (loop for x from -4.0 to 4.4 by .1
+        always (and (< (- x 1) (floor x))
+                    (<= (floor x) x)
+                    (<= x (ceiling x))
+                    (< (ceiling x) (+ x 1)))))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+  2 and 3 are correct:
+#+BEGIN_SRC emacs-lisp
+  (loop for x from -4 to 4 by 1
+        always (and (= (floor (- x)) (- (ceiling x)))
+                    (= (ceiling (- x)) (- (floor x)))))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+#+BEGIN_SRC emacs-lisp
+  (loop for x from -4.0 to 4.4 by .1
+        always (and (= (floor (- x)) (- (ceiling x)))
+                    (= (ceiling (- x)) (- (floor x)))))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+  4 and 5 are correct:
+
+#+BEGIN_SRC emacs-lisp
+  (loop for n from -1 to 1
+        always (loop for x from -4.0 to 4.4 by .1
+                     always (and (= (floor (+ x n)) (+ (floor x) n))
+                                 (= (ceiling (+ x n)) (+ (ceiling x) n)))))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+  6 is correct:
+#+BEGIN_SRC emacs-lisp
+  (loop for n from -3 to 3
+        always (= (+ (floor (/ n 2.0)) (ceiling (/ n 2.0))) n))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+  7 is correct:
+#+BEGIN_SRC emacs-lisp
+  (loop for n from -3 to 3
+        always (= (+ (floor (/ n 2.0)) (floor (/ (+ n 1) 2.0))) n))
+#+END_SRC
+
+#+RESULTS:
+: t
+
+  8 is NOT correct:
+#+BEGIN_SRC emacs-lisp :results raw
+  (loop for n from 1 to 1
+        always (= (+ (ceiling (/ n 2.0)) (ceiling (/ (+ n 1) 2.0))) n))
+#+END_SRC
+
+#+RESULTS:
+nil
+
+  9 is correct:
+#+BEGIN_SRC emacs-lisp :results raw
+  (loop for m from -3 to 3
+        always (loop for n from -3 to 3
+                     always (= (+ (floor (/ (+ n m) 2.0)) (floor (/ (+ n 1 (- m)) 2.0))) n)))
+#+END_SRC
+
+#+RESULTS:
+t
+
+  10 is NOT correct (because 8 is not):
+#+BEGIN_SRC emacs-lisp :results raw
+  (loop for m from 1 to 1
+        always (loop for n from -3 to 3
+                     always (= (+ (ceiling (/ (+ n m) 2.0)) (ceiling (/ (+ n 1 (- m)) 2.0))) n)))
+#+END_SRC
+
+#+RESULTS:
+nil
+#+end_info
+** TIW
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun Iverson-bracket (prop)
+    (if prop 1 0))
+
+  (defun round-to-nearest-integer (x)
+    (if (minusp x)
+        (let ((up (ceiling x)))
+          (- up (Iverson-bracket (>= (- up x) .5))))
+      (let ((down (floor x)))
+        (+ down (Iverson-bracket (>= (- x down) .5))))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (list (round-to-nearest-integer 3.0)
+        (round-to-nearest-integer 3.1)
+        (round-to-nearest-integer 3.499)
+        (round-to-nearest-integer 3.5)
+        (round-to-nearest-integer 3.678)
+        (round-to-nearest-integer 3.999))
+#+END_SRC
+
+#+RESULTS:
+(3 3 3 4 4 4)
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (list (round-to-nearest-integer -3.0)
+        (round-to-nearest-integer -3.1)
+        (round-to-nearest-integer -3.499)
+        (round-to-nearest-integer -3.5)
+        (round-to-nearest-integer -3.678)
+        (round-to-nearest-integer -3.999))
+#+END_SRC
+
+#+RESULTS:
+(-3 -3 -3 -4 -4 -4)
+#+end_info
+** TKG
+#+begin_info
+  SPC h d f then type rassoc to find the variants rassoc*, rassoc-if and
+  rassoc-if-not (and rassq on the way):
+
+  (rassoc KEY LIST)
+
+  Return non-nil if KEY is `equal' to the cdr of an element of LIST.
+  The value is actually the first element of LIST whose cdr equals KEY.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rassoc '(0 255 0)
+          '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))
+#+END_SRC
+
+#+RESULTS:
+(green 0 255 0)
+
+  rassoc* is the same, except it supports the keywords: :test :test-not :key
+
+  (rassoc-if PREDICATE LIST [KEYWORD VALUE]...)
+
+  Find the first item whose cdr satisfies PREDICATE in LIST.
+
+  Keywords supported:  :key
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rassoc-if (lambda (rgb) (= (second rgb) 255))
+             '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))
+#+END_SRC
+
+#+RESULTS:
+(green 0 255 0)
+
+  (rassoc-if-not PREDICATE LIST [KEYWORD VALUE]...)
+
+  Find the first item whose cdr does not satisfy PREDICATE in LIST.
+
+  Keywords supported:  :key
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rassoc-if-not (lambda (rgb) (zerop (third rgb)))
+                 '(("red" 255 0 0) ("green" 0 255 0) ("blue" 0 0 255)))
+#+END_SRC
+
+#+RESULTS:
+(blue 0 0 255)
+
+  (rassq KEY LIST)
+
+  Return non-nil if KEY is `eq' to the cdr of an element of LIST.
+  The value is actually the first element of LIST whose cdr is KEY.
+
+  The same difference applies --- the \lsquo{}eq\rsquo test as opposed to \lsquo{}equal\rsquo.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rassq 'four '((1 . one) (2 . two) (3 . three) (4 . four) (5 . five)))
+#+END_SRC
+
+#+RESULTS:
+(4 . four)
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (rassq "four" '((1 . "one") (2. "two") (3 . "three") (4 . "four") (5 . "five")))
+#+END_SRC
+
+#+RESULTS:
+nil
+#+end_info
+** WOV
+#+begin_info
+  1. Arithmetic progression with a=7 and d=7.
+  2. Arithmetic progression with a=7 and d=4.
+  3. Start at 3, add 1 to get 4, then add 2 to 4 to get 6, then add 3 to 6 to
+     get 9, then continue each time increasing by one what gets added to each
+     term to get the next.
+  4. Count up in binary starting at 1.
+  5. This is the Fibonacci sequence, the nth term is the nth Fibonacci number.
+  6. This is the 3x+1 \ldquo{}orbit of 7\rdquo.
+  7. This is the Lucas sequence, the nth term is the nth Lucas number.
+  8. These are the powers of two (starting at 2) multiplied by three.
+  9. These are the powers of three (starting at 3) multiplied by two.
+  10. These numbers are the prime numbers.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'cl)
+
+  (defun to-binary (n)
+    (case n (1 1) (2 10) (3 11) (4 100) (5 101)
+          (6 110) (7 111) (8 1000) (9 1001) (10 1010)))
+
+  (defun fibonacci (n)
+    (if (or (= n 1) (= n 2))
+        1
+      (+ (fibonacci (- n 1)) (fibonacci (- n 2)))))
+
+  (defun lucas (n)
+    (cond ((= n 1) 2)
+          ((= n 2) 1)
+          (t (+ (lucas (- n 1)) (lucas (- n 2))))))
+
+  (defun 3x+1 (x)
+    (if (evenp x)
+        (/ x 2)
+      (+ (* 3 x) 1)))
+
+  (setq 3x+1-orbit-of-7
+        (append (list 7)
+                (loop with n = 7 repeat 9 collect (setq n (3x+1 n))))
+        first-ten-primes (list 2 3 5 7 11 13 17 19 23 29))
+  (mapcar (lambda (x) (list (apply 'vector x)))
+    (list
+      (loop for n from 1 to 10 collect (* 7 n))
+      (loop for n from 0 to  9 collect (+ 7 (* n 4)))
+      (loop for n from 0 to  9 with a = 3 collect (setq a (+ a n)))
+      (loop for n from 1 to 10 collect (to-binary n))
+      (loop for n from 1 to 10 collect (fibonacci n))
+      (loop for n from 0 to  9 collect (nth n 3x+1-orbit-of-7))
+      (loop for n from 1 to 10 collect (lucas n))
+      (loop for n from 1 to 10 collect (* 3 (expt 2 n)))
+      (loop for n from 1 to 10 collect (* 2 (expt 3 n)))
+      (loop for n from 0 to  9 collect (nth n first-ten-primes))
+    )
+  )
+#+END_SRC
+
+#+RESULTS:
+| [7 14 21 28 35 42 49 56 63 70]                 |
+| [7 11 15 19 23 27 31 35 39 43]                 |
+| [3 4 6 9 13 18 24 31 39 48]                    |
+| [1 10 11 100 101 110 111 1000 1001 1010]       |
+| [1 1 2 3 5 8 13 21 34 55]                      |
+| [7 22 11 34 17 52 26 13 40 20]                 |
+| [2 1 3 4 7 11 18 29 47 76]                     |
+| [6 12 24 48 96 192 384 768 1536 3072]          |
+| [6 18 54 162 486 1458 4374 13122 39366 118098] |
+| [2 3 5 7 11 13 17 19 23 29]                    |
+#+end_info
+** WQW
+#+begin_info
+  | Predicate? | Yes or No? |
+  |------------+------------|
+  | =list=     | No         |
+  | =listp=    | Yes        |
+  | =integerp= | Yes        |
+  | =vector=   | No         |
+  | =vectorp=  | Yes        |
+  | =symbolp=  | Yes        |
+  | =zerop=    | Yes        |
+  | =evenp=    | Yes        |
+  | =oddp=     | Yes        |
+#+end_info
+
+* Problems
+** TBD
+#+begin_info
+  The statement of the problem in symbolic form is:
+
+  \vert{}A\vert = \vert{}B| \rarr (f is injective \leftrightarrow f is surjective)
+
+  As a conditional, this is true unless the antecedent is true and the
+  consequent is false. So we must argue that given the same-sizeness of the sets
+  A and B, it /must be true/ that the function f is injective if it is
+  surjective, and it is surjective if it is injective.
+
+  If f is injective, then every element of A gets mapped to a different element
+  of B. If in addition to the range of A there were another element in B, then
+  \vert{}B\vert would be at least one greater than \vert{}A\vert. This is not possible, so it is
+  inescapable that f is surjective. Conversely, suppose that f is surjective, so
+  that every element of B is the image of some element of A. In particular,
+  there is an element of A for each element of B. If two or more elements of A
+  were mapped to the same element of B, then \vert{}A\vert would be at least one greater
+  than \vert{}B\vert. Again, this is impossible, so it is inescapable that f is injective.
+#+end_info
+** WDK
+#+begin_info
+  Your venturing should have produced some comfort with the difference between
+  the /set/ *function* (which evaluates its two arguments), the /setq/ *special
+  form* (which evaluates only its even-numbered arguments) and the /setf/
+  *macro* (like a special form) --- which is a generalized \ldquo{}place-setter\rdquo. All
+  of these flout the \ldquo{}variable values never change once assigned\rdquo functional
+  programming feature.
+#+end_info
+** TEH
+#+begin_info
+  You could get by without let* by (clumsily) nesting starless lets, e.g.:
+#+BEGIN_SRC emacs-lisp
+  (let ((a 4))
+    (let ((b 5))
+      (let ((c 6))
+        (let ((d (+ a 7)))
+          (+ a b c d)))))
+#+END_SRC
+
+#+RESULTS:
+: 26
+#+end_info
+** WFC
+#+begin_info
+  + with 3 operands prediction: 6 (verified)
+#+BEGIN_SRC emacs-lisp
+ (+ 1 2 3)
+#+END_SRC
+
+#+RESULTS:
+: 6
+
+  + with 2 operands prediction: 3 (verified)
+#+BEGIN_SRC emacs-lisp
+ (+ 1 2)
+#+END_SRC
+
+#+RESULTS:
+: 3
+
+  + with 1 operand prediction: 1 (verified)
+#+BEGIN_SRC emacs-lisp
+ (+ 1)
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+  + with 0 operands prediction: 0? (verified! --- see [[https://en.wikipedia.org/wiki/Empty_sum][Empty Sum]])
+#+BEGIN_SRC emacs-lisp
+ (+ )
+#+END_SRC
+
+#+RESULTS:
+: 0
+
+  + with 3 operands prediction: -4 (verified)
+#+BEGIN_SRC emacs-lisp
+ (- 1 2 3)
+#+END_SRC
+
+#+RESULTS:
+: -4
+
+  - with 2 operands prediction: -1 (verified)
+#+BEGIN_SRC emacs-lisp
+ (- 1 2)
+#+END_SRC
+
+#+RESULTS:
+: -1
+
+  - with 1 operand prediction: -1 (verified --- see [[https://en.wikipedia.org/wiki/Empty_sum][Empty Sum]] (or difference))
+#+BEGIN_SRC emacs-lisp
+ (- 1)
+#+END_SRC
+
+#+RESULTS:
+: -1
+
+  - with 0 operands prediction: 0 (verified)
+#+BEGIN_SRC emacs-lisp
+ (- )
+#+END_SRC
+
+#+RESULTS:
+: 0
+
+  * with 3 operands prediction: 120 (verified)
+#+BEGIN_SRC emacs-lisp
+ (* 4 5 6)
+#+END_SRC
+
+#+RESULTS:
+: 120
+
+  * with 2 operands prediction: 20 (verified)
+#+BEGIN_SRC emacs-lisp
+ (* 4 5)
+#+END_SRC
+
+#+RESULTS:
+: 20
+
+  * with 1 operand prediction: 4 (verified)
+#+BEGIN_SRC emacs-lisp
+ (* 4)
+#+END_SRC
+
+#+RESULTS:
+: 4
+
+  * with 0 operands prediction: 1 (verified --- see [[https://en.wikipedia.org/wiki/Empty_product][Empty Product]])
+#+BEGIN_SRC emacs-lisp
+ (* )
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+  / with 3 operands prediction: 0.09722222222222222 (verified)
+
+#+BEGIN_SRC emacs-lisp
+  (/ 7.0 8.0 9.0)
+#+END_SRC
+
+#+RESULTS:
+: 0.09722222222222222
+
+  Equivalent to:
+
+#+BEGIN_SRC emacs-lisp
+ (/ (/ 7.0 8.0) 9.0))
+#+END_SRC
+
+#+RESULTS:
+: 0.09722222222222222
+
+  / with 2 operands prediction: 2 (verified)
+#+BEGIN_SRC emacs-lisp
+ (/ 16 8)
+#+END_SRC
+
+#+RESULTS:
+: 2
+
+  / with 1 operand prediction: 7 (verified)
+#+BEGIN_SRC emacs-lisp
+ (/ 7)
+#+END_SRC
+
+#+RESULTS:
+: 7
+
+  / with 0 operands prediction: not allowed --- error! (verified)
+#+BEGIN_SRC emacs-lisp
+ (/ )
+#+END_SRC
+
+  Result was error message: Wrong number of arguments: /, 0
+
+  As demonstrated, for all basic math operators except for /, polyadic /can/
+  mean having /arbitrary arity/ (taking 0 /or more/ arguments). For /, it means
+  taking 1 or more arguments.
+#+end_info
+** WGP
+#+begin_info
+  We have already seen the variation of =mapcar= named =mapconcat= in the
+  =prop-eval= function in OYW. That is exactly the one to use for
+  =vector-to-string=!
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun vector-to-string (vec)
+    (mapconcat 'symbol-name vec " "))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results output
+  (print (format "%s" (vector-to-string [a b c])))
+#+END_SRC
+
+#+RESULTS:
+:
+: "a b c"
+
+  We had to add a =print= call to get the quotes to show up. Alternatively, use
+  a capital S:
+
+#+BEGIN_SRC emacs-lisp
+  (format "%S" (vector-to-string [a b c]))
+#+END_SRC
+
+#+RESULTS:
+: "a b c"
+#+end_info
+** WGW
+#+begin_info
+  The =prefix->infix= function parses the outermost expression into three parts,
+  the operator (0th elements) and the two operands (1st and 2nd elements), and
+  then rearranges them, putting the operator in a new list formed by surrounding
+  the operator with the results of /recursively/ calling =prefix->-infix= on the
+  two operands.
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (prefix->infix '(+ (* 2 3) (/ 4 (- 5 6))))
+#+END_SRC
+
+#+RESULTS:
+((2 * 3) + (4 / (5 - 6)))
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (prefix->infix '(+ (* (/ 2 3) (/ 3 2)) (/ (+ 7 (* 8 9)) (- 5 6))))
+#+END_SRC
+
+#+RESULTS:
+(((2 / 3) * (3 / 2)) + ((7 + (8 * 9)) / (5 - 6)))
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun prefix->infix-with-if (pre)
+    (if (not (listp pre))
+        pre
+      (or (= 3 (length pre)) (error "not a 3-length list"))
+      (list (prefix->infix (nth 1 pre))
+            (nth 0 pre)
+            (prefix->infix (nth 2 pre)))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (prefix->infix-with-if '(+ (* 2 3) (/ 4 (- 5 6))))
+#+END_SRC
+
+#+RESULTS:
+((2 * 3) + (4 / (5 - 6)))
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (prefix->infix-with-if '(+ (* (/ 2 3) (/ 3 2)) (/ (+ 7 (* 8 9)) (- 5 6))))
+#+END_SRC
+
+#+RESULTS:
+(((2 / 3) * (3 / 2)) + ((7 + (8 * 9)) / (5 - 6)))
+#+end_info
+** TFV
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun infix->prefix (pre)
+    (if (not (listp pre))
+        pre
+      (or (= 3 (length pre)) (error "not a 3-length list"))
+      (list (nth 1 pre)
+            (infix->prefix (nth 0 pre))
+            (infix->prefix (nth 2 pre)))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (infix->prefix '(1 + 2))
+#+END_SRC
+
+#+RESULTS:
+(+ 1 2)
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (infix->prefix '((2 * 3) + (4 / (5 - 6))))
+#+END_SRC
+
+#+RESULTS:
+(+ (* 2 3) (/ 4 (- 5 6)))
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (infix->prefix '(((2 / 3) * (3 / 2)) + ((7 + (8 * 9)) / (5 - 6))))
+#+END_SRC
+
+#+RESULTS:
+(+ (* (/ 2 3) (/ 3 2)) (/ (+ 7 (* 8 9)) (- 5 6)))
+
+  Expected:
+: (+ (* (/ 2 3) (/ 3 2)) (/ (+ 7 (* 8 9)) (- 5 6))))
+
+  They match!
+#+end_info
+** WJS
+#+begin_info
+  An analogous situation when taking the ceiling of negative numbers: Integer
+  division and then /adding 1/ is not the same as the ceiling of the fraction:
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (list (+ 1 (/ -13 4)) (ceiling (/ -13 4.0)))
+#+END_SRC
+
+#+RESULTS:
+(-2 -3)
+#+end_info
+** WKC
+#+begin_info
+  Define =floor= as the number minus its fractional part, which for negative
+  numbers is actually wrong if you say the fractional part of -3.24 is 0.24 ---
+  =frac-part= as defined gives 0.7599999 --- which is =(+ 4 -3.24)= --- but it
+  gives the right answer after subtracting that from the number (and truncating
+  to make it an int).
+
+#+BEGIN_SRC emacs-lisp :results silent
+  (defun floor-not-primitive (number)
+    (truncate (- number (frac-part number))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (floor-not-primitive 3.24)
+#+END_SRC
+
+#+RESULTS:
+3
+
+#+BEGIN_SRC emacs-lisp :results raw
+  (floor-not-primitive -3.24)
+#+END_SRC
+
+#+RESULTS:
+-4
+#+end_info
+** WNW
+#+begin_info
+  For a function to be /invertible/ it must be a /bijection/.
+#+end_info
+** TMZ
+#+begin_info
+  1. How many pairs of numbers between 1 and 1000 pass the predicate given by
+     the following lambda expression? (lambda (m n) (= 1 (gcd m n)))
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (m n) (= 1 (gcd m n)))
+        for m from 1 to 1000
+        sum (loop for n from 1 to 1000
+                  count (funcall pred m n)))
+#+END_SRC
+
+#+RESULTS:
+: 608383
+
+  Just over half as many if duplicate pairs are eliminated:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (m n) (= 1 (gcd m n)))
+        for m from 1 to 1000
+        sum (loop for n from m to 1000
+                  count (funcall pred m n)))
+#+END_SRC
+
+#+RESULTS:
+: 304192
+
+  Just under half as many if (1 1) is eliminated:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (m n) (= 1 (gcd m n)))
+        for m from 1 to 1000
+        sum (loop for n from (+ m 1) to 1000
+                  count (funcall pred m n)))
+#+END_SRC
+
+#+RESULTS:
+: 304191
+  2. How many solutions are there in integers to the equation 3x + 4y = 7?
+
+     There are infinite solutions, but only 15 if limiting the range of x and y
+     to [-30 .. 30].
+
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= (+ (* 3 x) (* 4 y)) 7))
+        for x from -30 to 30
+        sum (loop for y from -30 to 30
+                  count (funcall pred x y)))
+#+END_SRC
+
+#+RESULTS:
+: 15
+
+  Here are the 15 solutions:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= (+ (* 3 x) (* 4 y)) 7))
+        with n = 0
+        for x from -30 to 30
+        append (loop for y from -30 to 30
+                     if (funcall pred x y)
+                     collect (list (incf n) x y)))
+#+END_SRC
+
+#+RESULTS:
+|  1 | -27 |  22 |
+|  2 | -23 |  19 |
+|  3 | -19 |  16 |
+|  4 | -15 |  13 |
+|  5 | -11 |  10 |
+|  6 |  -7 |   7 |
+|  7 |  -3 |   4 |
+|  8 |   1 |   1 |
+|  9 |   5 |  -2 |
+| 10 |   9 |  -5 |
+| 11 |  13 |  -8 |
+| 12 |  17 | -11 |
+| 13 |  21 | -14 |
+| 14 |  25 | -17 |
+| 15 |  29 | -20 |
+
+  3. Each taken from the set [2 3 4 5 6 7 8 9], how many pairs of numbers are
+     there that when multiplied together equal one more than a multiple of 11?
+
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= 1 (mod (* x y) 11)))
+        for x from 2 to 8
+        sum (loop for y from (+ x 1) to 9
+                  count (funcall pred x y)))
+#+END_SRC
+
+#+RESULTS:
+: 4
+
+  And the four pairs are:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= 1 (mod (* x y) 11)))
+        for x from 2 to 8
+        append (loop for y from (+ x 1) to 9
+                     if (funcall pred x y)
+                     collect (list x y)))
+#+END_SRC
+
+#+RESULTS:
+| 2 | 6 |
+| 3 | 4 |
+| 5 | 9 |
+| 7 | 8 |
+
+  4. How many pairs of numbers that when multiplied together equal one more than
+     a multiple of 23 are found in the set [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+     17 18 19 20 21]? The answer is 10:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= 1 (mod (* x y) 23)))
+        for x from 2 to 20
+        append (loop for y from (+ x 1) to 21
+                     if (funcall pred x y)
+                     collect (list x y)))
+#+END_SRC
+
+#+RESULTS:
+|  2 | 12 |
+|  3 |  8 |
+|  4 |  6 |
+|  5 | 14 |
+|  7 | 10 |
+|  9 | 18 |
+| 11 | 21 |
+| 13 | 16 |
+| 15 | 20 |
+| 17 | 19 |
+
+  5. How many pairs of numbers that when multiplied together equal one more than
+     a multiple of *9* are found in the set [2 3 4 5 6 7]? The answer is 2:
+#+BEGIN_SRC emacs-lisp
+  (loop with pred = (lambda (x y) (= 1 (mod (* x y) 9)))
+        for x from 2 to 6
+        append (loop for y from (+ x 1) to 7
+                     if (funcall pred x y)
+                     collect (list x y)))
+#+END_SRC
+
+#+RESULTS:
+| 2 | 5 |
+| 4 | 7 |
+#+end_info
+** TNL
+#+begin_info
+  The symbol is the Greek capital \lsquo{}P\rsquo (or Pi): \Pi
+
+  \Pi^{20}_{n = 1} = (* 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
+
+  There is no loop keyword counterpart to \lsquo{}sum\rsquo for \lsquo{}product\rsquo, but we can
+  collect the terms and apply '*:
+#+BEGIN_SRC emacs-lisp
+  (apply '* (loop for n from 1 to 19 collect n))
+#+END_SRC
+
+#+RESULTS:
+: 121645100408832000
+
+  Multiplying that by 20 would overflow the capacity of an elisp fixnum, which
+  is =most-positive-fixnum=:
+#+BEGIN_SRC emacs-lisp
+  most-positive-fixnum
+#+END_SRC
+
+#+RESULTS:
+: 2305843009213693951
+
+  There is of course a way to form the product (19!) without using a loop:
+#+BEGIN_SRC emacs-lisp
+  (apply '* (number-sequence 1 19))
+#+END_SRC
+
+#+RESULTS:
+: 121645100408832000
+#+end_info
+** WRD
+#+begin_info
+#+BEGIN_SRC emacs-lisp
+  (loop for j from 1 to 9
+        collect (loop for k from 1 to j
+                      collect (list j k)))
+#+END_SRC
+
+#+RESULTS:
+| (1 1) |       |       |       |       |       |       |       |       |
+| (2 1) | (2 2) |       |       |       |       |       |       |       |
+| (3 1) | (3 2) | (3 3) |       |       |       |       |       |       |
+| (4 1) | (4 2) | (4 3) | (4 4) |       |       |       |       |       |
+| (5 1) | (5 2) | (5 3) | (5 4) | (5 5) |       |       |       |       |
+| (6 1) | (6 2) | (6 3) | (6 4) | (6 5) | (6 6) |       |       |       |
+| (7 1) | (7 2) | (7 3) | (7 4) | (7 5) | (7 6) | (7 7) |       |       |
+| (8 1) | (8 2) | (8 3) | (8 4) | (8 5) | (8 6) | (8 7) | (8 8) |       |
+| (9 1) | (9 2) | (9 3) | (9 4) | (9 5) | (9 6) | (9 7) | (9 8) | (9 9) |
+
+#+BEGIN_SRC emacs-lisp
+  (loop for k from 1 to 9
+        collect (loop for j from k to 9
+                      collect (list j k)))
+#+END_SRC
+
+#+RESULTS:
+| (1 1) | (2 1) | (3 1) | (4 1) | (5 1) | (6 1) | (7 1) | (8 1) | (9 1) |
+| (2 2) | (3 2) | (4 2) | (5 2) | (6 2) | (7 2) | (8 2) | (9 2) |       |
+| (3 3) | (4 3) | (5 3) | (6 3) | (7 3) | (8 3) | (9 3) |       |       |
+| (4 4) | (5 4) | (6 4) | (7 4) | (8 4) | (9 4) |       |       |       |
+| (5 5) | (6 5) | (7 5) | (8 5) | (9 5) |       |       |       |       |
+| (6 6) | (7 6) | (8 6) | (9 6) |       |       |       |       |       |
+| (7 7) | (8 7) | (9 7) |       |       |       |       |       |       |
+| (8 8) | (9 8) |       |       |       |       |       |       |       |
+| (9 9) |       |       |       |       |       |       |       |       |
+
+Replace =list= with =+=, rinse and repeat:
+
+#+BEGIN_SRC emacs-lisp
+  (loop for j from 1 to 9
+        collect (loop for k from 1 to j
+                      collect (+ j k)))
+#+END_SRC
+
+#+RESULTS:
+|  2 |    |    |    |    |    |    |    |    |
+|  3 |  4 |    |    |    |    |    |    |    |
+|  4 |  5 |  6 |    |    |    |    |    |    |
+|  5 |  6 |  7 |  8 |    |    |    |    |    |
+|  6 |  7 |  8 |  9 | 10 |    |    |    |    |
+|  7 |  8 |  9 | 10 | 11 | 12 |    |    |    |
+|  8 |  9 | 10 | 11 | 12 | 13 | 14 |    |    |
+|  9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |    |
+| 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
+
+#+BEGIN_SRC emacs-lisp
+  (loop for k from 1 to 9
+        collect (loop for j from k to 9
+                      collect (+ j k)))
+#+END_SRC
+
+#+RESULTS:
+|  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 |
+|  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 |    |
+|  6 |  7 |  8 |  9 | 10 | 11 | 12 |    |    |
+|  8 |  9 | 10 | 11 | 12 | 13 |    |    |    |
+| 10 | 11 | 12 | 13 | 14 |    |    |    |    |
+| 12 | 13 | 14 | 15 |    |    |    |    |    |
+| 14 | 15 | 16 |    |    |    |    |    |    |
+| 16 | 17 |    |    |    |    |    |    |    |
+| 18 |    |    |    |    |    |    |    |    |
+#+end_info
+** TNQ
+#+begin_info
+  Timing it up to max-iterations 100 then 1000:
+
+#+BEGIN_SRC emacs-lisp
+  (calculate-pi-very-slowly 100)
+#+END_SRC
+
+#+RESULTS:
+: 3.1514934010709914
+
+#+BEGIN_SRC emacs-lisp
+  (calculate-pi-very-slowly 1000)
+#+END_SRC
+
+#+RESULTS:
+: 3.1425916543395442
+
+  Both took less than a second. Going for broke, try the next three powers of 10:
+
+#+BEGIN_SRC emacs-lisp
+  (calculate-pi-very-slowly 10000)
+#+END_SRC
+
+#+RESULTS:
+: 3.1416926435905346
+
+#+BEGIN_SRC emacs-lisp
+  (calculate-pi-very-slowly 100000)
+#+END_SRC
+
+#+RESULTS:
+: 3.1416026534897203
+
+#+BEGIN_SRC emacs-lisp
+  (calculate-pi-very-slowly 1000000)
+#+END_SRC
+
+#+RESULTS:
+: 3.1415936535887745
+
+  The last took about 5 seconds. The \ldquo{}very slowly\rdquo applies to how slowly it
+  converges to the true value of \pi for a given number of iterations. The table
+  below summarizes:
+
+  |       n | Difference from \pi                     |
+  |---------+---------------------------------------|
+  |     100 | (- 3.1514934010709914 pi) \approx 0.01      |
+  |    1000 | (- 3.1425916543395442 pi) \approx 0.001     |
+  |   10000 | (- 3.1416926435905346 pi) \approx 0.0001    |
+  |  100000 | (- 3.1416026534897203 pi) \approx 0.00001   |
+  | 1000000 | (- 3.1415936535887745 pi) \approx 0.0000001 |
+
+  In 3 cases out of 4 it took an order of magnitude more iterations to get just
+  one more digit of precision.
+#+end_info
+
+* Puzzles
+** TEU
+#+begin_info
+#+BEGIN_SRC emacs-lisp :results silent
+  (require 'cl)
+
+  (defun list-of-digits (n)
+    (if (= n 0) nil
+      (append (list-of-digits (/ n 10)) (list (% n 10)))))
+
+  (defun sum-of-digits (n)
+    (apply '+ (list-of-digits n)))
+
+  (defun how-many-in (digit digit-list)
+    (loop for n in digit-list
+          count (= n digit)))
+
+  (defun how-many-in-with-map (digit digit-list)
+     (apply '+ (mapcar (lambda (n) (if (= n digit) 1 0)) digit-list)))
+
+  (defun has-one (digit digit-list)
+    (= 1 (how-many-in digit digit-list)))
+
+  (defun filter (n)
+    (let ((digits (list-of-digits n)))
+      (and (has-one 1 digits) (= 17 (apply '+ digits)))))
+
+  (defun get-answer ()
+    (loop for n from 1 to 999999
+          count (filter n)))
+
+  (defun get-answer-with-map ()
+    (let ((sum 0))
+      (mapc (lambda (n) (if (filter n) (incf sum)))
+            (number-sequence 1 999999))
+      sum))
+#+END_SRC
+
+  Be patient --- it takes about a minute to evaluate this code block:
+#+BEGIN_SRC emacs-lisp
+  (list (get-answer) (get-answer-with-map))
+#+END_SRC
+
+: | 9150 | 9150 |
+#+end_info
+** TME
+#+begin_info
+  Four more (sub)sequences of four:
+: metaph bewith youati reless
+: metapho bewithy ouatire lesswor
+: metaphor bewithyo uatirele ssworkon
+: metaphors bewithyou atireless workonpla yonwords
+  The caboose =yonwords= breaks the pattern, but does provide closure!
+#+end_info
+** WRA
+#+begin_info
+  Note how the commutativity and associativity of addition is exploited here as
+  we break apart the sum
+
+  $\frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} + \cdots$
+
+  into the following rows, with the sum of each row after the first just half
+  the sum of the previous row, making the entire sum just the (infinite) sum of
+  the \ldquo{}last\rdquo column --- the sum of the reciprocals of the powers of two, this
+  time starting with two to the power zero:
+
+  | $\frac{1}{2}$ | + | $\frac{1}{4}$ | + | $\frac{1}{8}$ | + | $\frac{1}{16}$ | + | \cdots | = | 1             |
+  |               | + | $\frac{1}{4}$ | + | $\frac{1}{8}$ | + | $\frac{1}{16}$ | + | \cdots | = | $\frac{1}{2}$ |
+  |               |   |               | + | $\frac{1}{8}$ | + | $\frac{1}{16}$ | + | \cdots | = | $\frac{1}{4}$ |
+  |               |   |               |   |               | + | $\frac{1}{16}$ | + | \cdots | = | $\frac{1}{8}$ |
+  |               |   |               |   |               |   |                | + | \cdots | = | \cdots             |
+#+end_info

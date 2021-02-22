@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 241 - Preparation Material</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <span class="icon-byui-logo"></span>
+    <h1>OO Programming and Data Structures | CS 241</h1>
+</div>
+    <article>
+        <h2>13 Prepare : Reading</h2>
+        <h3>Outcomes</h3>
+        <p>At the end of this week, successful students will be able to:</p>
+        <ol>
+            <li><p>Show fluency in discussing shell programming.</p></li>
+            <li><p>Write scripts that correctly use shell programming to solve problems.</p></li>
+        </ol>
+
+        <p>This week we will be studying the Linux shell and how to write bash shell scripts.</p>
+
+        <p>Checkpoint A will reinforce basic shell commands, and Checkpoint B will require you to write some basic shell scripts.</p>
+
+        <h3>Preparation Material</h3>
+        <p>In addition to the sites that the Checkpoints specifically walk you through, please consider: <a href="http://mywiki.wooledge.org/BashGuide" target="_blank">Wooledge: Bash Guide</a>, which is an excellent set of resources for learning Bash shell commands and scripting.</p>
+
+        <p>There is also a section of supplementary material at the bottom of this document.</p>
+
+        <h4>Checkpoint A</h4>
+
+            <p>For Checkpoint A, refer to: <a href="http://linuxcommand.org/lc3_learning_the_shell.php" target="_BLANK">Learning the Shell</a>.</p>
+            <p>Depending on how familiar you are with each topic, you may be able to skim most of them (especially the first half). Please make sure to read the section on I/O redirection in more detail than the others.</p>
+
+            <ul>
+                <li><p>What is "The Shell"</p></li>
+                <li><p>Navigation</p></li>
+                <li><p>Looking Around</p></li>
+                <li><p>A Guided Tour</p></li>
+                <li><p>Manipulating Files</p></li>
+                <li><p>Working with Commands</p></li>
+                <li><p>I/O Redirection -- Read this one in detail!</p></li>
+                <li><p>Expansion -- This one will be more helpful when we write scripts.</p></li>
+                <li><p>Permissions</p></li>
+                <li><p>Job Control</p></li>
+            </ul>
+
+        <h4>Checkpoint B</h4>
+            <p>For Checkpoint B, refer to: <a href="http://linuxcommand.org/lc3_writing_shell_scripts.php" target="_BLANK">Writing Shell Scripts</a>. Please go through the sections below. FYI, <a href="./checkb.html">Checkpoint B</a> essentially asks you to follow his tutorial.:
+            </p>
+        <ul>
+            <li><p>Writing Your First Script and Getting It To Work</p></li>
+            <li><p>(Optional) - Editing The Scripts You Already Have</p></li>
+            <li><p>Here Scripts</p></li>
+            <li><p>Variables</p></li>
+            <li><p>Command Substitution And Constants</p></li>
+            <li><p>Shell Functions</p></li>
+            <li><p>Some Real Work</p></li>
+            <li><p>Flow Control - Part 1</p></li>
+            <li><p>Stay Out of Trouble</p></li>
+            <li><p>Keyboard Input And Arithmetic</p></li>
+            <li><p>Flow Control - Part 2</p></li>
+            <li><p>(Skim) - Positional Parameters</p></li>
+            <li><p>(Skim) - Flow Control - Part 3 -- Focus your time here on learning how to loop through a list of files.</p></li>
+            <li><p>(Optional) - Errors And Signals And Traps (Oh My!) - Part 1</p></li>
+            <li><p>(Optional) - Errors And Signals And Traps (Oh My!) - Part 2</p></li>
+        </ul>
+        <h4>Supplementary Material</h4>
+        <p>We have been working with the Linux file system a little bit throughout the entire semester, so you should have familiarity with many of the basic commands.</p>
+
+        <h5>Viewing Permissions</h5>
+        <p>To list the files in a directory, you can either type <code>ls</code> to see just the filenames or <code>ls -l</code> to see a more detailed long list:</p>
+
+<pre><code class="bash">
+[burtons@LinuxLab07 linuxCommands]$ ls
+demo2.txt  demo.txt  myScript.sh  output.txt
+
+[burtons@LinuxLab07 linuxCommands]$ ls -l
+total 12
+-rw-r--r--. 1 burtons faculty  0 Dec  4 13:10 demo2.txt
+-rw-r-----. 1 burtons faculty 58 Dec  4 13:10 demo.txt
+-rwxr--r--. 1 burtons faculty 38 Dec  4 13:24 myScript.sh
+-rw-r--r--. 1 burtons faculty 42 Dec  4 13:37 output.txt
+</code></pre>
+
+        <p>Notice the part: "<code>burtons faculty</code>", this says that the owner of these files is burtons and that the group is faculty. Then, notice the first several characters of each line "<code>-rw-r--r--</code>". There are 3 possible permissions for the file, read (r), write (w), and execute (x). This is repeated 3 times, because the first set of them displays the permissions the owner has for this file, the second set has the permissions for the group, and the final set has the permissions for everyone.</p>
+
+        <p>With this in mind, you can see the file demo.txt can be read and changed (written to) by burtons, it can be accessed (read) by anyone in the faculty group, but cannot be accessed at all by anyone else.</p>
+
+        <h5>Changing permissions</h5>
+        <p>To change the permissions of a file, we can use the <code>chmod</code> utility and specify it directly, such as removing the write rights for everyone:</p>
+
+<pre><code class="bash">
+chmod o-w myFile.txt
+</code></pre>
+
+        <p>or adding execute rights to the group:</p>
+<pre><code class="bash">
+chmod g+x myFile.txt
+</code></pre>
+
+        <p>But another way is to consider the permissions as either on or off:</p>
+
+<pre><code class="bash">
+rw-r-----
+
+is:
+
+rwx rwx rwx
+110 100 000
+</code></pre>
+
+        <p>Then we can represent each group of 3 values as a binary number:</p>
+
+<pre><code class="bash">
+rwx rwx rwx
+110 100 000
+
+is:
+
+6 4 0
+</code></pre>
+
+        <p>Then this binary number can be given to the <code>chmod</code> utility to specify all the permissions at once. This is very common in Linux administration:</p>
+
+<pre><code class="bash">
+chmod 755 myFile.txt        # This sets it to -rwxr-xr-x
+chmod 640 myFile.txt        # This sets it to -rw-r-----
+chmod 600 myFile.txt        # This sets it to -rw-------
+</code></pre>
+
+        <h5>Running a script</h5>
+        <p>As you begin working with scripts you might create a script testScript.sh and try to run it, but get an error:</p>
+
+<pre><code class="bash">
+[burtons@LinuxLab07 linuxCommands]$ ls -l
+total 12
+-rw-r--r--. 1 burtons faculty  0 Dec  4 13:10 demo2.txt
+-rw-r-----. 1 burtons faculty 58 Dec  4 13:10 demo.txt
+-rwxr--r--. 1 burtons faculty 38 Dec  4 13:24 myScript.sh
+-rw-r--r--. 1 burtons faculty 42 Dec  4 13:37 output.txt
+-rw-r--r--. 1 burtons faculty  0 Dec  6 11:09 testScript.sh
+
+[burtons@LinuxLab07 linuxCommands]$ ./testScript.sh
+-bash: ./testScript.sh: Permission denied
+</code></pre>
+
+        <p>What do you mean, "permission denied,"" it's my file! Well, the problem here is that I don't have execute rights to this file, only read and write. So I need to change the permissions to add the execute permission. Then I can run the script.</p>
+
+
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+
+
+    </article>
+
+</body>
+
+</html>

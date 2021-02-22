@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prepare</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>12 Prepare: Using Objects</h1>
+    <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
+    the world. There are at least four main paradigms for programming a
+    computer: procedural, declarative, functional, and object-oriented.
+    During CSE 110 and 111, you used or encountered the first three of
+    these programming paradigms. During this lesson, you will be
+    introduced to the last: object-oriented.</p>
+
+    <h2>Concepts</h2>
+    <h3>Procedural Programming</h3>
+    <p>Procedural programming is a way of programming that focuses on
+    the process or the steps to accomplish a task. For example, if we
+    had 100 numbers and wanted to know the average value of those 100
+    numbers, we could add the numbers and then divide by 100. This is
+    one process to compute the average of numbers: add them and divide
+    by the quantity of numbers. A Python procedural program for
+    computing the average looks like this:</p>
+
+<div class="pre"><pre class="python" id="ex1">
+numbers = [87, 95, 72, 92, 95, 88, 84]
+total = 0
+for x in numbers:
+    total += x
+average = total / len(numbers)</pre></div>
+
+    <p>Notice that with procedural programming, we must code the process
+    or the steps that are necessary to complete a task. Procedural
+    programming is the type of programming that you did most often in
+    CSE 110 and 111.</p>
+
+    <h3>Declarative Programming</h3>
+    <p>When we use declarative programming to program a computer, we do
+    not focus on the process or steps to accomplish a task, but rather
+    we focus on what we want from the task, or in other words, we focus
+    on the desired result. Continuing the example of the average, with
+    declarative programming, we focus on exactly what numbers we want
+    averaged and tell the computer to compute that average for us. Many
+    of the commands in the <code>pandas</code> module are a form of
+    declarative programming. For example, using <code>pandas</code>, we
+    can command the computer to filter a DataFrame or to remove columns
+    from a DataFrame like this:</p>
+
+<div class="pre"><pre class="python" id="ex2">
+import pandas as pd
+
+# Read a DataFrame from the water.csv file.
+df = pd.read_csv("water.csv")
+
+# Filter the DataFrame to only rows from residences.
+filter = (df["accountType"] == "Residence")
+residences = <em>df[filter]</em>
+
+# Remove all columns except meterNumber, readDate, and usage.
+retain = ["meterNumber", "readDate", "usage"]
+residences = <em>residences[retain]</em></pre></div>
+
+    <p>Notice in the above example, that the code does not contain the
+    steps required to filter a DataFrame or remove columns because
+    someone else already wrote the code that contains those steps.
+    Instead, the code contains commands that tell the computer what rows
+    or columns we want to keep in the data, and the computer executes
+    the steps necessary to do what we want. The term "declarative
+    programming" means that we write or declare what we want the
+    computer to do. We do not tell the computer how to compute
+    something. We declare what we want the computer to do, and the
+    computer determines how to do it and then does it.</p>
+
+    <h3>Functional Programming</h3>
+    <p>When we use functional programming to program a computer, we
+    focus on the functions necessary to accomplish a task.
+    Mathematicians often find functional programming natural for them
+    because they are accustomed to using functions while studying
+    mathematics. In functional programming, functions are so important
+    that we often pass functions into other functions. You did this in
+    lesson&nbsp;11 when you passed a function into the pandas
+    <code>apply</code> function. Here is a functional programming
+    solution to computing the average in Python:</p>
+
+<div class="pre"><pre class="python" id="ex3">
+from functools import reduce
+
+numbers = [87, 95, 72, 92, 95, 88, 84]
+func_add = lambda a, b: a + b
+total = <em>reduce(func_add, numbers)</em>
+average =  total / len(numbers)</pre></div>
+
+    <p>Notice how this simple example uses three functions:
+    <code>reduce</code>, a lambda function, and <code>len</code>. Notice
+    also that the lambda function is passed into the <code>reduce</code>
+    function. Passing a function into a function is one of the marks of
+    functional programming.</p>
+
+    <h3>Object-Oriented Programming</h3>
+    <p>With object-oriented programming, we use objects to write a
+    program. An object is anything in the world that has these four
+    things:</p>
+    <ol>
+        <li><div>identity (a name or identification)</div></li>
+        <li><div>data (also known as attributes)</div></li>
+        <li><div>behavior (also known as methods or functions)</div></li>
+        <li><div>relationships to other objects</div></li>
+    </ol>
+
+    <p>When we write an object-oriented program, we combine data and
+    functions together into objects. For example, if we were writing a
+    registration program used for students to register for courses at a
+    school, we would write code to create Student objects and Course
+    objects. Each Student object would have data like given_name,
+    family_name, phone_number, etc. and would have functions like
+    register, enroll, drop, withdraw, etc. Each Course object would have
+    data like course_code, title, description, list_of_students, etc.
+    and would have functions like get_students, take_role, etc.</p>
+
+    <p>The <code>pandas</code> module uses object-oriented programming
+    concepts as shown in the next code example that again computes the
+    average of a list of numbers.</p>
+
+<div class="pre"><pre class="python" id="ex4">
+import pandas as pd
+
+# Read the data in a CSV file and create a pandas DataFrame object.
+df = <em>pd.read_csv("water.csv")</em>
+
+# Extract a pandas Series object from the DataFrame object.
+column = df["usage"]
+
+# Call the mean method (function) that is in the column object.
+average = <em>column.mean()</em>
+
+# Print the column name attribute and the average.
+print(<em>column.name</em>, average)</pre></div>
+
+    <p>One of the marks of object-oriented programming is selecting
+    attributes and calling methods using the <dfn>dot operator</dfn> (a
+    period: .). The official name of the dot operator is <dfn>component
+    selector</dfn>, but almost no one calls it that because the term
+    "dot" is much easier to say than "component selector." Notice in the
+    previous example, the code uses the dot operator (.) to call the
+    <code>read_csv</code> method in the pandas module, to call the
+    <code>mean</code> method on the column, and to retrieve the column's
+    <code>name</code> attribute.</p>
+
+    <p>Python includes many built-in and standard objects that a
+    programmer can use to write programs. In fact, you have already used
+    many objects in your programs. In Python, tuples, lists, sets, and
+    dictionaries are all objects and have attributes and methods. For
+    example, lists have many methods: <code>index</code>,
+    <code>count</code>, <code>clear</code>, <code>insert</code>,
+    <code>append</code>, <code>remove</code>, <code>pop</code>,
+    <code>extend</code>, <code>reverse</code>, and <code>copy</code>.
+    <code>csv</code> Readers and Writers are also objects, as are
+    <code>pandas</code> DataFrames and Series.</p>
+
+    <p>There are several types of commands that are commonly found in
+    object-oriented programs. These types of commands are so common,
+    that a programmer must be able to recognize and write them. Three of
+    these types of commands are:</p>
+
+    <ol class="long">
+        <li><div>Creating objects. For example:
+<div class="pre"><pre class="python">obj = date.today()</pre></div>
+        </div></li>
+
+        <li><div>Accessing the attributes of an object using the dot
+        operator. For example:
+<div class="pre"><pre class="python">y = obj.year</pre></div>
+        </div></li>
+
+        <li><div>Calling the methods of an object using the dot
+        operator. For example:
+<div class="pre"><pre class="python">new_obj = obj.replace(year=2025)</pre></div>
+        </div></li>
+    </ol>
+
+    <h2>Python Lists Are Objects</h2>
+    <p>In Python, lists are objects with attributes and methods, and a
+    programmer can modify the contents of a list by calling those
+    methods. The list methods are documented in a section of the Python
+    Tutorial titled
+    <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists</a>.</p>
+
+    <p>Here is example code from the
+    <a target="_blank" href="../lesson03/prepare.html">prepare content</a>
+    of lesson&nbsp;3. Now that you know what an object is, that objects
+    have methods, and that Python lists are objects, this example code
+    should make more sense than it did in lesson&nbsp;3. Notice that the
+    <code>list.append</code> method is called on
+    <span class="cross" data-ref="ex5">lines&nbsp;5&ndash;7</span>.
+    <code>list.insert</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;10</span>;
+    <code>list.index</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;13</span>;
+    <code>list.pop</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;19</span>; and
+    <code>list.remove</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;22</span>.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex5">
+# Create an empty list that will hold fabric names.
+fabrics = []
+
+# Add three elements at the end of the fabrics list.
+fabrics.append("velvet")
+fabrics.append("denim")
+fabrics.append("gingham")
+
+# Insert an element at the beginning of the fabrics list.
+fabrics.insert(0, "chiffon")
+
+# Get the index where velvet is stored in the fabrics list.
+i = fabrics.index("velvet")
+
+# Replace velvet with taffeta.
+fabrics[i] = "taffeta"
+
+# Remove the last element from the fabrics list.
+fabrics.pop()
+
+# Remove denim from the fabrics list.
+fabrics.remove("denim")</pre></div>
+
+
+    <h2>Python Dictionaries Are Objects</h2>
+    <p>Python dictionaries are objects with attributes and methods, and
+    a programmer can modify the contents of a dictionary by calling those
+    methods. There doesn't seem to be an official Python web page that
+    documents the dictionary methods, so here is a list of the built-in
+    dictionary methods:</p>
+
+    <table><thead>
+        <tr><th>Method</th> <th>Description</th></tr>
+    </thead><tbody>
+        <tr><td>d.clear()</td>
+            <td>Removes all the elements from the dictionary
+            <var>d</var>.</td></tr>
+        <tr><td>d.copy()</td>
+            <td>Returns a copy of the dictionary <var>d</var>.</td></tr>
+        <tr><td>d.get(key)</td>
+            <td>Returns the value of the specified <code>key</code>.
+            Calling the get method is almost equivalent to using
+            square brackets ([ and ]) to look up a value in a
+            dictionary.</td></tr>
+        <tr><td>d.items()</td>
+            <td>Returns a list of the key value pairs in the dictionary
+            <var>d</var>.</td></tr>
+        <tr><td>d.keys()</td>
+            <td>Returns a list that contains the keys that are in the
+            dictionary <var>d</var>.</td></tr>
+        <tr><td>d.pop(key)</td>
+            <td>Removes the element with the specified <var>key</var>
+            from the dictionary <var>d</var>.</td></tr>
+        <tr><td>d.update(other)</td>
+            <td>Updates the dictionary <var>d</var> with the key value
+            pairs that are in the <var>other</var> dictionary.</td></tr>
+        <tr><td>d.values()</td>
+            <td>Returns a list of all the values in the dictionary
+            <var>d</var>.</td></tr>
+    </tbody></table>
+
+    <p>The following example code, which is from the
+    <a target="_blank" href="../lesson03/prepare.html">prepare content</a>
+    of lesson&nbsp;3, calls dictionary methods at
+    <span class="cross" data-ref="ex6">lines&nbsp;19,
+    27,&nbsp;and&nbsp;34</span>.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex6">
+# Create a dictionary with student IDs as
+# the keys and student names as the values.
+students = {
+    "42-039-4736": "Clint Huish",
+    "61-315-0160": "Michelle Davis",
+    "10-450-1203": "Jorge Soares",
+    "75-421-2310": "Abdul Ali",
+    "07-103-5621": "Michelle Davis"
+}
+
+# Add an item to the dictionary.
+students["81-298-9238"] = "Sama Patel"
+
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
+
+# Lookup the student ID in the dictionary and
+# retrieve the corresponding student name.
+name = students.get(id)
+
+if name:
+    # Print the student name.
+    print(name)
+
+    # Remove the student that the user
+    # specified from the dictionary.
+    students.pop(id)
+else:
+    print("No such student")
+
+# Use a for loop to print each key value pair in the
+# dictionary. Of course, the code in the body of a loop can
+# do much more with each key value pair than simply print it.
+for key, value in students.items():
+    print(key, value)</pre></div>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

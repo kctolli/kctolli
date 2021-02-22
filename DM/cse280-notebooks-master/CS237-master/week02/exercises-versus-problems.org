@@ -1,0 +1,86 @@
+#+TITLE: Exercises Versus Problems
+#+LANGUAGE: en
+#+OPTIONS:  H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+STARTUP:  showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+
+  This is a synopsis of the explanation Paul Zietz gives in Chapter 1 of his
+  book [[https://www.wiley.com/en-us/The+Art+and+Craft+of+Problem+Solving%252C+3rd+Edition-p-9781119094845][The Art and Craft of Problem Solving]], wherein he seeks to clearly answer
+  these and related questions:
+
+  What does problem solving mean?
+
+  Why should you study it?
+
+  What is the difference between exercises and problems?
+
+  *An exercise* is a mathematical question that you immediately know how to
+  answer. You may not answer it correctly, or it may be nearly impossible to
+  answer, but there is no doubt about how to proceed.
+
+  *A problem* is a question that you initially don\rsquo{}t know how to answer. One
+  person\rsquo{}s problem may be another person\rsquo{}s exercise. Problems require
+  investigation, using strategies and tactics.
+
+  Work on problems to develop mental discipline.
+
+  Brain exercises like crossword puzzles or Sudoku puzzles are not without
+  merit, but they miss a crucial aspect of your intellectual life. Our brains
+  can help us with open-ended experimentation, involving long wild goose chases
+  and hard-earned triumph. We need brain problems.
+
+  Exercisers are gym rats, problem solvers are mountaineers. Climbing a mountain
+  is a messier experience, but it is much more fun.
+
+  Exercise: Learning Italian from a book.
+
+  Problem: Learning Italian by immersion.
+
+  Problem solving should be a way of life.
+
+  There are psychological barriers to problem solving.
+
+  Learning to become a problem solver requires a change in mental attitudes.
+
+  Most of us are not used to thinking hard for a few seconds or a minute.
+
+  Work on increasing your levels.
+
+** Levels in seconds (roughly)
+
+   - 10^0 Second
+   - 10^1 Minute
+   - 10^3 Hour
+   - 10^5 Day
+   - 10^6 Week
+   - 10^7 Year
+   - 10^9 Lifetime
+
+   We will fail in problem solving. We need to cultivate an attitude that
+   investigation is worthwhile even if it doesn\rsquo{}t lead to a solution.
+
+#+BEGIN_QUOTE
+  The explorer is the person who is lost. --- Tim Cahill, /Jaguars Ripped My Flesh/
+#+END_QUOTE
+
+** Art
+
+   Folklore: Stories with morals
+
+** Craft
+
+   Strategies: broad
+
+   Tactics: narrow
+
+** Strategies and Tactics
+
+   Strategy: Wishful Thinking. Yay, I\rsquo{}ve solved the problem! Pretend you\rsquo{}ve got
+   a solution. This helps you learn the penultimate step.
+
+   Strategy: Get Your Hands Dirty (Concretize The Abstract)
+
+   Tactic: Symmetry.
+
+   A problem is a problem because we needed more information. When you
+   balance your problem, you get more information.

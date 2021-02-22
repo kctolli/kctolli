@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 03 Prepare : Reading</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>03 Prepare : Reading</h2>
+        <p class="subtitle">Advanced Java Types and Collections</p>
+
+        <h3>Objectives</h3>
+        <ul>
+            <li><p>Understand some nuances of the Java typing system.</p></li>
+            <li><p>Understand Java collections.</p></li>
+            <li><p>Understand how Generics work in Java.</p></li>
+            <li><p>Understand the role that interfaces play in the use of collections.</p></li>
+        </ul>
+
+        <h3>Java Types</h3>
+        <p>Let's take a moment to discuss Java's basic data types. Like most languages, Java has <code>int</code>, <code>float</code>, <code>char</code>, etc.... These are called <em>primitive</em> types. They are memory efficient and take up relatively little space.</p>
+
+        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to use primitive data types in situations that require objects, such as when dealing with collections:</p>
+<pre><code class="java">Integer myInt = 3;
+List&lt;Integer&gt; myNumbers;
+myNumbers.add(myInt);
+</code></pre>
+        <p>Java will automatically convert back and forth between primitives and wrapper classes as needed through a process called <em>autoboxing</em>:</p>
+<pre><code class="java">Integer myInt = 3;
+System.out.println(myInt + 2);
+</code></pre>
+        <p>People try to avoid the use of wrapper classes and autoboxing whenever possible, because there are pretty strong performance hits in their use.</p>
+
+        <h3>Collections</h3>
+
+        <p>Collections are containers that allow us to efficiently store and process data. In C++, you likely worked with vectors, and possibly trees, maps, and linked-lists. These are all types of collections.</p>
+
+        <p>In Java, all collections implement the <code>Collection</code> interface. This interface defines a list of methods that all collections must implement. Some of these include:</p>
+
+        <ul>
+            <li><p><code>add()</code> A way to add elements to a collection.</p></li>
+            <li><p><code>clear()</code> A way to remove all elements from a collection.</p></li>
+            <li><p><code>contains()</code> A way to see if a collection contains an element.</p></li>
+            <li><p><code>size()</code> A way to see how many elements a collection contains.</p></li>
+            <li><p>etc...</p></li>
+        </ul>
+
+        <p>Take some time to look over the complete list of methods every collection must provide, by looking at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#method.summary">the official documentation for the Collection interface</a>.</p>
+
+        <h4>Collection Interfaces and Generics</h4>
+        <p>Java provides several <em>subinterfaces</em> that extend the collection interface. Some commonly used ones are <code>List</code>, <code>Map</code>, and <code>Set</code>. Each of these interfaces define additional methods that are appropriate for those types of collections.</p>
+
+        <p>Java's collections are all "generic" types. They work in a similar way to how templates work in C++. Last week, we saw a <code>List</code> of <code>Creature</code> objects could be declared like this:</p>
+<pre><code class="java">List&lt;Creature&gt; someCreatures;
+</code></pre>
+
+        <p>As with C++, the type of thing that will be stored in the collection goes inside the angle brackets. Once a collection has been initialized, only objects of that type (or objects that inherit from that type) may be stored in the collection.</p>
+
+        <p>Note that it's not just class names we can use as the generic type. We can also use interfaces:</p>
+<pre><code class="java">List&lt;Movable&gt; someThingsThatMove;
+</code></pre>
+
+        <h4>Concrete Implementations</h4>
+        <p>Java also provides several concrete classes that implement the various collection interfaces. (A <em>concrete class</em> is a class you can instantiate using the <code>new</code> keyword, as opposed to an abstract class or interface).</p>
+
+        <p>You can see a list of all the classes that implement a particular interface by looking at the <em>All Known Implementing Classes:</em> section of the interface documentation. For example, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">the documentation for the List interface</a> shows several classes that implement that interface. The most commonly used are <code>ArrayList</code> and <code>LinkedList</code>.</p>
+
+        <p>Typically, when we use a collection, we instantiate it using the concrete class whose attributes we need, but we store it as an interface:</p>
+
+<pre><code class="java">List&lt;Creature&gt; creatures = new ArrayList&lt;Creature&gt;();
+</code></pre>
+
+        <p>By storing it as an interface, the rest of our code is isolated from having to change if we decide on a different implementation, as long as we have something that implements <code>List</code>, nothing else has to change.</p>
+
+        <h4>Collections Example</h4>
+        <p>Consider this example:</p>
+
+        <p>You've been working on an asteroids game, and you need to store a collection of <code>Rock</code> classes. You decide to use <code>ArrayList</code> because it's the most familiar to you. You write your <code>AsteroidManager</code> class that keeps track of all of the asteroids like this:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  ArrayList&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new ArrayList&lt;Asteroid&gt;();
+  }
+
+  public ArrayList&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
+}
+</code></pre>
+
+        <p>Let's imagine that this is a complex program with lots of other classes interacting with the <code>AsteroidManager</code> class. Each of those classes calls the <code>getAsteroids()</code> function at different times and performs operations on the <code>ArrayList</code>.</p>
+
+        <p>One day, you realize that <code>ArrayList</code> is actually the wrong choice for this situation, because you frequently need to add and remove asteroids at the end of the list, a task that the <code>LinkedList</code> class is better suited for. So you decide to change your <code>AsteroidManager</code> class to use a <code>LinkedList</code>:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  LinkedList&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new LinkedList&lt;Asteroid&gt;();
+  }
+
+  public LinkedList&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
+}
+</code></pre>
+
+        <p>Unfortunately, not only did you have to change the <code>AsteroidManager</code> code in several places, but you'll also have to modify every single class that calls <code>getAsteroids()</code>, because the return type has changed.</p>
+
+        <p>This problem could have been prevented if we had initially used the <code>List</code> interface to store our <code>ArrayList</code>:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  List&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new ArrayList&lt;Asteroid&gt;();
+  }
+
+  public List&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
+}
+</code></pre>
+
+        <p>Now, to switch to a <code>LinkedList</code>, we only need to change one line of code:</p>
+
+<pre><code class="java">_asteroids = new LinkedList&lt;Asteroid&gt;();     
+</code></pre>
+        
+        <p>All the rest of our code just cares that we're using something that implements the <code>List</code> interface, no matter what that something is. These types of situations are one of the main reasons why we "program to an interface, not an implementation".</p>
+
+        <h3>Primitive Arrays</h3>
+        <p>One downside to the collection classes like <code>ArrayList</code> is that they can only store objects. While wrapper classes or autoboxing will allow us to store primitive values using these classes, there is enough of a performance penalty that we usually want to avoid it.</p>
+
+        <p>So, instead of using something like <code>ArrayList</code> to store a list of <code>int</code> values, we can use a simple array, just like in C++:</p>
+
+<pre><code class="java">int[] a = {1, 2, 3};
+System.out.println(a[0]);
+</code></pre>
+
+        <p>A couple of things to note about Java arrays:</p>
+
+        <p>First, once an array has been created, its size cannot be changed. (You can modify its values, but you can't add or remove values.)</p>
+        <p>Second, Java arrays can store anything, including objects (though we usually use a Java collection class for those situations):</p>
+<pre><code class="java">// Create an array that can hold six Student objects
+Student[] students = new Student[6];
+students[0].printName();
+</code></pre>
+        <p>Finally, Java arrays always know their length:</p>
+<pre><code class="java">// Create an array that can hold four floats
+float grades[] = new float[4];
+// Prints 4
+System.out.println(grades.length);
+</code></pre>
+
+        <h3>Reading</h3>
+        <p>Read the following resources to gain a better understanding of these principles:</p>
+        <ol class='checklist'>
+            <li><p>Start with <a href="http://www.w3resource.com/java-tutorial/java-wrapper-classes.php">this tutorial about Java wrapper classes</a>.</p></li>
+            <li><p>Next, read these Stack Overflow posts to see the pros and cons of using the wrapper classes:</p>
+                <ul>
+                    <li><p><a href="http://stackoverflow.com/questions/1570416/when-to-use-wrapper-class-and-primitive-type">When to use wrapper class and primitive types.</a></p></li>
+                    <li><p><a href="http://stackoverflow.com/questions/5199359/why-do-people-still-use-primitive-types-in-java">Why do people still use primitive types in Java?</a></p></li>
+                </ul>
+            </li>
+            <li>
+                <p>Also, take a look at the <a href="http://stackoverflow.com/questions/20877086/why-do-comparisons-with-integer-valueofstring-give-different-results-for-12">first and second answers to this post</a> to see the "gotcha" that can occur with autoboxing.</p>
+            </li>
+            <li>
+                <p>Make sure you also understand <a href="http://stackoverflow.com/questions/513832/how-do-i-compare-strings-in-java">how to compare two Strings in Java</a>.</p>
+            </li>
+            <li>
+                <p>Then, read over <a href="https://en.wikiversity.org/wiki/Java_Collections_Overview">these tables that describe</a> some of the differences between the different collection interfaces and their concrete implementation classes.</p>
+            </li>
+            <li>
+                <p>This <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/summary.html">article from Oracle</a> provides a nice summary of how the collection interfaces are related.</p>
+            </li>
+            <li>
+                <p>Finally, take a look at <a href="http://www.codejava.net/java-core/collections/java-list-collection-tutorial-and-examples">this tutorial for some code examples</a> that use collections.</p>
+            </li>
+        </ol>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+        <p>One of the quiz questions is a "deep thought" question. The answer to this question won't come directly from the reading, but will require you to think deeply about what you've learned from the reading.</p>
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+#+TITLE: DM1 Week 06 Prepare and Teach
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+OPTIONS: html-postamble:nil
+#+STARTUP: showeverything entitiespretty
+#+SETUPFILE: ../theme-bigblow.setup
+#+BEGIN: clocktable :maxlevel 2 :scope file
+#+CAPTION: Clock summary at [2018-02-22 Thu 15:01]
+| Headline                              |   Time |      |
+|---------------------------------------+--------+------|
+| *Total time*                          | *1:36* |      |
+|---------------------------------------+--------+------|
+| Prepare                               |   0:27 |      |
+| \_  Learn How to Customize a Variable |        | 0:26 |
+| \_  Answer What is True               |        | 0:01 |
+| Teach                                 |   1:09 |      |
+#+END:
+
+* Instructions
+  See [[file:../week00/00-ponder--prove.org]]
+
+* Prepare
+** DONE Learn How to Customize a Variable
+   CLOSED: [2018-02-20 Tue 01:41]
+   :LOGBOOK:
+   CLOCK: [2018-02-20 Tue 01:15]--[2018-02-20 Tue 01:41] =>  0:26
+   :END:
+  Many of you already know how to stop emacs from asking you every time you go
+  to evaluate a code block, 
+
+  /Evaluate this emacs-lisp code block on your system? (y or n)/
+
+  If you don\rsquo{}t already know, read on. First, ponder: Why this prompt? Evaluating
+  numbers or simple numeric expressions is a pretty benign activity, but that\rsquo{}s
+  not true of evaluating some lisp code, which potentially can do bad things.
+  Hence the safeguard confirmation prompt. But that gets tedious after a while.
+  You can disable this prompt by setting a special controlling flag variable to
+  nil. Specifically:
+
+  SPC SPC customize-variable
+
+  Then at the prompt type \ldquo{}org-confirm-babel-evaluate\rdquo (without the quotes), and
+  hit Enter to bring up the Customization buffer.
+
+  TAB (10 times) to the button labeled /Toggle/, and click on it or hit Enter to
+  press it. The state message will change to say:
+
+  STATE: EDITED, shown value does not take effect until you set or save it.
+
+  Shift-TAB (3 times) back to the /Apply and Save/ button and hit Enter again. 
+  That changes the state message to:
+
+  STATE: Saved and set.
+
+  Dismiss the Customization buffer by typing q.
+
+** DONE Answer What is True
+   CLOSED: [2018-02-20 Tue 01:42]
+   :LOGBOOK:
+   CLOCK: [2018-02-20 Tue 01:41]--[2018-02-20 Tue 01:42] =>  0:01
+   :END:
+  You know what to do. 
+  - [X] I left it as is, or customized the org-confirm-babel-evaluate variable
+    to my liking.
+
+* Teach
+  :LOGBOOK:
+  CLOCK: [2018-02-22 Thu 12:42]--[2018-02-22 Thu 13:49] =>  1:07
+  CLOCK: [2018-02-20 Tue 01:42]--[2018-02-20 Tue 01:44] =>  0:02
+  :END:
+  The *Prepare* activity was an exercise in /decision-making/, a task all of us
+  must perform many times, every day of our lives. What if we could offload that
+  burden?
+
+  Read [[https://firstthreeodds.org/17657741833134731255/total-noise.html][these thoughts]] by David Foster Wallace, discuss, and respond with your
+  best thinking. For full credit you must record your thoughts in an MI-free
+  paragraph, below.
+
+ALT - q
+#+begin_paragraph
+I found it interesting how David Wallace compared fiction to an absence of
+noise, whereas nonfiction was defined as total noise. I found the last paragraph
+especially interesting. It reads: "many of [the virtues of good writing] have to
+do with the ways in which the pieces handle and respond to the tsunami of
+available fact, context, and perspective that constitutes Total Noise. [Those
+that are most valuable] serve as models and guides for how large of complex sets
+of facts can be sifted, culled, and arranged in meaningful ways — ways that
+yield and illuminate truth instead of just adding more noise to the overall
+roar." We should strive to find efficient and meaningful ways to solve problems,
+in order to yield more relevant information and insight.
+#+end_paragraph
+

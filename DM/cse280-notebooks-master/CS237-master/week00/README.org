@@ -1,0 +1,30 @@
+#+TITLE: README for Discrete Mathematics One (aka DM1 aka CS 237)
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+STARTUP: showeverything
+#+SETUPFILE: ../theme-bigblow.setup
+
+  Welcome to Discrete Mathematics One!
+
+  There are many, many things you can do in emacs/Spacemacs/org-mode that you
+  will learn in this course. One of them is that links in this file can be
+  visited either in the usual way by clicking on them, or else by positioning
+  the cursor on them and pressing Enter.
+
+  In case you're new to them, since .org files are "plain old text" files
+  (marked up in clever ways), any old editor will allow you to view and edit
+  them. But org-mode can only be used to full advantage within emacs.
+
+* Course Metamaterial
+
+   [[file:syllabus.org][syllabus.org]]
+
+   [[file:schedule.org][schedule.org]]
+
+   [[file:see-grades.org][see-grades.org]]
+
+* Course Material
+
+   [[https://rickneff.github.io/metaphors-be-with-you.html][The Book]]
+
+   [[file:00-ponder--prove.org]]

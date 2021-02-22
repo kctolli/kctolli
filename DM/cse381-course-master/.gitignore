@@ -1,0 +1,9 @@
+
+# Precompiled Headers
+*.aux
+*.out
+*.log
+*.gz
+*.dump
+*.beam
+

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prove</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>08 Prove Assignment: Handling Errors</h1>
+
+    <h2>Overview</h2>
+    <p>Prove that you can write a function that handles exceptions with
+    <code>try</code> and <code>except</code> and that you can write a
+    test function to verify that another function raises exceptions when
+    it is supposed to.</p>
+
+    <h2>Problem Statement</h2>
+    <p>The molar mass of a substance is the mass in grams of one mole
+    (grams / mole) of the substance. In chemistry, a molar mass
+    calculator is a program that calculates the molar mass of a
+    substance. To use a molar mass calculator, a chemist enters the
+    formula for a molecule such as H2O or C6H12O6. The calculator splits
+    the formula into elements and for each element in the formula does
+    the following:</p>
+    <ol>
+        <li><div>Sums the number of atoms of each element in the
+        formula.</div></li>
+        <li><div>Looks up the atomic mass of each element.</div></li>
+        <li><div>Multiplies the number of atoms by the atomic
+        mass.</div></li>
+        <li><div>Adds the product into the molar mass of the
+        molecule.</div></li>
+    </ol>
+
+    <p>All people, including chemists, occasionally make mistakes.
+    Sometimes, when using a molar mass calculator, a chemist will
+    mistype a formula for a molecule. For example, a chemist may
+    accidentally type "2HO" instead of "H2O" or "Cx6H12O6" instead of
+    "C6H12O6". When a person makes a mistake while using a program, a
+    good program will inform the person about the mistake and possibly
+    suggest how to fix the mistake. A molar mass calculator should
+    inform a chemist when the chemist mistypes a molecular formula.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul class="long">
+
+        <li><div><p>During the previous lesson, you learned that
+        <code>pytest</code> allows you to use the standard Python
+        <code>assert</code> command to verify that a function returns
+        the correct value. But how can you write a test to verify that a
+        function raises an exception when it is supposed to? To learn
+        how to verify that a function raises an exception, read the
+        "<a target="_blank" href="https://docs.pytest.org/en/latest/assert.html#assertraises">Assertions about expected exceptions</a>"
+        section of the office <code>pytest</code> documentation.</p>
+
+        <p>From the "Assertions about expected exceptions" section, we
+        learn that the code to test that a function raises an error does
+        not need a <code>try</code> block but instead looks similar to
+        this template:</p>
+
+<div class="pre"><pre class="python">
+with pytest.raises(&lt;ExceptionType&gt;):
+    &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
+
+        <p>For example, to test that the <code>parse_formula</code>
+        function raises a <code>FormulaError</code> for an invalid
+        molecular formula, you could write this Python code:</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
+import pytest
+from chemistry import parse_formula, FormulaError
+
+def test_parse_formula():
+    with pytest.raises(FormulaError):
+        parse_formula("H2L4")</pre></div>
+
+        <p>In the previous example, the <code>with</code> block at
+        <span class="cross" data-ref="ex1">lines&nbsp;5&ndash;6</span>
+        expects the <code>parse_formula</code> function to raise an
+        exception. Therefore, if the <code>parse_formula</code> function
+        raises an exception, the test will pass. If the
+        <code>parse_formula</code> function doesn't raise an exception,
+        the test will fail.</p></div></li>
+
+        <li><div>The <a target="_blank" href="prepare.html">prepare</a>
+        content for this lesson explains how to wrap <code>try</code>
+        and <code>except</code> around a normal block of
+        code.</div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>During this lesson, you will write and test the remaining parts
+    of a molar mass calculator. Specifically, you will add to an
+    existing test function, write one program function named
+    <code>main</code>, run the test functions, and also test your
+    completed calculator by using it like a chemist.</p>
+
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div><p>The following six chemical formulas all contain
+        errors, and the <code>parse_formula</code> function should raise
+        a <code>FormulaError</code> when it tries to parse them. In the
+        <code>test_chemistry.py</code> file from the previous lesson,
+        add code in the <code>test_parse</code> function to verify that
+        the <code>parse_formula</code> function raises a
+        <code>FormulaError</code> for each of them.</p>
+
+        <table class="center"><thead>
+            <tr><th>Formula</th></tr>
+        </thead><tbody>
+            <tr><td>L</td></tr>
+            <tr><td>4H</td></tr>
+            <tr><td>H2L4</td></tr>
+            <tr><td>-H</td></tr>
+            <tr><td>(H2O</td></tr>
+            <tr><td>H2)O3</td></tr>
+        </tbody></table></div></li>
+
+        <li><div>Run the four test functions in
+        <code>test_chemistry.py</code> and ensure that all four test
+        functions pass.</div></li>
+
+        <li><div>Using VS Code, open the <code>chemistry.py</code> file
+        from the previous lesson and at the bottom of the file, write a
+        function named <code>main</code> that does the following:
+        <ol>
+            <li><div>Gets a formula for a molecule from the
+            user.</div></li>
+            <li><div>Calls <code>chemistry.parse_formula</code> to
+            convert the formula to a dictionary.</div></li>
+            <li><div>Calls <code>chemistry.molar_mass</code> to
+            calculate the molar mass of the molecule.</div></li>
+            <li><div>Rounds the molar mass to five digits after the
+            decimal point and prints the rounded molar mass.</div></li>
+            <li><div>Gets a mass in grams from the user.</div></li>
+            <li><div>Divides the mass in grams by the molar mass which
+            results in a value in moles.</div></li>
+            <li><div>Prints the value in moles.</div></li>
+        </ol></div></li>
+
+        <li><div><p>Surround the code in <code>main</code> with
+        <code>try</code> and <code>except</code>. There should be two
+        <code>except</code> blocks, one to handle a
+        <code>FormulaError</code> and one to handle a
+        <code>ValueError</code>. Both <code>except</code> blocks should
+        print a suitable message that tells the chemist that she entered
+        a mistake.
+
+        <p>During the previous activities in this lesson, your
+        <code>except</code> code simply printed a message stating what
+        type of exception was raised. In this assignment, your
+        <code>except</code> code could use information stored inside the
+        <code>FormulaError</code> to help the chemist know what she
+        typed incorrectly as shown in the sample run section below. To
+        access the information stored inside an exception, use the
+        <code>ex.args</code> list. For example:</p>
+
+<div class="pre"><pre class="python" id="ex2">
+try:
+    &hellip;
+except FormulaError as ex:
+    # The FormulaError includes information inside its args list.
+    # ex.args[0] contains the message "invalid formula"
+    # ex.args[1] contains the incorrect formula
+    # ex.args[2] contains the index of the first mistake in the formula
+    print(ex.args[0])</pre></div></div></li>
+
+        <li><div>At the bottom of your <code>chemistry.py</code> file,
+        add this code to call the <code>main</code> function when your
+        program is executed.
+<div class="pre"><pre class="python" id="ex3">
+# If this file was executed like this:
+# python chemistry.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()</pre></div>
+
+        <p>In previous lessons, the code that you wrote to call the
+        <code>main</code> function did not include an <code>if</code>
+        statement. However, if we use <code>pytest</code> to test the
+        functions in a program, then the test file (e.g.
+        <code>test_chemistry.py</code>) must import the functions that
+        are in the program file (e.g. <code>chemistry.py</code>). When
+        Python imports a file, it will execute all code that is not
+        inside a function which includes the call to <code>main</code>.
+        In other words, if we don't include the if statement when
+        calling main in a program and then import the program functions
+        into a test file, Python will execute our program instead of
+        correctly executing the test functions.</p></div></li>
+    </ol>
+
+    <h2>Sample Runs</h2>
+<pre class="console">&gt; python molar_mass.py
+Molecular formula of the substance: <span class="input">CJ3COOH</span>
+Error invalid formula: CJ3COOH
+                        ^
+
+&gt; python molar_mass.py
+Molecular formula of the substance: <span class="input">C6H10O5)4</span>
+Error invalid formula: C6H10O5)4
+                              ^
+
+&gt; python molar_mass.py
+Molecular formula of the substance: <span class="input">C13H18O2</span>
+206.28082 grams/mole
+Mass in grams of the substance: <span class="input">5.04</span>
+0.02443 moles</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+
+    <ol class="test long">
+        <li><div>Run all four tests in <code>test_chemistry.py</code>
+        and ensure that all four of them pass. If
+        <code>test_molar_mass</code> fails, review and debug the code
+        that you wrote in the <code>molar_mass</code> function in the
+        <code>chemistry.py</code> file.</div></li>
+
+        <li><div>Run your finished program by running the
+        <code>molar_mass.py</code> file. Enter the user input shown in
+        the Sample Runs section above. Ensure that your program prints
+        correct output.</div></li>
+    </ol>
+
+    <h2>Submission</h2>
+    <p>To submit your program, return to I-Learn and do these two
+    things:</p>
+    <ol>
+        <li><div>Upload your three files: <code>chemistry.py</code>,
+        <code>test_chemistry.py</code>, and <code>molar_mass.py</code>
+        for feedback.</div></li>
+        <li><div>Add a submission comment that specifies the grading
+        category that best describes your program along with a one or
+        two sentence justification for your choice. The grading criteria
+        are:
+        <ul>
+            <li><div>1. Some attempt made</div></li>
+            <li><div>2. Developing but significantly deficient</div></li>
+            <li><div>3. Slightly deficient</div></li>
+            <li><div>4. Meets requirements</div></li>
+            <li><div>5. Exceeds requirements</div></li>
+        </ul></div></li>
+    </ol>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
