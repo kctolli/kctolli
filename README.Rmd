@@ -29,17 +29,12 @@ load_libraries()
   + [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
   + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
 
-## User Stats
-
-`r user_stats()`
-
-## Highlights
-
-```{r highlights}
-highlights <- read_csv(glue("{datapath}highlights.csv"))
-glue_data(highlights, "- [{Text}]({Link}) \n")
+```{r}
+pander("## User Stats\n\n")
+user_stats()
+pander("\n")
+pander("## Highlights\n\n")
+print_highlights(datapath)
+pagebreak()
+copyright()
 ```
-
-`r pagebreak()`
-
-`r copyright()`

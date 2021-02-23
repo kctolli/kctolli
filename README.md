@@ -40,11 +40,7 @@ src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layo
     Development](https://kctolli.github.io/WDD100/index.html)
   - [Digital System Design
     Coursework](https://ecen-340.glitch.me/index.html)
-
-<hr />
-
-<div style="clear:both;">
-
-</div>
-
-© 2020 - 2021 – Kyle Tolliver
+    <hr />
+    <div style="clear:both;">
+    </div>
+    © 2020 - 2021 – Kyle Tolliver
