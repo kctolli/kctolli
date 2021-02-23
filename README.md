@@ -20,7 +20,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
       - [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
       - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
 
-## User Stats
+<h2>
+
+User Stats
+
+</h2>
 
 <div data-align="center">
 
