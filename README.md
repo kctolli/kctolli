@@ -1,3 +1,5 @@
+Kyle Tolliver
+================
 
 <!--
 This program is free software: you can redistribute it and/or modify
@@ -14,8 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
-# Kyle Tolliver
-
   - [Portfolio](https://kctolli.github.io/)
       - [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
       - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
@@ -28,7 +28,7 @@ User Stats
 
 <div data-align="center">
 
-<img style="max-width:100%;" height="160" align="center" 
+<img style="max-width:100%;" height="160" align="center"
 src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
 
 </div>
@@ -47,4 +47,4 @@ src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layo
     <hr />
     <div style="clear:both;">
     </div>
-    © 2020 - 2021 – Kyle Tolliver
+    <i class="far fa-copyright"></i> 2020 - 2021 – Kyle Tolliver

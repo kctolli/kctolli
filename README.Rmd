@@ -1,4 +1,5 @@
 ---
+title: Kyle Tolliver
 output: github_document
 ---
 
@@ -24,7 +25,6 @@ load_libraries()
 ```
 
 ```{r main}
-print_h1("Kyle Tolliver")
 pander("
 * [Portfolio](https://kctolli.github.io/)
   + [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
