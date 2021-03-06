@@ -35,6 +35,4 @@ user_stats()
 print_newline()
 print_h2("Highlights")
 print_highlights(datapath)
-pagebreak()
-copyright()
 ```
