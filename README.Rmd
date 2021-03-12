@@ -19,8 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 ```{r load_libraries, include=FALSE}
-source("https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/script.R")
-datapath <- "https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/data/"
+source("https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/site.R")
 load_libraries()
 ```
 
@@ -34,5 +33,5 @@ print_newline()
 user_stats()
 print_newline()
 print_h2("Highlights")
-print_highlights(datapath)
+print_highlights()
 ```
