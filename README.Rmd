@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 ```{r load_libraries, include=FALSE}
-source("https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/site.R")
+source("./README.R")
 load_libraries()
 ```
 
