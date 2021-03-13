@@ -26,12 +26,8 @@ User Stats
 
 </h2>
 
-<div data-align="center">
-
-<img style="max-width:100%;" height="160" align="center"
-src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" />
-
-</div>
+<a href="https://github.com/anuraghazra/github-readme-stats" align="center"><img style="max-width:100%;" height="160" align="center"
+  src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox" /></a>
 
 ## Highlights
 

@@ -28,10 +28,8 @@ pander("
 * [Portfolio](https://kctolli.github.io/)
   + [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
   + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)       
-       ")
-print_newline()
+\n\n\n")
 user_stats()
-print_newline()
 print_h2("Highlights")
 print_highlights()
 ```
