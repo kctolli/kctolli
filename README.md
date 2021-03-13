@@ -39,4 +39,4 @@ User Stats
   - [Web Design and
     Development](https://kctolli.github.io/WDD100/index.html)
   - [Digital System Design
-    Coursework](https://ecen-340.glitch.me/index.html)
+    Coursework](https://kctolli.github.io/ECEN340/index.html)
