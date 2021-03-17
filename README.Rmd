@@ -4,15 +4,16 @@ output: github_document
 ---
 
 ```{r load_libraries, include=FALSE}
-source("README.R")
+source("./README.R")
+load_libraries()
 ```
 
+```{r main}
+pander("
 * [Portfolio](https://kctolli.github.io/)
   + [Resume](https://kctolli.github.io/site_libs/resume/resume.html)
-  + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf) 
-
-```{r main}
-
+  + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)       
+\n\n\n")
 user_stats()
 print_h2("Highlights")
 print_highlights()
