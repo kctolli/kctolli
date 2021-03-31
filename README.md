@@ -12,9 +12,13 @@ User Stats
 </h2>
 
 <a href="https://github.com/anuraghazra/github-readme-stats" align="center"><img style="max-width:100%;"
-height="160" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox"/></a>
+  height="160" align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=gruvbox"/></a>
 
-## Highlights
+<h2>
+
+Highlights
+
+</h2>
 
   - [COVID-19 Research and
     Consulting](https://kctolli.github.io/COVID-19/index.html)
