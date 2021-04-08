@@ -6,4 +6,4 @@ timestamp() {
 }
 git commit -am "Update $(timestamp)"
 git pull
-git push origin main
+git push origin master
