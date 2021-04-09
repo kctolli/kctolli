@@ -2,7 +2,6 @@
 title: Kyle Tolliver
 output: github_document
 ---
-
 ```{r load_libraries, include=FALSE}
 source("https://raw.githubusercontent.com/kctolli/kctolli.github.io/master/site_libs/site.R")
 ```
