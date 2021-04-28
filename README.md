@@ -24,9 +24,9 @@ Highlights
   - [COVID-19 Research and
     Consulting](https://kctolli.github.io/COVID-19/index.html)
   - [Senior Design Project](https://ecen499-nasa.github.io/index.html)
+  - [Tolli Coding Blog](https://tolli-coding.netlify.app/)
   - [Data Science
     Coursework](https://kctolli.github.io/Data-Science/index.html)
-  - [Tolli Coding Blog](https://tolli-coding.netlify.app/)
   - [Digital System Design
     Coursework](https://kctolli.github.io/ECEN340/index.html)
   - [Web Design and
