@@ -2,11 +2,22 @@
 title: Kyle Tolliver
 output: github_document
 ---
+
 ```{r load_libraries, include=FALSE}
 source("https://raw.githubusercontent.com/kctolli/kctolli.github.io/master/site_libs/site.R")
 ```
 
+* [Portfolio](https://kctolli.github.io/)
+    + [Resume](https://kctolli.github.io/Resume/)
+    + [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf) \n\n\n
+
+<h2>User Stats</h2>
+
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&theme=dark" alt="kctolli"/><br />
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kctolli&theme=dark" alt="kctolli" /><br />
+
+<h2>Highlights</h2>
+
 ```{r main}
-print_readme()
 print_highlights()
 ```
