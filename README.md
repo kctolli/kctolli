@@ -12,8 +12,8 @@ User Stats
 
 </h2>
 
-<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&theme=dark&langs_count=8" alt="kctolli"/><br />
 <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kctolli&theme=dark" alt="kctolli" /><br />
+<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&theme=dark&langs_count=8" alt="kctolli"/><br />
 
 <h2>
 
