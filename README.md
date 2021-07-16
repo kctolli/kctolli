@@ -4,8 +4,7 @@ Kyle Tolliver
 As a Software Developer at Younique Products I focus on Web Development and Data Systems. 
 I have gained experience with JavaScript (Node JS, Express JS, JQuery, Vanilla), Databases (Dynamodb-AWS, MySQL, Oracle), Docker, NPM, among others.
 
-I recieved my Bachelor’s (BS) from BYU-Idaho in Software Engineering. 
-I also was able to get minors in Computer Engineering and Data Science. 
+I recieved my Bachelor’s (BS) from BYU-Idaho in Software Engineering with minors in Computer Engineering and Data Science. 
 I love to learn new things and solve problems. 
 
 <h2>Personal Links</h2>
