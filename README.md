@@ -1,8 +1,8 @@
 Kyle Tolliver
 ================
 
-Currently I am working as a Software Developer at Younique Products. At Younique, I focus on Web Development and Data Systems. 
-I have gained experience with JavaScript (Node JS, Express JS, JQuery, Vanilla), Databases (Dynamodb-AWS, MySQL, Oracle), Docker, NPM, and many more tools.
+As a Software Developer at Younique Products I focus on Web Development and Data Systems. 
+I have gained experience with JavaScript (Node JS, Express JS, JQuery, Vanilla), Databases (Dynamodb-AWS, MySQL, Oracle), Docker, NPM, among others.
 
 I recieved my Bachelor’s (BS) from BYU-Idaho in Software Engineering. 
 I also was able to get minors in Computer Engineering and Data Science. 
@@ -16,7 +16,7 @@ I love to learn new things and solve problems.
         
 <h2>User Stats</h2>
 
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kctolli&theme=dark" alt="kctolli" /><br />
+<!--<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kctolli&theme=dark" alt="kctolli" /><br />-->
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&theme=dark&langs_count=8" alt="kctolli"/><br />
 
 <h2>Highlights</h2>
