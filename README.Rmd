@@ -1,0 +1,33 @@
+---
+title: "Kyle Tolliver"
+output: 
+  html_document:
+    keep_md: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r load_libraries, include=FALSE}
+source("https://github.com/kctolli/kctolli.github.io/raw/master/site_libs/site.R")
+```
+
+```{r}
+summary <- "As a Software Developer at Younique Products, I focus on Web Development and Data Systems. I have gained experience with JavaScript (Node JS, Express JS, JQuery, Vanilla), Data Systems (Dynamodb-AWS, MySQL, Oracle, R, Excel), Docker, NPM, among others. I received my Bachelor’s (BS) from BYU-Idaho in Software Engineering with minors in Computer Engineering and Data Science. I love to learn new things and solve problems."
+pander(summary)
+fileConn <- file("summary.txt")
+writeLines(summary, fileConn)
+close(fileConn)
+```
+
+## Personal Links
+  
+- [Portfolio](https://kctolli.github.io/)
+    - [Resume](https://kctolli.github.io/Resume/)
+    - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
+    - [User Stats](./stats.html)
+
+
+```{r}
+print_h2("Highlights")
+print_highlights() 
+```
