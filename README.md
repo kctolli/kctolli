@@ -13,7 +13,7 @@ and Data Science. I love to learn new things and solve problems.
   - [Portfolio](https://kctolli.github.io/)
   - [Resume](https://kctolli.github.io/Resume/)
   - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
-  - [User Stats](./stats.html)
+  - [User Stats](https://kctolli.github.io/kctolli/stats.html)
 
 ## Highlights
 
