@@ -10,11 +10,7 @@ I received my Bachelor’s (BS) from BYU-Idaho in Software Engineering with mino
   - [Portfolio](https://kctolli.github.io/)
       - [Resume](https://kctolli.github.io/Resume/)
       - [Diploma](https://kctolli.github.io/site_libs/images/diploma.pdf)
-        
-<h2>User Stats</h2>
-
-<!--<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kctolli&theme=dark" alt="kctolli" /><br />-->
-<img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&theme=dark&langs_count=8" alt="kctolli"/><br />
+      - [User Stats](https://github.com/kctolli/kctolli/blob/master/stats.md)
 
 <h2>Highlights</h2>
 
