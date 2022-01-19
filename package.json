@@ -1,0 +1,19 @@
+{
+  "name": "kctolli",
+  "version": "1.0.0",
+  "description": "Kyle Tolliver",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "author": "kctolli",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.6.2",
+    "firebase-admin": "^10.0.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "jest": "^27.4.7"
+  }
+}
