@@ -1,5 +1,4 @@
 # Kyle Tolliver
-================
 
 As a Software Developer at Younique Products, I focus on Finance and Compliance using Web Technologies and Data Systems. I have gained experience with JavaScript (Node JS, React JS, JQuery, Vanilla), Data Management Systems (Dynamodb, SQL, R, Excel, Mongodb), Docker, Git, NPM, AWS, PHP, among others.
 
