@@ -6,5 +6,5 @@ I received my Bachelor’s (BS) from BYU-Idaho in Software Engineering with mino
 
 ## Personal Links
 
-  - [Portfolio](https://kctolli.github.io/)
+  - [Portfolio](ktolliver.org)
   - [Resume](https://kctolli.github.io/Resume/)
