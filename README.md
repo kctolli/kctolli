@@ -9,5 +9,4 @@ When I'm not working, you'll find me expanding my horizons. I enjoy learning new
 ## Personal Links
 
 - [Portfolio](https://ktolliver.org)
-- [Resume](https://ktolliver.org/Resume/)
-- [Blog](https://www.blog.ktolliver.org/)
+- [Resume](https://resume.ktolliver.org/)
