@@ -8,8 +8,6 @@ When I'm not working, you'll find me expanding my horizons. I enjoy learning new
 
 ![](https://github-readme-stats.vercel.app/api?username=kctolli\&show_icons=true\&count_private=true\&rank_icon=github)
 
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli\&layout=compact\&count_private=true)
-
 ## Personal Links
 
 - [Portfolio](https://ktolliver.org)
