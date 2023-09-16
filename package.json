@@ -1,0 +1,19 @@
+{
+  "name": "kctolli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kctolli/kctolli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kctolli/kctolli/issues"
+  },
+  "homepage": "https://github.com/kctolli/kctolli#readme"
+}

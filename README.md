@@ -6,6 +6,10 @@ I received my Bachelor’s (BS) from BYU-Idaho in Software Engineering with mino
 
 When I'm not working, you'll find me expanding my horizons. I enjoy learning new technologies and sharing what I learn with others. I have a passion for solving problems and using technology to benefit life. I also like swimming, adventuring, spending time with family and creating new things.
 
+![](https://github-readme-stats.vercel.app/api?username=kctolli&show_icons=true&count_private=true)
+
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=kctolli&layout=compact&count_private=true)
+
 ## Personal Links
 
 - [Portfolio](https://ktolliver.org)
