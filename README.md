@@ -10,8 +10,9 @@ When I'm not working, I enjoy learning new technologies and sharing what I learn
 
 <!--![](https://mygithubstatsapi-kctolli.vercel.app/api/top-langs/?username=kctolli&layout=compact&count_private=true)-->
 
-![GitHub Streak](https://streak-stats.demolab.com?user=kctolli&exclude_days=Sun%2CSat)
-![GitHub Streak](https://streak-stats.demolab.com?user=kctolli&mode=weekly&exclude_days=Sun%2CSat&hide_total_contributions=true)
+<!--![GitHub Streak](https://streak-stats.demolab.com?user=kctolli&exclude_days=Sun%2CSat)
+![GitHub Streak](https://streak-stats.demolab.com?user=kctolli&mode=weekly&exclude_days=Sun%2CSat&hide_total_contributions=true)-->
+
 
 
 
