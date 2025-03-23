@@ -8,7 +8,7 @@ I'm a Data-Driven Problem Solver with 3 years of experience applying data manage
 
 ## Personal Links
 
-- [Portfolio](https://ktolliver.org)
+<!-- - [Portfolio](https://ktolliver.org) -->
 - [Resume](https://resume.ktolliver.org/)
 - [LinkedIn](https://www.linkedin.com/in/kctolli/)
 
