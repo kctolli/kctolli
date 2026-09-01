@@ -1,11 +1,10 @@
 # Kyle Tolliver
 
-MBA Candidate | Problem Solver | Lifelong Learner
+MBA | Problem Solver | Lifelong Learner
 
 ## About Me
 
-MBA Strategic Leader specializing in turning technical systems into business wins.
-I bridge the gap between Software Engineering and Business Strategy.
+Systems Engineer and MBA graduate who bridges custom software engineering and business strategy. Proven track record architecting enterprise systems, managing API integrations, and scaling high-performance data infrastructure to drive operational efficiency.
 
 ## Personal Links
 
